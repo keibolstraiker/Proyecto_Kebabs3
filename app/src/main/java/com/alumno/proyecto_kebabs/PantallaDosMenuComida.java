@@ -1,10 +1,8 @@
-package com.alumno.a2dm3_proyecto_gari_ruben;
+package com.alumno.proyecto_kebabs;
 
 import android.support.v7.app.AppCompatActivity;
 
-/**
- * Created by adminportatil on 09/12/2016.
- */
+
 
 public class PantallaDosMenuComida extends AppCompatActivity {
 }
