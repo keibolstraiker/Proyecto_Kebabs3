@@ -38,7 +38,7 @@ public class PantallaPreviaInicio extends FragmentActivity implements OnMapReady
 
                 Intent intent = new Intent(Intent.ACTION_CALL);
 
-                intent.setData(Uri.parse("tel:943465768"));
+                intent.setData(Uri.parse("tel:943455768"));
 
 
             }
