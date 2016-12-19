@@ -19,9 +19,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".PantallaUnoLogin"
-            android:label="@string/app_name">
-
+                  android:label="@string/app_name">
         </activity>
+        <activity android:name=".PantallaDosMenuComida"
+                  android:label="@string/app_name">
+        </activity>
+
     </application>
 
 </manifest>
