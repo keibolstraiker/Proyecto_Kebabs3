@@ -25,9 +25,9 @@ public class PantallaPreviaInicio extends FragmentActivity implements OnMapReady
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_previa_inicio);
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        //SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                //.findFragmentById(R.id.map);
+        //mapFragment.getMapAsync(this);
 
         telefono = (TextView) findViewById(R.id.lblTelefono);
 

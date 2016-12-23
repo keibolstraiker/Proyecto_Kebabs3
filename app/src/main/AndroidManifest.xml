@@ -24,6 +24,15 @@
         <activity android:name=".PantallaDosMenuComida"
                   android:label="@string/app_name">
         </activity>
+        <activity android:name=".PantallaTresMenuBebida"
+                  android:label="@string/app_name">
+        </activity>
+        <activity android:name=".PantallaCuatroResumenPedido"
+                  android:label="@string/app_name">
+        </activity>
+
+
+
 
     </application>
 

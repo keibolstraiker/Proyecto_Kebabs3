@@ -42,6 +42,12 @@ public class PantallaUnoLogin extends AppCompatActivity {
                                 datos.add(dir.getText().toString());
                                 datos.add(tel.getText().toString());
 
+                                //Gari aquí hay un problema ya que estás haciendo "add" a datos y
+                                // es un metodo de arraylist y datos es un array normal de Strings
+                                //todavía no se como fucionan los arrayList lo tengo que mirar si no corregiría esto.
+                                //de echo ahora no me sale el array datos, creo que te lo he pisado de alguna manera,
+                                // tenemos que quedar para hacer esto
+
                                 LanzarActividadDos(datos);
 
                             } else {

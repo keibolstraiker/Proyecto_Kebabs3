@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/food">
+    >
+
+
 
     <TextView
         android:text="Escoja su pedido"
@@ -70,8 +72,7 @@
         android:layout_marginLeft="42dp"
         android:layout_marginStart="42dp"
         android:layout_marginTop="39dp"
-        android:id="@+id/btnAñadir"
-        android:background="@drawable/boton2" />
+        android:id="@+id/btnAñadir"/>
 
     <Button
         android:text="Salir"
@@ -81,8 +82,7 @@
         android:layout_marginBottom="12dp"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/btnAñadir"
-        android:layout_alignStart="@+id/btnAñadir"
-        android:background="@drawable/boton2" />
+        android:layout_alignStart="@+id/btnAñadir"/>
 
     <Button
         android:text="Siguiente"
@@ -92,7 +92,6 @@
         android:layout_marginBottom="15dp"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/txtCantidad"
-        android:layout_toEndOf="@+id/txtCantidad"
-        android:background="@drawable/boton2" />
+        android:layout_toEndOf="@+id/txtCantidad"/>
 
 </RelativeLayout>
