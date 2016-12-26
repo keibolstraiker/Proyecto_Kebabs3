@@ -1,5 +1,6 @@
 package com.alumno.proyecto_kebabs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 public class PantallaDosMenuComida extends AppCompatActivity {
@@ -26,6 +29,8 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     private Button btnAñadir;
     private Button btnSalir;
     private Button btnSiguiente;
+
+    ArrayList<String> datos;
 
 
     @Override
@@ -44,6 +49,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         btnAñadir = (Button) findViewById(R.id.btnAñadir);
         btnSiguiente = (Button) findViewById(R.id.btnSiguiente);
         btnSalir = (Button) findViewById(R.id.btnSalir);
+
 
 
         ArrayAdapter<CharSequence> adaptadorKebab =
@@ -148,11 +154,31 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         });
     }//aqui termina el OnCreate
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+// TODO Auto-generated method stub
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==1 && resultCode==RESULT_OK){
+
+            datos = data.getExtras().getStringArrayList("datos");
+        }
+    }
+
     public void lanzarAñadir(){
 
+        cmbTipo_kebab.clearFocus();
+        cmbTipo_carne.clearFocus();
+        cmbTipo_tamaño.clearFocus();
+        
         /*este método tiene que añadir al arraylist todo lo que hemos asignado en cada Spinner y reiniciarlos a 0 para añadir otro*/
     }
     public void lanzarSiguiente(){
+
+        Intent i = new Intent(this,PantallaTresMenuBebida.class);
+        i.putExtra("datos",datos);
+       // i.putExtra("comida",arraylistcomida);
+        startActivityForResult(i,2);
+
 
         /*este método tiene que acceder a la siguiente aplicación añadiendo al arraylist todo el contenido de los spiner */
     }
