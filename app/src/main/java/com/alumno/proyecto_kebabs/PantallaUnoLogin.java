@@ -73,7 +73,8 @@ public class PantallaUnoLogin extends AppCompatActivity {
             }
         });
     }
-public void LanzarActividadDos(String[] datos){
+public void LanzarActividadDos(ArrayList<String> datos){
+
 
 
 }
