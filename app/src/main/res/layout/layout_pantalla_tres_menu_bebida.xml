@@ -1,6 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.45"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lblCola"
+            android:layout_weight="0.06" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lblLimon"
+            android:layout_weight="0.06" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lblNaranja"
+            android:layout_weight="0.06" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lblNestea"
+            android:layout_weight="0.06" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lblCerveza"
+            android:layout_weight="0.06" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lblAgua"
+            android:layout_weight="0.06" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.13">
+
+        <EditText
+            android:layout_width="77dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtCola" />
+
+        <EditText
+            android:layout_width="77dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLimon" />
+
+        <EditText
+            android:layout_width="77dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNaranja" />
+
+        <EditText
+            android:layout_width="77dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNestea" />
+
+        <EditText
+            android:layout_width="77dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtCerveza" />
+
+        <EditText
+            android:layout_width="77dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtAgua" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.38"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lblPrecioCola"
+            android:layout_weight="0.06" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lblPrecioLimon"
+            android:layout_weight="0.06" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lblPrecioNaranja"
+            android:layout_weight="0.06" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lblPrecioNestea"
+            android:layout_weight="0.06" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lblPrecioCerveza"
+            android:layout_weight="0.06" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/lblPrecioAgua"
+            android:layout_weight="0.06" />
+    </LinearLayout>
 </LinearLayout>

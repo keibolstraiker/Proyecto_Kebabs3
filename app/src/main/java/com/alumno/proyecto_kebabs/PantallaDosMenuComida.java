@@ -1,5 +1,6 @@
 package com.alumno.proyecto_kebabs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,6 +35,8 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     private Button btnSalir;
     private Button btnSiguiente;
 
+    ArrayList<String> datos;
+
 
     List<String> arraylistcomida = new ArrayList<>();
 
@@ -40,8 +45,6 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_dos_menu_comida);
-
-
 
         lblPedido = (TextView) findViewById(R.id.lblPedido);
 
@@ -103,6 +106,9 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
                 });
+        adaptadorCarne.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item);
+        cmbTipo_carne.setAdapter(adaptadorTamaño);
 
         cmbTipo_carne.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
@@ -125,6 +131,9 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
                 });
+        adaptadorTamaño.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item);
+        cmbTipo_tamaño.setAdapter(adaptadorTamaño);
 
         cmbTipo_kebab.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
@@ -146,7 +155,6 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
                         }
 
-
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -159,9 +167,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
         btnAñadir.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
                 lanzarAñadir();
-
             }
         });
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
@@ -176,7 +182,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         });
     }//aqui termina el OnCreate
 
-    public void lanzarAñadir() {
+    public void lanzarAñadir(){
 
 
         if (kebab != null && carne != null && tamaño != null) {
@@ -192,10 +198,19 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     }
     public void lanzarSiguiente(){
 
-        /*este método tiene que acceder a la siguiente aplicación si el arraylist tiene como minímo un pedido*/
+        Intent i = new Intent(this,PantallaTresMenuBebida.class);
+        i.putExtra("datos",datos);
+       // i.putExtra("comida",arraylistcomida);
+        startActivityForResult(i,2);
+
+
+        /*este método tiene que acceder a la siguiente aplicación añadiendo al arraylist todo el contenido de los spiner */
     }
     public void lanzarSalir(){
        finish();
     }
 
+
 }
+
+

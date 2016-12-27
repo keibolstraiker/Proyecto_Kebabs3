@@ -1,5 +1,6 @@
 package com.alumno.proyecto_kebabs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -73,8 +74,11 @@ public class PantallaUnoLogin extends AppCompatActivity {
             }
         });
     }
-public void LanzarActividadDos(String[] datos){
+public void LanzarActividadDos(ArrayList<String> datos){
 
+    Intent i = new Intent(this,PantallaDosMenuComida.class);
+    i.putExtra("datos",datos);
+    startActivityForResult(i,1);
 
 }
 }
