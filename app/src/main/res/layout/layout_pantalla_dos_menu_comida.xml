@@ -20,78 +20,81 @@
         android:textStyle="normal|bold"
         android:textSize="36sp" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblPedido"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="22dp"
-        android:id="@+id/cmbTipoKebab" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/cmbTipoKebab"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="60dp"
-        android:id="@+id/cmbTipoCarne" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cmbTamaño"
-        android:layout_below="@+id/cmbTipoCarne"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="46dp" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/cmbTamaño"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="147dp"
         android:id="@+id/txtCantidad"
         android:hint="Ingrese la cantidad"
         android:textStyle="normal|bold"
         android:textAllCaps="false"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_below="@+id/cmbTamaño"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cmbTamaño"
+        android:layout_marginTop="99dp"
+        android:layout_below="@+id/cmbTipoCarne"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:id="@+id/cmbTipoCarne"
+        android:layout_below="@+id/cmbTipoKebab"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:id="@+id/cmbTipoKebab"
+        android:layout_below="@+id/lblPedido"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:visibility="visible" />
 
     <Button
         android:text="Añadir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="99dp"
+        android:id="@+id/btnAñadir"
         android:layout_below="@+id/txtCantidad"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="42dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="39dp"
-        android:id="@+id/btnAñadir"/>
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="Salir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnSalir"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/btnAñadir"
-        android:layout_alignStart="@+id/btnAñadir"/>
+        android:layout_alignStart="@+id/btnAñadir" />
 
     <Button
         android:text="Siguiente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnSiguiente"
-        android:layout_marginBottom="15dp"
-        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp"
+        android:layout_alignBaseline="@+id/btnAñadir"
+        android:layout_alignBottom="@+id/btnAñadir"
         android:layout_toRightOf="@+id/txtCantidad"
-        android:layout_toEndOf="@+id/txtCantidad"/>
+        android:layout_toEndOf="@+id/txtCantidad" />
 
 </RelativeLayout>

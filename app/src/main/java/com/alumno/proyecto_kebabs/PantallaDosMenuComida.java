@@ -11,9 +11,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class PantallaDosMenuComida extends AppCompatActivity {
 
+    String kebab,carne,tamaño;
 
     private TextView lblPedido;
 
@@ -28,10 +33,15 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     private Button btnSiguiente;
 
 
+    List<String> arraylistcomida = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_dos_menu_comida);
+
+
 
         lblPedido = (TextView) findViewById(R.id.lblPedido);
 
@@ -59,23 +69,31 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
         adaptadorKebab.setDropDownViewResource(
                 android.R.layout.simple_spinner_dropdown_item);
-        cmbTipo_kebab.setAdapter(adaptadorTamaño);
+        cmbTipo_kebab.setAdapter(adaptadorKebab);
 
 
-        cmbTipo_kebab.setOnItemSelectedListener(
+
+        adaptadorCarne.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item);
+        cmbTipo_carne.setAdapter(adaptadorCarne);
+
+
+        adaptadorTamaño.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item);
+
+
+
+        cmbTipo_tamaño.setAdapter(adaptadorTamaño);
+        cmbTipo_tamaño.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
-                        if (position == 0) {
-                            //aquí habra que meter en el arrai list que va recabando toda la informacion del pedido el Doner.
-                        } else if (position == 1) {
-                            //aquí habra que meter en el arrai list que va recabando toda la informacion del pedido el durum.
+                        if (position==0){
+                            tamaño=null;
+                        }else if (position == 1) {
+                            tamaño="Normal";
                         } else if (position == 2) {
-                            //aquí habra que meter en el arrai list que va recabando toda la informacion del pedido el lamhacum.
-                        } else if (position == 3) {
-                            //aquí habra que meter en el arrai list que va recabando toda la informacion del pedido el Shawarma.
-                        } else if (position == 4) {
-                            //aquí habra que meter en el arrai list que va recabando toda la informacion del pedido el Gyros.
+                            tamaño="Completa";
                         }
 
                     }
@@ -85,20 +103,19 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
                 });
-        adaptadorCarne.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item);
-        cmbTipo_carne.setAdapter(adaptadorTamaño);
 
         cmbTipo_carne.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
                         if (position == 0) {
-                            //aquí habra que meter en el arrai list que va recabando toda la informacion del pedido el ternera.
+                            carne=null;
                         } else if (position == 1) {
-                            //aquí habra que meter en el arrai list que va recabando toda la informacion del pedido el pollo.
+                            carne="Ternera";
                         } else if (position == 2) {
-                            //aquí habra que meter en el arrai list que va recabando toda la informacion del pedido el cordero.
+                            carne="Pollo";
+                        } else if (position == 3) {
+                            carne="Cordero";
                         }
 
                     }
@@ -108,19 +125,27 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
                 });
-        adaptadorTamaño.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item);
-        cmbTipo_tamaño.setAdapter(adaptadorTamaño);
 
-        cmbTipo_tamaño.setOnItemSelectedListener(
+        cmbTipo_kebab.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
                         if (position == 0) {
-                            //aquí habra que meter en el arrai list que va recabando toda la informacion del pedido el tamaño normal.
+
+                            kebab=null;
                         } else if (position == 1) {
-                            //aquí habra que meter en el arrai list que va recabando toda la informacion del pedido el tamaño completo.
+                            kebab="Döner";
+                        } else if (position == 2) {
+                            kebab="Durum";
+                        } else if (position == 3) {
+                            kebab="Lamhacum";
+                        } else if (position == 4) {
+                            kebab="Shawarma";
+                        } else if (position == 5) {
+                            kebab="Gyros";
+
                         }
+
 
                     }
 
@@ -129,11 +154,14 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
                 });
-        txtCantidad.setText(Integer.parseInt("1"));
+
+
 
         btnAñadir.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+
                 lanzarAñadir();
+
             }
         });
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
@@ -148,19 +176,26 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         });
     }//aqui termina el OnCreate
 
-    public void lanzarAñadir(){
+    public void lanzarAñadir() {
 
-        /*este método tiene que añadir al arraylist todo lo que hemos asignado en cada Spinner y reiniciarlos a 0 para añadir otro*/
+
+        if (kebab != null && carne != null && tamaño != null) {
+            arraylistcomida.add(kebab);
+            arraylistcomida.add(carne);
+            arraylistcomida.add(tamaño);
+        } else {
+            Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
+                    Toast.LENGTH_LONG).show();
+        }
+
+        lblPedido.setText(arraylistcomida.toString());
     }
     public void lanzarSiguiente(){
 
-        /*este método tiene que acceder a la siguiente aplicación añadiendo al arraylist todo el contenido de los spiner */
+        /*este método tiene que acceder a la siguiente aplicación si el arraylist tiene como minímo un pedido*/
     }
     public void lanzarSalir(){
        finish();
     }
 
-
 }
-
-

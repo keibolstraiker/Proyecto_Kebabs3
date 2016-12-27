@@ -15,24 +15,31 @@
 
     <!--Comienzo de  Arrays para los spiners de la actividad dos comida -->
     <string-array name="tipo_tamaño">
-        <item name="Normal"></item>
-        <item name="Completa"></item>
+        <item>Seleccione un tamaño</item>
+        <item>Normal (sin suplemento)</item>
+        <item>Completa (+1€)</item>
     </string-array>
 
     <string-array name="tipo_carne">
-    <item name="Ternera"></item>
-    <item name="Pollo"></item>
-    <item name="Cordero"></item>
+        <item>Seleccione un tipo de carne</item>
+        <item>Ternera (sin suplemento)</item>
+        <item>Pollo (sin suplemento)</item>
+        <item>Cordero (+1€)</item>
     </string-array>
 
     <string-array name="tipo_kebab">
-    <item name="Döner"></item>
-    <item name="Dürüm"></item>
-    <item name="Lahmacum"></item>
-    <item name="Shawarma"></item>
-    <item name="Gyros"></item>
+        <item>Seleccione un tipo de kebab</item>
+        <item>Döner (+3€)</item>
+        <item>Dürüm (+4€)</item>
+        <item>Lahmacum (+5€)</item>
+        <item>Shawarma (+5€)</item>
+        <item>Gyros (+5€)</item>
     </string-array>
     <!-- Fin de Arrays para los spiners de la actividad dos comida -->
+
+    <string-array name="comida">
+
+    </string-array>
 
 
 </resources>
