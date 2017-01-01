@@ -1,6 +1,7 @@
 package com.alumno.proyecto_kebabs;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -208,6 +209,15 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
+
 }
+
 
 
