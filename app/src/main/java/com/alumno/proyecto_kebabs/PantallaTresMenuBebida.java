@@ -1,11 +1,12 @@
 package com.alumno.proyecto_kebabs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 
@@ -49,11 +50,36 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         lblPrecioCerveza= (TextView) findViewById(R.id.lblPrecioCerveza);
         lblPrecioAgua = (TextView) findViewById(R.id.lblPrecioAgua);
 
-       // txtCola.addTextChangedListener(new View.(){
+        txtCola.addTextChangedListener(new TextWatcher(){
+
+            public void onTextChanged(CharSequence s){
+
+            }
+            public void beforeTextChaged(CharSequence s){
+
+            }
+            public void afterTextChanged(CharSequence s){
+
+            }
 
          //   lblPrecioCola.setText(txtCola.toString);
-      //  });
+       });
 
     }
 
+
+
+    public void lanzarSiguiente(){
+
+        Intent i = new Intent(this,PantallaTresMenuBebida.class);
+        i.putExtra("datos",datos);
+        i.putExtra("comida",arraylistcomida);
+        i.putExtra("bebida",arraylistbebida);
+        startActivityForResult(i,3);
+
+    }
+
+    public void lanzarSalir(){
+        finish();
+    }
 }
