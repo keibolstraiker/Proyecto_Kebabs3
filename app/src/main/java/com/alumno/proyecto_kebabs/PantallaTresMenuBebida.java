@@ -34,6 +34,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_tres_menu_bebida);
 
+
         txtCola = (EditText) findViewById(R.id.txtCola);
         txtNaranja = (EditText) findViewById(R.id.txtNaranja);
         txtLimon = (EditText) findViewById(R.id.txtLimon);
