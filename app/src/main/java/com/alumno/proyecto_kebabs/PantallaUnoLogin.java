@@ -27,7 +27,7 @@ public class PantallaUnoLogin extends AppCompatActivity {
         nom = (TextView) findViewById(R.id.txtNombre);
         dir = (TextView) findViewById(R.id.txtDireccion);
         tel = (TextView) findViewById(R.id.txtTelefono);
-        siguiente = (Button) findViewById(R.id.btnSiguiente);
+        siguiente = (Button) findViewById(R.id.btnSiguiente3);
         salir = (Button) findViewById(R.id.btnSalir);
 
         siguiente.setOnClickListener(new View.OnClickListener() {

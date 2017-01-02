@@ -40,6 +40,25 @@
     <string-array name="comida">
 
     </string-array>
+    <!-- Comienzo de Strings de la actividad tres -->
+    <string name="lblCola">Cola</string>
+    <string name="lblLimon">Limón</string>
+    <string name="lblNaranja">Naranja</string>
+    <string name="lblNestea">Nestea</string>
+    <string name="lblCerveza">Cerveza</string>
+    <string name="lblAgua">Agua</string>
+    <string name="txtCola">Cant.</string>
+    <string name="txtLimon">Cant.</string>
+    <string name="txtNaranja">Cant.</string>
+    <string name="txtNestea">Cant.</string>
+    <string name="txtCerveza">Cant.</string>
+    <string name="txtAgua">Cant.</string>
+    <string name="btnSiguiente3">Siguiente</string>
+    <string name="btnSalir3">Salir</string>
+
+
+    <!-- Fin de Strings de la actividad tres -->
+
 
 
 </resources>

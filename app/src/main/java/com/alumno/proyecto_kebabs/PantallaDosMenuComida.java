@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class PantallaDosMenuComida extends AppCompatActivity {
@@ -36,7 +35,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     ArrayList<String> datos;
 
 
-    List<String> arraylistcomida = new ArrayList<>();
+    ArrayList<String> arraylistcomida = new ArrayList<>();
 
 
     @Override
@@ -53,7 +52,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         txtCantidad = (EditText) findViewById(R.id.txtCantidad);
 
         btnAñadir = (Button) findViewById(R.id.btnAñadir);
-        btnSiguiente = (Button) findViewById(R.id.btnSiguiente);
+        btnSiguiente = (Button) findViewById(R.id.btnSiguiente3);
         btnSalir = (Button) findViewById(R.id.btnSalir);
 
 
@@ -198,7 +197,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
         Intent i = new Intent(this,PantallaTresMenuBebida.class);
         i.putExtra("datos",datos);
-       // i.putExtra("comida",arraylistcomida);
+        i.putExtra("comida",arraylistcomida);
         startActivityForResult(i,2);
 
 
