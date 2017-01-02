@@ -55,6 +55,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             public void onTextChanged(CharSequence s){
 
             }
+
             public void beforeTextChaged(CharSequence s){
 
             }
