@@ -18,7 +18,8 @@ import java.util.ArrayList;
 
 public class PantallaDosMenuComida extends AppCompatActivity {
 
-    String kebab,carne,tamaño;
+    String kebab,carne,tamaño, preciokebab, preciocarne, preciotamaño;
+    int  contprecios = 0;
 
     private TextView lblPedido;
 
@@ -88,15 +89,19 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
-                        if (position==0){
-                            tamaño=null;
-                        }else if (position == 1) {
-                            tamaño="Normal";
-                        } else if (position == 2) {
-                            tamaño="Completa";
+                        switch (position) {
+                            case 0:
+                                tamaño = null;
+                            case 1:
+                                tamaño = "Normal";
+                            case 2:
+                                tamaño = "Completa";
+                                preciotamaño = "+1€";
+                                contprecios += 1;
+                            default:;
                         }
-
                     }
+
 
                     public void onNothingSelected(AdapterView<?> parent) {
                         Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
@@ -111,15 +116,22 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
-                        if (position == 0) {
-                            carne=null;
-                        } else if (position == 1) {
-                            carne="Ternera";
-                        } else if (position == 2) {
-                            carne="Pollo";
-                        } else if (position == 3) {
-                            carne="Cordero";
+
+                        switch (position) {
+                            case 0:
+                                carne = null;
+                            case 1:
+                                carne = "Ternera";
+                            case 2:
+                                carne = "Pollo";
+                            case 3:
+                                carne = "Cordero";
+                                preciocarne = "+1€";
+                                contprecios += 1;
+                            default:;
                         }
+
+
 
                     }
 
@@ -136,22 +148,33 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
-                        if (position == 0) {
 
-                            kebab=null;
-                        } else if (position == 1) {
-                            kebab="Döner";
-                        } else if (position == 2) {
-                            kebab="Durum";
-                        } else if (position == 3) {
-                            kebab="Lamhacum";
-                        } else if (position == 4) {
-                            kebab="Shawarma";
-                        } else if (position == 5) {
-                            kebab="Gyros";
-
+                        switch (position) {
+                            case 0:
+                                kebab = null;
+                            case 1:
+                                kebab = "Döner";
+                                preciokebab = "3€";
+                                contprecios += 3;
+                            case 2:
+                                kebab = "Durum";
+                                preciokebab = "4€";
+                                contprecios += 4;
+                            case 3:
+                                kebab = "Lamhacun";
+                                preciokebab = "5€";
+                                contprecios += 5;
+                            case 4:
+                                kebab = "Shawarma";
+                                preciokebab = "5€";
+                                contprecios += 5;
+                            case 5:
+                                kebab = "Gyros";
+                                preciokebab = "5€";
+                                contprecios += 5;
+                            default:
+                                ;
                         }
-
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -184,8 +207,11 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
         if (kebab != null && carne != null && tamaño != null) {
             arraylistcomida.add(kebab);
+            arraylistcomida.add(preciokebab);
             arraylistcomida.add(carne);
+            arraylistcomida.add(preciocarne);
             arraylistcomida.add(tamaño);
+            arraylistcomida.add(preciotamaño);
         } else {
             Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
                     Toast.LENGTH_LONG).show();
@@ -194,6 +220,8 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         lblPedido.setText(arraylistcomida.toString());
     }
     public void lanzarSiguiente(){
+
+        arraylistcomida.add(String.valueOf(contprecios));
 
         Intent i = new Intent(this,PantallaTresMenuBebida.class);
         i.putExtra("datos",datos);
