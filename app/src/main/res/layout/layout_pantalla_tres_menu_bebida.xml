@@ -1,202 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
 
+
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="0.45"
-        android:weightSum="1"
-        android:layout_marginTop="70dp">
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
 
         <TextView
+            android:text="Escoja su bebida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/lblCola"
-            android:id="@+id/lblCola"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lblLimon"
-            android:id="@+id/lblLimon"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lblNaranja"
-            android:id="@+id/lblNaranja"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lblNestea"
-            android:id="@+id/lblNestea"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lblCerveza"
-            android:id="@+id/lblCerveza"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lblAgua"
-            android:id="@+id/lblAgua"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"/>
-
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/lblTotal"
-            android:layout_weight="0.12" />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/lblPedidoBebida"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:textSize="36sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="446dp"
-        android:layout_marginTop="70dp"
-        android:weightSum="1">
-
-        <EditText
-            android:layout_width="77dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtCola"
-            android:layout_marginTop="10dp"
-            android:hint="@string/txtCola"
-            android:inputType="number" />
-
-        <EditText
-            android:layout_width="77dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtLimon"
-            android:layout_marginTop="12dp"
-            android:hint="@string/txtLimon"
-            android:inputType="number" />/>
-
-        <EditText
-            android:layout_width="77dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtNaranja"
-            android:layout_marginTop="10dp"
-            android:hint="@string/txtNaranja"
-            android:inputType="number" />/>
-
-        <EditText
-            android:layout_width="77dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtNestea"
-            android:layout_marginTop="10dp"
-            android:hint="@string/txtNestea"
-            android:inputType="number" />/>
-
-        <EditText
-            android:layout_width="77dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtCerveza"
-            android:layout_marginTop="8dp"
-            android:hint="@string/txtCerveza"
-            android:inputType="number" />/>
-
-        <EditText
-            android:layout_width="77dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtAgua"
-            android:layout_marginTop="10dp"
-            android:hint="@string/txtAgua"
-            android:inputType="number" />/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btnSiguiente3"
-            android:id="@+id/btnSiguiente3"
-            android:layout_marginTop="20dp"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btnSalir3"
-            android:id="@+id/btnSalir3"
-            android:layout_marginTop="20dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="1"
-        android:layout_marginTop="70dp"
-        android:gravity="right">
+        android:layout_gravity="center_horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/lblPrecioCola"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"
-            android:gravity="right" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="139dp"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:layout_marginTop="50dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/lblPrecioLimon"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lblCola"
+                android:id="@+id/lblCola"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/lblPrecioNaranja"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lblLimon"
+                android:id="@+id/lblLimon"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/lblPrecioNestea"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lblNaranja"
+                android:id="@+id/lblNaranja"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/lblPrecioCerveza"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lblNestea"
+                android:id="@+id/lblNestea"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"/>
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lblCerveza"
+                android:id="@+id/lblCerveza"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lblAgua"
+                android:id="@+id/lblAgua"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="446dp"
+            android:layout_marginTop="50dp"
+            android:weightSum="1">
+
+            <EditText
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtCola"
+                android:layout_marginTop="10dp"
+                android:hint="@string/txtCola"
+                android:inputType="number" />
+
+            <EditText
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtLimon"
+                android:layout_marginTop="12dp"
+                android:hint="@string/txtLimon"
+                android:inputType="number" />/>
+
+            <EditText
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtNaranja"
+                android:layout_marginTop="10dp"
+                android:hint="@string/txtNaranja"
+                android:inputType="number" />/>
+
+            <EditText
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtNestea"
+                android:layout_marginTop="10dp"
+                android:hint="@string/txtNestea"
+                android:inputType="number" />/>
+
+            <EditText
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtCerveza"
+                android:layout_marginTop="8dp"
+                android:hint="@string/txtCerveza"
+                android:inputType="number" />/>
+
+            <EditText
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtAgua"
+                android:layout_marginTop="10dp"
+                android:hint="@string/txtAgua"
+                android:inputType="number" />/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnSiguiente3"
+                android:id="@+id/btnSiguiente3"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnSalir3"
+                android:id="@+id/btnSalir3"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/lblPrecioAgua"
-            android:layout_weight="0.06"
-            android:layout_marginTop="20dp"/>
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:layout_marginTop="50dp"
+            android:gravity="right">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/lblPrecioCola"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"
+                android:gravity="right" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/lblPrecioLimon"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/lblPrecioNaranja"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/lblPrecioNestea"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/lblPrecioCerveza"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/lblPrecioAgua"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/lblTotal"
+                android:layout_weight="0.06"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
+
 
 </LinearLayout>
