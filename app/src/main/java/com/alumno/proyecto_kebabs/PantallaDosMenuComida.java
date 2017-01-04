@@ -92,13 +92,16 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                         switch (position) {
                             case 0:
                                 tamaño = null;
+                                break;
                             case 1:
                                 tamaño = "Normal";
+                                break;
                             case 2:
                                 tamaño = "Completa";
                                 preciotamaño = "+1€";
                                 contprecios += 1;
-                            default:;
+                                break;
+
                         }
                     }
 
@@ -110,7 +113,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                 });
         adaptadorCarne.setDropDownViewResource(
                 android.R.layout.simple_spinner_dropdown_item);
-        cmbTipo_carne.setAdapter(adaptadorTamaño);
+        cmbTipo_carne.setAdapter(adaptadorCarne);
 
         cmbTipo_carne.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
@@ -120,15 +123,19 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                         switch (position) {
                             case 0:
                                 carne = null;
+                                break;
                             case 1:
                                 carne = "Ternera";
+                                break;
                             case 2:
                                 carne = "Pollo";
+                                break;
                             case 3:
                                 carne = "Cordero";
                                 preciocarne = "+1€";
                                 contprecios += 1;
-                            default:;
+                                break;
+
                         }
 
 
@@ -142,7 +149,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                 });
         adaptadorTamaño.setDropDownViewResource(
                 android.R.layout.simple_spinner_dropdown_item);
-        cmbTipo_tamaño.setAdapter(adaptadorTamaño);
+        cmbTipo_kebab.setAdapter(adaptadorKebab);
 
         cmbTipo_kebab.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
@@ -152,28 +159,32 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                         switch (position) {
                             case 0:
                                 kebab = null;
+                                break;
                             case 1:
                                 kebab = "Döner";
                                 preciokebab = "3€";
                                 contprecios += 3;
+                                break;
                             case 2:
                                 kebab = "Durum";
                                 preciokebab = "4€";
                                 contprecios += 4;
+                                break;
                             case 3:
                                 kebab = "Lamhacun";
                                 preciokebab = "5€";
                                 contprecios += 5;
+                                break;
                             case 4:
                                 kebab = "Shawarma";
                                 preciokebab = "5€";
                                 contprecios += 5;
+                                break;
                             case 5:
                                 kebab = "Gyros";
                                 preciokebab = "5€";
                                 contprecios += 5;
-                            default:
-                                ;
+                                break;
                         }
                     }
 
