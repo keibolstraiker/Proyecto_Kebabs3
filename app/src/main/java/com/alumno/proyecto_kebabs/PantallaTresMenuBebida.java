@@ -155,6 +155,14 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             public void onClick(View v){
 
                 ContabilizarBebidas();
+                lanzarSiguiente();
+            }
+        });
+
+        btnSiguiente3.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+               lanzarSalir();
             }
         });
     }

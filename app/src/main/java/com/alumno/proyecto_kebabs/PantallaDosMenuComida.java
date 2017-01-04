@@ -44,7 +44,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_dos_menu_comida);
 
-        lblPedido = (TextView) findViewById(R.id.lblPedido);
+        lblPedido = (TextView) findViewById(R.id.lblPedidoBebida);
 
         cmbTipo_tamaño = (Spinner) findViewById(R.id.cmbTamaño);
         cmbTipo_kebab = (Spinner) findViewById(R.id.cmbTipoKebab);
