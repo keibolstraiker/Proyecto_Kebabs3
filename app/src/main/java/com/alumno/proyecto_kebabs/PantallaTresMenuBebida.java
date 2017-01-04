@@ -116,8 +116,6 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
                 int precionestea=3;
                 int cantidad = Integer.parseInt(s.toString());
                 totalnestea = cantidad * precionestea;
-                lblPrecioNestea.setText(totalnestea);
-                contprecios += Integer.parseInt(lblPrecioNestea.toString());
                 lblTotal.setText(Integer.valueOf(contprecios));
             }});
 

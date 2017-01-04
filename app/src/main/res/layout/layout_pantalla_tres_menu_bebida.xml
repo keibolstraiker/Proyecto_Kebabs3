@@ -3,7 +3,8 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/bebidas">
 
     <LinearLayout
         android:orientation="vertical"
@@ -130,19 +131,21 @@
             android:layout_height="wrap_content"
             android:text="@string/btnSiguiente3"
             android:id="@+id/btnSiguiente3"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/boton" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btnSalir3"
             android:id="@+id/btnSalir3"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/boton" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="133dp"
         android:layout_height="match_parent"
         android:weightSum="1"
         android:layout_marginTop="70dp"
