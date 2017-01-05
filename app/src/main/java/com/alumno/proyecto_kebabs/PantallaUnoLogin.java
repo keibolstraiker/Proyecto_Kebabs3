@@ -78,6 +78,7 @@ public void LanzarActividadDos(ArrayList<String> datos){
 
     Intent i = new Intent(this,PantallaDosMenuComida.class);
     i.putExtra("datos",datos);
+    setResult(RESULT_OK,i);
     startActivityForResult(i,1);
 
 }

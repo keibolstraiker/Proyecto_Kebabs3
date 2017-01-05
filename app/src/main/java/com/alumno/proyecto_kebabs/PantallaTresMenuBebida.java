@@ -92,6 +92,8 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             }});
 
         txtLimon.addTextChangedListener(new TextWatcher() {
+
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
@@ -116,6 +118,8 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
                 int precionestea=3;
                 int cantidad = Integer.parseInt(s.toString());
                 totalnestea = cantidad * precionestea;
+                lblPrecioNestea.setText(totalnestea);
+                contprecios += Integer.parseInt(lblPrecioNestea.toString());
                 lblTotal.setText(Integer.valueOf(contprecios));
             }});
 
@@ -159,12 +163,22 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             }
         });
 
-        btnSiguiente3.setOnClickListener(new View.OnClickListener(){
+        btnSalir3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 
                lanzarSalir();
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+// TODO Auto-generated method stub
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==2 && resultCode==RESULT_OK){
+            datos = data.getExtras().getStringArrayList("datos");
+            arraylistcomida = data.getExtras().getStringArrayList("comida");
+        }
     }
 
         public void ContabilizarBebidas (){
@@ -214,6 +228,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         i.putExtra("datos",datos);
         i.putExtra("comida",arraylistcomida);
         i.putExtra("bebida",arraylistbebida);
+        setResult(RESULT_OK,i);
         startActivityForResult(i,3);
 
     }

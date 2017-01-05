@@ -213,6 +213,15 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         });
     }//aqui termina el OnCreate
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+// TODO Auto-generated method stub
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==1 && resultCode==RESULT_OK){
+            datos = data.getExtras().getStringArrayList("datos");
+        }
+    }
+
     public void lanzarAñadir(){
 
 
@@ -237,6 +246,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         Intent i = new Intent(this,PantallaTresMenuBebida.class);
         i.putExtra("datos",datos);
         i.putExtra("comida",arraylistcomida);
+        setResult(RESULT_OK,i);
         startActivityForResult(i,2);
 
 

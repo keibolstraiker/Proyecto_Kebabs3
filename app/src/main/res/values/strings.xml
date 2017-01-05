@@ -58,7 +58,13 @@
 
 
     <!-- Fin de Strings de la actividad tres -->
+    <!-- Comienzo de Strings de la actividad tres -->
 
+    <string name="lblTituloResumen">Resumen del pedido</string>
+    <string name="lblResumen"></string>
+    <string name="btnAceptar">Aceptar</string>
+    <string name="btnCancelar">Cancelar</string>
 
+    <!-- Fin de Strings de la actividad tres -->
 
 </resources>
