@@ -25,7 +25,8 @@
             android:layout_alignParentEnd="true"
             android:gravity="center"
             android:textStyle="normal|bold"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 
@@ -48,7 +49,9 @@
                 android:text="@string/lblCola"
                 android:id="@+id/lblCola"
                 android:layout_weight="0.06"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -56,7 +59,9 @@
                 android:text="@string/lblLimon"
                 android:id="@+id/lblLimon"
                 android:layout_weight="0.06"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -64,7 +69,9 @@
                 android:text="@string/lblNaranja"
                 android:id="@+id/lblNaranja"
                 android:layout_weight="0.06"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -72,7 +79,9 @@
                 android:text="@string/lblNestea"
                 android:id="@+id/lblNestea"
                 android:layout_weight="0.06"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -80,7 +89,9 @@
                 android:text="@string/lblCerveza"
                 android:id="@+id/lblCerveza"
                 android:layout_weight="0.06"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -88,13 +99,24 @@
                 android:text="@string/lblAgua"
                 android:id="@+id/lblAgua"
                 android:layout_weight="0.06"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnSiguiente3"
+                android:id="@+id/btnSiguiente3"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/boton"
+                android:textColor="@android:color/black" />
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="126dp"
             android:layout_height="446dp"
             android:layout_marginTop="50dp"
             android:weightSum="1">
@@ -105,7 +127,9 @@
                 android:id="@+id/txtCola"
                 android:layout_marginTop="10dp"
                 android:hint="@string/txtCola"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <EditText
                 android:layout_width="77dp"
@@ -113,7 +137,9 @@
                 android:id="@+id/txtLimon"
                 android:layout_marginTop="12dp"
                 android:hint="@string/txtLimon"
-                android:inputType="number" />/>
+                android:inputType="number"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />/>
 
             <EditText
                 android:layout_width="77dp"
@@ -121,7 +147,9 @@
                 android:id="@+id/txtNaranja"
                 android:layout_marginTop="10dp"
                 android:hint="@string/txtNaranja"
-                android:inputType="number" />/>
+                android:inputType="number"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />/>
 
             <EditText
                 android:layout_width="77dp"
@@ -129,7 +157,9 @@
                 android:id="@+id/txtNestea"
                 android:layout_marginTop="10dp"
                 android:hint="@string/txtNestea"
-                android:inputType="number" />/>
+                android:inputType="number"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />/>
 
             <EditText
                 android:layout_width="77dp"
@@ -137,7 +167,9 @@
                 android:id="@+id/txtCerveza"
                 android:layout_marginTop="8dp"
                 android:hint="@string/txtCerveza"
-                android:inputType="number" />/>
+                android:inputType="number"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />/>
 
             <EditText
                 android:layout_width="77dp"
@@ -145,21 +177,22 @@
                 android:id="@+id/txtAgua"
                 android:layout_marginTop="10dp"
                 android:hint="@string/txtAgua"
-                android:inputType="number" />/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btnSiguiente3"
-                android:id="@+id/btnSiguiente3"
-                android:layout_marginTop="20dp"/>
+                android:inputType="number"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btnSalir3"
                 android:id="@+id/btnSalir3"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:background="@drawable/boton"
+                android:textColor="@android:color/black" /><![CDATA[/>
+
+
+
+            ]]>
         </LinearLayout>
 
         <LinearLayout
@@ -177,7 +210,9 @@
                 android:id="@+id/lblPrecioCola"
                 android:layout_weight="0.06"
                 android:layout_marginTop="20dp"
-                android:gravity="right" />
+                android:gravity="right"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -185,7 +220,9 @@
                 android:text=""
                 android:id="@+id/lblPrecioLimon"
                 android:layout_weight="0.06"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -193,7 +230,9 @@
                 android:text=""
                 android:id="@+id/lblPrecioNaranja"
                 android:layout_weight="0.06"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -201,7 +240,9 @@
                 android:text=""
                 android:id="@+id/lblPrecioNestea"
                 android:layout_weight="0.06"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -209,7 +250,9 @@
                 android:text=""
                 android:id="@+id/lblPrecioCerveza"
                 android:layout_weight="0.06"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -217,7 +260,9 @@
                 android:text=""
                 android:id="@+id/lblPrecioAgua"
                 android:layout_weight="0.06"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -225,7 +270,9 @@
                 android:text=""
                 android:id="@+id/lblTotal"
                 android:layout_weight="0.06"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
         </LinearLayout>
 

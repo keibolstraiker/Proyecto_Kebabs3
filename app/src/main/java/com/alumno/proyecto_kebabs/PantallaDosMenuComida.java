@@ -44,6 +44,11 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_dos_menu_comida);
 
+        Bundle extras = getIntent().getExtras();
+
+        datos = extras.getStringArrayList("datos");
+
+
         lblPedido = (TextView) findViewById(R.id.lblPedidoBebida);
 
         cmbTipo_tamaño = (Spinner) findViewById(R.id.cmbTamaño);
@@ -213,14 +218,14 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         });
     }//aqui termina el OnCreate
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 // TODO Auto-generated method stub
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==1 && resultCode==RESULT_OK){
             datos = data.getExtras().getStringArrayList("datos");
         }
-    }
+    }*/
 
     public void lanzarAñadir(){
 

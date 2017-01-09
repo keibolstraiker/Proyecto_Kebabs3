@@ -42,6 +42,11 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_tres_menu_bebida);
 
+        Bundle extras = getIntent().getExtras();
+
+        datos = extras.getStringArrayList("datos");
+        arraylistcomida = extras.getStringArrayList("comida");
+        //arraylistbebida = extras.getStringArrayList("bebida");
 
         txtCola = (EditText) findViewById(R.id.txtCola);
         txtNaranja = (EditText) findViewById(R.id.txtNaranja);
@@ -62,32 +67,45 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         btnSalir3 = (Button) findViewById(R.id.btnSalir3);
 
         txtCola.addTextChangedListener(new TextWatcher() {
+            int cantidad;
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int preciocola=2;
+
+                if (String.valueOf(s)==""){
+                    cantidad=0;
+                }else{
+                    cantidad = Integer.valueOf(s.toString());
+                }
+
+                totalcola = cantidad * preciocola;
+                lblPrecioCola.setText(String.valueOf(totalcola));
+                contprecios += Integer.parseInt(lblPrecioCola.getText().toString());
+                lblTotal.setText(String.valueOf(contprecios));
+            }
             @Override
             public void afterTextChanged(Editable s) {
-                int preciocola=2;
-                int cantidad = Integer.parseInt(s.toString());
-                totalcola = cantidad * preciocola;
-                lblPrecioCola.setText(totalcola);
-                contprecios += Integer.parseInt(lblPrecioCola.toString());
-                lblTotal.setText(Integer.valueOf(contprecios));
+
+
             }});
 
         txtNaranja.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
             @Override
+
             public void afterTextChanged(Editable s) {
                 int precionaranja=2;
                 int cantidad = Integer.parseInt(s.toString());
                 totalcola = cantidad * precionaranja;
-                lblPrecioNaranja.setText(totalnaranja);
-                contprecios += Integer.parseInt(lblPrecioNaranja.toString());
+                lblPrecioNaranja.setText(String.valueOf(totalnaranja));
+                contprecios += Integer.parseInt(lblPrecioNaranja.getText().toString());
                 lblTotal.setText(Integer.valueOf(contprecios));
             }});
 
@@ -97,14 +115,15 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
             @Override
             public void afterTextChanged(Editable s) {
                 int preciolimon=2;
                 int cantidad = Integer.parseInt(s.toString());
                 totallimon = cantidad * preciolimon;
-                lblPrecioLimon.setText(totallimon);
-                contprecios += Integer.parseInt(lblPrecioLimon.toString());
+                lblPrecioLimon.setText(Integer.valueOf(totallimon));
+                contprecios += Integer.parseInt(lblPrecioLimon.getText().toString());
                 lblTotal.setText(Integer.valueOf(contprecios));
             }});
 
@@ -118,8 +137,8 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
                 int precionestea=3;
                 int cantidad = Integer.parseInt(s.toString());
                 totalnestea = cantidad * precionestea;
-                lblPrecioNestea.setText(totalnestea);
-                contprecios += Integer.parseInt(lblPrecioNestea.toString());
+                lblPrecioNestea.setText(String.valueOf(totalnestea));
+                contprecios += Integer.parseInt(lblPrecioNestea.getText().toString());
                 lblTotal.setText(Integer.valueOf(contprecios));
             }});
 
@@ -133,8 +152,8 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
                 int preciocerveza=3;
                 int cantidad = Integer.parseInt(s.toString());
                 totalcerveza = cantidad * preciocerveza;
-                lblPrecioCerveza.setText(totalcerveza);
-                contprecios += Integer.parseInt(lblPrecioCerveza.toString());
+                lblPrecioCerveza.setText(String.valueOf(totalcerveza));
+                contprecios += Integer.parseInt(lblPrecioCerveza.getText().toString());
                 lblTotal.setText(Integer.valueOf(contprecios));
             }});
 
@@ -148,8 +167,8 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
                 int precioagua=1;
                 int cantidad = Integer.parseInt(s.toString());
                 totalagua = cantidad * precioagua;
-                lblPrecioAgua.setText(totalagua);
-                contprecios += Integer.parseInt(lblPrecioAgua.toString());
+                lblPrecioAgua.setText(String.valueOf(totalagua));
+                contprecios += Integer.parseInt(lblPrecioAgua.getText().toString());
                 lblTotal.setText(Integer.valueOf(contprecios));
             }});
 
@@ -171,50 +190,50 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    //@Override
+    /*protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 // TODO Auto-generated method stub
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==2 && resultCode==RESULT_OK){
             datos = data.getExtras().getStringArrayList("datos");
             arraylistcomida = data.getExtras().getStringArrayList("comida");
         }
-    }
+    }*/
 
         public void ContabilizarBebidas (){
 
             if (txtCola.getText().length()>0){
-               arraylistbebida.add(txtCola.toString());
+               arraylistbebida.add(txtCola.getText().toString());
                 arraylistbebida.add("CocaCola");
                 arraylistbebida.add(String.valueOf(totalcola));
                 }
 
             if (txtLimon.getText().length()>0){
-                arraylistbebida.add(txtLimon.toString());
+                arraylistbebida.add(txtLimon.getText().toString());
                 arraylistbebida.add("Limón");
                 arraylistbebida.add(String.valueOf(totallimon));
                 }
 
             if (txtNaranja.getText().length()>0){
-                arraylistbebida.add(txtNaranja.toString());
+                arraylistbebida.add(txtNaranja.getText().toString());
                 arraylistbebida.add("Naranja");
                 arraylistbebida.add(String.valueOf(totalnaranja));
                }
 
             if (txtNestea.getText().length()>0){
-                arraylistbebida.add(txtNestea.toString());
+                arraylistbebida.add(txtNestea.getText().toString());
                 arraylistbebida.add("Nestea");
                 arraylistbebida.add(String.valueOf(totalnestea));
                 }
 
             if (txtCerveza.getText().length()>0){
-                arraylistbebida.add(txtCerveza.toString());
+                arraylistbebida.add(txtCerveza.getText().toString());
                 arraylistbebida.add("Cerveza");
                 arraylistbebida.add(String.valueOf(totalcerveza));
                 }
 
             if (txtAgua.getText().length()>0){
-                arraylistbebida.add(txtAgua.toString());
+                arraylistbebida.add(txtAgua.getText().toString());
                 arraylistbebida.add("Agua");
                 arraylistbebida.add(String.valueOf(totalagua));
                 }
@@ -224,7 +243,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
 
     public void lanzarSiguiente(){
 
-        Intent i = new Intent(this,PantallaTresMenuBebida.class);
+        Intent i = new Intent(this,PantallaCuatroResumenPedido.class);
         i.putExtra("datos",datos);
         i.putExtra("comida",arraylistcomida);
         i.putExtra("bebida",arraylistbebida);

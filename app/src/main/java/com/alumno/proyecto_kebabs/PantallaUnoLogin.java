@@ -49,7 +49,7 @@ public class PantallaUnoLogin extends AppCompatActivity {
                                 //de echo ahora no me sale el array datos, creo que te lo he pisado de alguna manera,
                                 // tenemos que quedar para hacer esto
 
-                                //LanzarActividadDos(datos);
+                                LanzarActividadDos(datos);
 
                             } else {
                                tel.setError("Debes introducir un teléfono");

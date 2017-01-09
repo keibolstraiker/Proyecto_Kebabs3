@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/pay1">
 
     <TextView
         android:text="@string/lblTituloResumen"
@@ -15,16 +16,20 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:gravity="center"
+        android:textSize="36sp"
         android:textStyle="normal|bold"
-        android:textSize="36sp" />
+        android:textColor="@android:color/black" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="397dp"
+        android:layout_height="434dp"
         android:text="@string/lblResumen"
         android:id="@+id/lblResumen"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:textAlignment="center" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -38,7 +43,8 @@
             android:text="@string/btnAceptar"
             android:id="@+id/btnAceptar"
             android:layout_marginLeft="65dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/boton" />
 
         <Button
             android:layout_width="wrap_content"
@@ -46,6 +52,7 @@
             android:text="@string/btnCancelar"
             android:id="@+id/btnCancelar"
             android:layout_marginLeft="65dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/boton" />
     </LinearLayout>
 </LinearLayout>
