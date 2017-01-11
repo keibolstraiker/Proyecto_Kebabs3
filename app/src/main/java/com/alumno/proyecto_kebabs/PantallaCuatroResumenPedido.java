@@ -13,6 +13,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
 
     private TextView resumen;
 
+
     ArrayList<String> datos;
     ArrayList<String> arraylistcomida;
     ArrayList<String> arraylistbebida;
