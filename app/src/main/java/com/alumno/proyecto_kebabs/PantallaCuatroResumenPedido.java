@@ -10,15 +10,12 @@ import java.util.ArrayList;
 
 
 public class PantallaCuatroResumenPedido extends AppCompatActivity {
-    //estoy probando sourcetree otra ve
 
     private TextView resumen;
 
     ArrayList<String> datos;
     ArrayList<String> arraylistcomida;
     ArrayList<String> arraylistbebida;
-
-
 
     String texto;
     int totalpedido;
@@ -37,21 +34,15 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
 
         resumen = (TextView) findViewById(R.id.lblResumen);
 
-
-
         mostrarDatos();
         mostrarComida();
         mostrarBebida();
-
-
-
-        totalpedido = Integer.valueOf(arraylistcomida.get(arraylistcomida.size()-1)) + Integer.valueOf(arraylistbebida.get(arraylistbebida.size()-1));
-        texto += "TOTAL:    " + totalpedido + "€\n\n";
+        calculartotal();
+        comprobarregalo();
 
         resumen.setText(texto);
 
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -108,4 +99,20 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         }
         texto +="\n\n" + arraylistbebida.get(arraylistbebida.size()-1) + "\n\n";
     }
+
+    public void calculartotal(){
+
+        totalpedido = Integer.valueOf(arraylistcomida.get(arraylistcomida.size()-1)) + Integer.valueOf(arraylistbebida.get(arraylistbebida.size()-1));
+        texto += "TOTAL:    " + totalpedido + "€\n\n";
+    }
+
+    public void comprobarregalo(){
+
+        if (totalpedido > 23 && totalpedido < 33)
+            texto += "¡Ehorabuena! Como su pedido supera los 23€ se lleva un peluche del muñeco de Android de regalo.\n\n";
+
+        if (totalpedido > 33)
+            texto += "¡Ehorabuena! Como su pedido supera los 33€ le regalamos un peluche del muñeco de Android y un vale para comer en el comedor de Cebanc.\n\n";
+    }
+
 }
