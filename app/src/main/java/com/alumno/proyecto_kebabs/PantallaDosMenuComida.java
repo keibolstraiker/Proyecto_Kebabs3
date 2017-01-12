@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class PantallaDosMenuComida extends AppCompatActivity {
 
     String kebab,carne,tamaño, preciokebab, preciocarne, preciotamaño;
-    int  contprecios = 0;
+    int  contprecios=0;
 
     private TextView lblPedido;
 
@@ -100,6 +100,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 break;
                             case 1:
                                 tamaño = "Normal";
+                                preciotamaño = "sin suplemento";
                                 break;
                             case 2:
                                 tamaño = "Completa";
@@ -131,9 +132,11 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 break;
                             case 1:
                                 carne = "Ternera";
+                                preciocarne = "sin suplemento";
                                 break;
                             case 2:
                                 carne = "Pollo";
+                                preciocarne = "sin suplemento";
                                 break;
                             case 3:
                                 carne = "Cordero";
@@ -237,12 +240,16 @@ public class PantallaDosMenuComida extends AppCompatActivity {
             arraylistcomida.add(preciocarne);
             arraylistcomida.add(tamaño);
             arraylistcomida.add(preciotamaño);
+
+            cmbTipo_kebab.setSelection(0);
+            cmbTipo_carne.setSelection(0);
+            cmbTipo_tamaño.setSelection(0);
         } else {
             Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
                     Toast.LENGTH_LONG).show();
         }
 
-        lblPedido.setText(arraylistcomida.toString());
+        lblPedido.setText(String.valueOf(contprecios));
     }
     public void lanzarSiguiente(){
 
