@@ -35,7 +35,8 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         setContentView(R.layout.layout_pantalla_cuatro_resumen_pedido);
 
         resumen = (TextView) findViewById(R.id.lblresumen);
-        resumen.setMovementMethod(new ScrollingMovementMethod());
+
+
 
         mostrarDatos();
         mostrarComida();
@@ -43,6 +44,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         calculartotal();
         comprobarregalo();
 
+        resumen.setMovementMethod(new ScrollingMovementMethod());
         resumen.setText(texto);
 
     }
