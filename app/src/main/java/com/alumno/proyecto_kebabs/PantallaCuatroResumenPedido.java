@@ -34,8 +34,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_cuatro_resumen_pedido);
 
-        resumen = (TextView) findViewById(R.id.lblresumen);
-
+        resumen = (TextView) findViewById(R.id.lblResumen);
 
 
         mostrarDatos();
@@ -75,14 +74,16 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
             if(cont2 < 6){
                 if (cont1 < 2) {
                     texto += arraylistcomida.get(i) + "  ";
+                    if (cont1 == 1)
+                        texto +="€";
                     cont1++;
                     cont2++;
                 } else {
-                    texto += "\n" + arraylistcomida.get(i) + "  ";
+                    texto += "\n";
                     cont1=0;
                 }
             }else{
-                texto += "\n\n" + arraylistcomida.get(i) + "  " ;
+                texto += "\n\n";
                 cont2=0;
             }
         }
@@ -95,10 +96,14 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
 
             if (cont < 3) {
                 texto += arraylistbebida.get(i) + "  ";
+                if (cont == 0)
+                    texto += " botella(s) de ";
+                if (cont == 2)
+                    texto += "€";
                 cont++;
             }
             else{
-                texto += "\n" + arraylistbebida.get(i) + "  ";
+                texto += "\n";
                 cont=0;
             }
         }

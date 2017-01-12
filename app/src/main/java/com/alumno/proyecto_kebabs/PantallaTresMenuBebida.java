@@ -46,7 +46,6 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
 
         datos = extras.getStringArrayList("datos");
         arraylistcomida = extras.getStringArrayList("comida");
-        //arraylistbebida = extras.getStringArrayList("bebida");
 
         txtCola = (EditText) findViewById(R.id.txtCola);
         txtNaranja = (EditText) findViewById(R.id.txtNaranja);
@@ -283,8 +282,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         i.putExtra("datos",datos);
         i.putExtra("comida",arraylistcomida);
         i.putExtra("bebida",arraylistbebida);
-        setResult(RESULT_OK,i);
-        startActivityForResult(i,3);
+        startActivity(i);
 
     }
 
