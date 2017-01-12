@@ -48,17 +48,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-// TODO Auto-generated method stub
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==3 && resultCode==RESULT_OK){
-            datos = data.getExtras().getStringArrayList("datos");
-            arraylistcomida = data.getExtras().getStringArrayList("comida");
-            arraylistbebida = data.getExtras().getStringArrayList("bebida");
-        }
-    }
-    public void mostrarDatos(){
+       public void mostrarDatos(){
         texto = "DATOS CLIENTE:\n\n";
 
         for(int i=0;i<=(datos.size()-1);i++){
@@ -74,8 +64,6 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
             if(cont2 < 6){
                 if (cont1 < 2) {
                     texto += arraylistcomida.get(i) + "  ";
-                    if (cont1 == 1)
-                        texto +="€";
                     cont1++;
                     cont2++;
                 } else {
@@ -87,7 +75,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
                 cont2=0;
             }
         }
-        texto +="\n\n" + arraylistcomida.get(arraylistcomida.size()-1) + "\n\n";
+        texto +="\n\n" + arraylistcomida.get(arraylistcomida.size()-1) + "€\n\n";
     }
     public void mostrarBebida(){
         texto += "PARA BEBER:\n\n";
@@ -99,7 +87,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
                 if (cont == 0)
                     texto += " botella(s) de ";
                 if (cont == 2)
-                    texto += "€";
+                    texto += "€\n";
                 cont++;
             }
             else{
@@ -107,7 +95,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
                 cont=0;
             }
         }
-        texto +="\n\n" + arraylistbebida.get(arraylistbebida.size()-1) + "\n\n";
+        texto +="\n\n" + arraylistbebida.get(arraylistbebida.size()-1) + "€\n\n";
     }
 
     public void calculartotal(){
