@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -13,6 +16,8 @@ import java.util.ArrayList;
 public class PantallaCuatroResumenPedido extends AppCompatActivity {
 
     private TextView resumen;
+    private Button realizar;
+    private Button atras;
 
 
     ArrayList<String> datos;
@@ -35,6 +40,8 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         setContentView(R.layout.layout_pantalla_cuatro_resumen_pedido);
 
         resumen = (TextView) findViewById(R.id.lblResumen);
+        realizar = (Button) findViewById(R.id.btnRealizar);
+        atras = (Button) findViewById(R.id.btnAtras);
 
 
         mostrarDatos();
@@ -46,6 +53,16 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         resumen.setMovementMethod(new ScrollingMovementMethod());
         resumen.setText(texto);
 
+        realizar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                lanzarRealizar();
+            }
+        });
+        atras.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                lanzarAtras();
+            }
+        });
     }
 
     @Override
@@ -124,5 +141,11 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         if (totalpedido > 33)
             texto += "¡Ehorabuena! Como su pedido supera los 33€ le regalamos un peluche del muñeco de Android y un vale para comer en el comedor de Cebanc.\n\n";
     }
-
+    public void lanzarRealizar(){
+        Toast.makeText(getApplicationContext(), "SU PEDIDO HA SIDO REALIZARDO CORRECTAMENTE, UN REPARTIDOR VA DE CAMINO A SU DIRECCIÓN",
+                Toast.LENGTH_LONG).show();
+    }
+    public void lanzarAtras(){
+        finish();
+    }
 }

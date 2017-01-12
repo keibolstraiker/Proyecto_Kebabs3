@@ -18,7 +18,7 @@
         android:gravity="center"
         android:textSize="36sp"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:maxLines = "100"
         android:scrollbars = "vertical"/>
 
@@ -26,9 +26,9 @@
         android:text="Atras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button9"
-        android:layout_alignBaseline="@+id/button8"
-        android:layout_alignBottom="@+id/button8"
+        android:id="@+id/btnAtras"
+        android:layout_alignBaseline="@+id/btnRealizar"
+        android:layout_alignBottom="@+id/btnRealizar"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="68dp"
@@ -44,17 +44,17 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/button9"
+        android:layout_above="@+id/btnAtras"
         android:textSize="30sp"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/white" />
 
     <Button
-        android:text="Siguiente"
+        android:text="Realizar Pedido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="11dp"
-        android:id="@+id/button8"
+        android:id="@+id/btnRealizar"
         android:layout_marginLeft="65dp"
         android:layout_marginStart="65dp"
         android:layout_alignParentBottom="true"
