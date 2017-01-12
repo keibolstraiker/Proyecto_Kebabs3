@@ -249,11 +249,11 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-        lblPedido.setText(String.valueOf(contprecios));
+
     }
     public void lanzarSiguiente(){
 
-        if (kebab != null && carne != null && tamaño != null) {
+        if (arraylistcomida.size() !=0) {
 
             arraylistcomida.add(String.valueOf(contprecios));
 
