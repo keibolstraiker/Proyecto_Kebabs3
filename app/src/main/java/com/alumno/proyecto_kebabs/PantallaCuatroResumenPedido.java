@@ -3,6 +3,7 @@ package com.alumno.proyecto_kebabs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
 
@@ -33,7 +34,8 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_cuatro_resumen_pedido);
 
-        resumen = (TextView) findViewById(R.id.lblResumen);
+        resumen = (TextView) findViewById(R.id.lblresumen);
+        resumen.setMovementMethod(new ScrollingMovementMethod());
 
         mostrarDatos();
         mostrarComida();

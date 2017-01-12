@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:weightSum="1"
+    android:background="@drawable/login">
 
     <TextView
         android:layout_width="315dp"
@@ -10,7 +11,7 @@
         android:text="@string/lblLogin"
         android:id="@+id/lblLogin"
         android:layout_weight="0.02"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:textSize="22dp"
         android:layout_marginTop="20dp" />
 
@@ -20,7 +21,9 @@
         android:id="@+id/txtNombre"
         android:layout_marginTop="20dp"
         android:inputType="textPersonName"
-        android:hint="@string/txtNombre" />
+        android:hint="@string/txtNombre"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white" />
 
     <EditText
         android:layout_width="match_parent"
@@ -29,7 +32,9 @@
         android:layout_weight="0.02"
         android:layout_marginTop="20dp"
         android:inputType="text"
-        android:hint="@string/txtDireccion" />
+        android:hint="@string/txtDireccion"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white" />
 
     <EditText
         android:layout_width="223dp"
@@ -37,7 +42,9 @@
         android:id="@+id/txtTelefono"
         android:layout_marginTop="20dp"
         android:inputType="phone"
-        android:hint="@string/txtTelefono" />
+        android:hint="@string/txtTelefono"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white" />
 
     <Button
         android:layout_width="wrap_content"
@@ -46,7 +53,8 @@
         android:id="@+id/btnSiguiente3"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.02"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:background="@drawable/boton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -55,5 +63,6 @@
         android:id="@+id/btnSalir"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.02"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:background="@drawable/boton" />
 </LinearLayout>

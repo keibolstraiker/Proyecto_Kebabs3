@@ -93,38 +93,50 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             }});
 
         txtNaranja.addTextChangedListener(new TextWatcher() {
+            int cantidad;
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int precionaranja=2;
+                if (String.valueOf(s)==""){
+                    cantidad=0;
+                }else{
+                    cantidad = Integer.valueOf(s.toString());
+                }
+
+                totalnaranja = cantidad * precionaranja;
+                lblPrecioNaranja.setText(String.valueOf(totalnaranja));
+                contprecios += Integer.parseInt(lblPrecioNaranja.getText().toString());
+                lblTotal.setText(String.valueOf(contprecios)+"€");
             }
             @Override
 
             public void afterTextChanged(Editable s) {
-                int precionaranja=2;
-                int cantidad = Integer.parseInt(s.toString());
-                totalcola = cantidad * precionaranja;
-                lblPrecioNaranja.setText(String.valueOf(totalnaranja));
-                contprecios += Integer.parseInt(lblPrecioNaranja.getText().toString());
-                lblTotal.setText(Integer.valueOf(contprecios));
+
             }});
 
         txtLimon.addTextChangedListener(new TextWatcher() {
 
-
+            int cantidad;
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int preciolimon=2;
+                if (String.valueOf(s)==""){
+                    cantidad=0;
+                }else{
+                    cantidad = Integer.valueOf(s.toString());
+                }
+
+                totallimon = cantidad * preciolimon;
+                lblPrecioLimon.setText(String.valueOf(totallimon));
+                contprecios += Integer.parseInt(lblPrecioLimon.getText().toString());
+                lblTotal.setText(String.valueOf(contprecios));
             }
             @Override
             public void afterTextChanged(Editable s) {
-                int preciolimon=2;
-                int cantidad = Integer.parseInt(s.toString());
-                totallimon = cantidad * preciolimon;
-                lblPrecioLimon.setText(Integer.valueOf(totallimon));
-                contprecios += Integer.parseInt(lblPrecioLimon.getText().toString());
-                lblTotal.setText(Integer.valueOf(contprecios));
             }});
 
         txtNestea.addTextChangedListener(new TextWatcher() {

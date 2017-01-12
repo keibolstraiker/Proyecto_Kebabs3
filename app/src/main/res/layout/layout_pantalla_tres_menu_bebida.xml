@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,275 +7,302 @@
     android:background="@drawable/bebidas">
 
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
+    <EditText
+        android:inputType="textPersonName"
+        android:hint="@string/txtNaranja"
+        android:ems="10"
+        android:id="@+id/txtNaranja"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@+id/Naranja"
+        android:layout_alignBottom="@+id/Naranja"
+        android:layout_centerHorizontal="true"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/holo_orange_dark" />
+
+    <TextView
+        android:text="Escoja su bebida"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:id="@+id/lblPedido"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold"
+        android:textSize="36sp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:gravity="center" />
 
-        <TextView
-            android:text="Escoja su bebida"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/lblPedidoBebida"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:gravity="center"
-            android:textStyle="normal|bold"
-            android:textSize="36sp"
-            android:textColor="@android:color/white" />
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Cola"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="49dp"
+        android:layout_marginEnd="49dp"
+        android:id="@+id/lblPrecioCola"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_orange_dark" />
 
-    </LinearLayout>
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblPrecioNaranja"
+        android:layout_alignBaseline="@+id/txtNaranja"
+        android:layout_alignBottom="@+id/txtNaranja"
+        android:layout_alignLeft="@+id/lblPrecioCola"
+        android:layout_alignStart="@+id/lblPrecioCola"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_orange_dark" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal">
+    <EditText
+        android:hint="@string/txtLimon"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtLimon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@+id/Limon"
+        android:layout_alignBottom="@+id/Limon"
+        android:layout_alignLeft="@+id/txtNaranja"
+        android:layout_alignStart="@+id/txtNaranja"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/holo_orange_dark" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="139dp"
-            android:layout_height="match_parent"
-            android:weightSum="1"
-            android:layout_marginTop="50dp">
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblPrecioLimon"
+        android:layout_alignBaseline="@+id/txtLimon"
+        android:layout_alignBottom="@+id/txtLimon"
+        android:layout_alignLeft="@+id/lblPrecioNaranja"
+        android:layout_alignStart="@+id/lblPrecioNaranja"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_orange_dark" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lblCola"
-                android:id="@+id/lblCola"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
+    <EditText
+        android:hint="@string/txtNestea"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtNestea"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@+id/Nestea"
+        android:layout_alignBottom="@+id/Nestea"
+        android:layout_alignLeft="@+id/txtLimon"
+        android:layout_alignStart="@+id/txtLimon"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/holo_orange_dark" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lblLimon"
-                android:id="@+id/lblLimon"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblPrecioNestea"
+        android:layout_alignBaseline="@+id/txtNestea"
+        android:layout_alignBottom="@+id/txtNestea"
+        android:layout_alignLeft="@+id/lblPrecioLimon"
+        android:layout_alignStart="@+id/lblPrecioLimon"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_orange_dark" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lblNaranja"
-                android:id="@+id/lblNaranja"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
+    <TextView
+        android:text="@string/lblNaranja"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:id="@+id/Naranja"
+        android:layout_below="@+id/txtCola"
+        android:layout_alignLeft="@+id/Cola"
+        android:layout_alignStart="@+id/Cola"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_orange_dark" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lblNestea"
-                android:id="@+id/lblNestea"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
+    <TextView
+        android:text="@string/lblNestea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:id="@+id/Nestea"
+        android:layout_below="@+id/txtLimon"
+        android:layout_alignLeft="@+id/Limon"
+        android:layout_alignStart="@+id/Limon"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_orange_dark" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lblCerveza"
-                android:id="@+id/lblCerveza"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
+    <TextView
+        android:text="@string/lblLimon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:id="@+id/Limon"
+        android:layout_below="@+id/txtNaranja"
+        android:layout_alignLeft="@+id/Naranja"
+        android:layout_alignStart="@+id/Naranja"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_orange_dark" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lblAgua"
-                android:id="@+id/lblAgua"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
+    <TextView
+        android:text="@string/lblCerveza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:id="@+id/Cerveza"
+        android:layout_below="@+id/txtNestea"
+        android:layout_alignLeft="@+id/Nestea"
+        android:layout_alignStart="@+id/Nestea"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_orange_dark" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btnSiguiente3"
-                android:id="@+id/btnSiguiente3"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/boton"
-                android:textColor="@android:color/black" />
+    <EditText
+        android:hint="@string/txtCerveza"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtCerveza"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@+id/Cerveza"
+        android:layout_alignBottom="@+id/Cerveza"
+        android:layout_alignLeft="@+id/txtNestea"
+        android:layout_alignStart="@+id/txtNestea"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/holo_orange_dark" />
 
-        </LinearLayout>
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblPrecioCerveza"
+        android:layout_alignBaseline="@+id/txtCerveza"
+        android:layout_alignBottom="@+id/txtCerveza"
+        android:layout_alignLeft="@+id/lblPrecioNestea"
+        android:layout_alignStart="@+id/lblPrecioNestea"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_orange_dark" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="126dp"
-            android:layout_height="446dp"
-            android:layout_marginTop="50dp"
-            android:weightSum="1">
+    <TextView
+        android:text="@string/lblAgua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:id="@+id/Agua"
+        android:layout_below="@+id/txtCerveza"
+        android:layout_alignLeft="@+id/Cerveza"
+        android:layout_alignStart="@+id/Cerveza"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_orange_dark" />
 
-            <EditText
-                android:layout_width="77dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtCola"
-                android:layout_marginTop="10dp"
-                android:hint="@string/txtCola"
-                android:inputType="number"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
+    <EditText
+        android:hint="@string/txtAgua"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtAgua"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@+id/Agua"
+        android:layout_alignBottom="@+id/Agua"
+        android:layout_alignLeft="@+id/txtCerveza"
+        android:layout_alignStart="@+id/txtCerveza"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/holo_orange_dark" />
 
-            <EditText
-                android:layout_width="77dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtLimon"
-                android:layout_marginTop="12dp"
-                android:hint="@string/txtLimon"
-                android:inputType="number"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />/>
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblPrecioAgua"
+        android:layout_alignBaseline="@+id/txtAgua"
+        android:layout_alignBottom="@+id/txtAgua"
+        android:layout_alignLeft="@+id/lblPrecioCerveza"
+        android:layout_alignStart="@+id/lblPrecioCerveza"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_orange_dark" />
 
-            <EditText
-                android:layout_width="77dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtNaranja"
-                android:layout_marginTop="10dp"
-                android:hint="@string/txtNaranja"
-                android:inputType="number"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />/>
+    <EditText
+        android:hint="@string/txtCola"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtCola"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/holo_orange_dark"
+        android:layout_alignBottom="@+id/Cola"
+        android:layout_alignLeft="@+id/txtNaranja"
+        android:layout_alignStart="@+id/txtNaranja" />
 
-            <EditText
-                android:layout_width="77dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtNestea"
-                android:layout_marginTop="10dp"
-                android:hint="@string/txtNestea"
-                android:inputType="number"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />/>
+    <TextView
+        android:text="@string/lblCola"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="23dp"
+        android:id="@+id/Cola"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:layout_below="@+id/lblPedido"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-            <EditText
-                android:layout_width="77dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtCerveza"
-                android:layout_marginTop="8dp"
-                android:hint="@string/txtCerveza"
-                android:inputType="number"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />/>
+    <Button
+        android:text="@string/btnSiguiente3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSiguiente3"
+        android:background="@drawable/boton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/Agua"
+        android:layout_alignStart="@+id/Agua"
+        android:layout_marginBottom="42dp" />
 
-            <EditText
-                android:layout_width="77dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtAgua"
-                android:layout_marginTop="10dp"
-                android:hint="@string/txtAgua"
-                android:inputType="number"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
+    <TextView
+        android:text="Precio Total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblTotal"
+        android:layout_above="@+id/btnSalir3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btnSalir3"
-                android:id="@+id/btnSalir3"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/boton"
-                android:textColor="@android:color/black" /><![CDATA[/>
+    <Button
+        android:text="@string/btnSalir3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSalir3"
+        android:background="@drawable/boton"
+        android:layout_alignBaseline="@+id/btnSiguiente3"
+        android:layout_alignBottom="@+id/btnSiguiente3"
+        android:layout_toLeftOf="@+id/lblPrecioAgua"
+        android:layout_toStartOf="@+id/lblPrecioAgua" />
 
-
-
-            ]]>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="1"
-            android:layout_marginTop="50dp"
-            android:gravity="right">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:id="@+id/lblPrecioCola"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:gravity="right"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:id="@+id/lblPrecioLimon"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:id="@+id/lblPrecioNaranja"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:id="@+id/lblPrecioNestea"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:id="@+id/lblPrecioCerveza"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:id="@+id/lblPrecioAgua"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:id="@+id/lblTotal"
-                android:layout_weight="0.06"
-                android:layout_marginTop="20dp"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
