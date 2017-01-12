@@ -246,13 +246,19 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     }
     public void lanzarSiguiente(){
 
-        arraylistcomida.add(String.valueOf(contprecios));
+        if (kebab != null && carne != null && tamaño != null) {
 
-        Intent i = new Intent(this,PantallaTresMenuBebida.class);
-        i.putExtra("datos",datos);
-        i.putExtra("comida",arraylistcomida);
-        setResult(RESULT_OK,i);
-        startActivityForResult(i,2);
+            arraylistcomida.add(String.valueOf(contprecios));
+
+            Intent i = new Intent(this, PantallaTresMenuBebida.class);
+            i.putExtra("datos", datos);
+            i.putExtra("comida", arraylistcomida);
+            setResult(RESULT_OK, i);
+            startActivityForResult(i, 2);
+        } else {
+            Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
+                    Toast.LENGTH_LONG).show();
+        }
 
 
         /*este método tiene que acceder a la siguiente aplicación añadiendo al arraylist todo el contenido de los spiner */
