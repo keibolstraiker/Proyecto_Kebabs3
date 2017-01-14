@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/previa">
+
+    <TextView
+        android:text="Bienvenido a la aplicación puedes realizar tu pedido, o consultar la direccion y telefono del establecimiento eligiendo uno de los dos botones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="109dp"
+        android:id="@+id/textView"
+        android:layout_alignRight="@+id/btnPulsar"
+        android:layout_alignEnd="@+id/btnPulsar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:text="Restaurante Kebabs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:id="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:fontFamily="monospace"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:text="Ver Mapa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnPulsar"
+        android:background="@drawable/boton"
+        android:layout_above="@+id/btnSiguiente0"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:text="Siguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="53dp"
+        android:id="@+id/btnSiguiente0"
+        android:background="@drawable/boton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

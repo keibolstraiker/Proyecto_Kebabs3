@@ -64,6 +64,7 @@
     <string name="lblResumen"></string>
     <string name="btnAceptar">Aceptar</string>
     <string name="btnCancelar">Cancelar</string>
+    <string name="title_activity_pantalla_presentacion">Map</string>
 
     <!-- Fin de Strings de la actividad tres -->
 
