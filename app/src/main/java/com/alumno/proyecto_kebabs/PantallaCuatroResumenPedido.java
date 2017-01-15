@@ -68,7 +68,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
        public void mostrarDatos(){
         texto = "DATOS CLIENTE:\n\n";
 
-        for(int i=0;i<=(datos.size()-1);i++){
+        for(int i=0;i<=(datos.size()-1);i++){ //Se recorre el arraylist de los datos y se muestra en el TextView.
             texto +=  datos.get(i) + "\n";
 
         }
@@ -76,7 +76,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
     public void mostrarComida(){
         texto += "\n PARA COMER:\n\n";
         int cont1 = 0, cont2 = 0;
-        for(int i=0;i<=(arraylistcomida.size()-2);i++) {
+        for(int i=0;i<=(arraylistcomida.size()-2);i++) { // Se recorre el arraylist de la comida. Como sabemos el orden en el que se han almacenado los datos, podemos mostrarlos como queramos.
 
             if(cont2 < 6){
                 if (cont1 < 2) {
@@ -84,41 +84,52 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
                     cont1++;
                     cont2++;
                 } else {
-                    texto += "\n";
-                    cont1=0;
+                    texto += "\n" + arraylistcomida.get(i) + "  ";
+                    cont1=1;
+                    cont2++;
                 }
             }else{
-                texto += "\n\n";
-                cont2=0;
+                texto += "\n\n" + arraylistcomida.get(i) + "  ";
+                cont1=1;
+                cont2=1;
             }
         }
-        texto +="\n\n" + arraylistcomida.get(arraylistcomida.size()-1) + "€\n\n";
+        texto +="\nTOTAL COMIDA:  " + arraylistcomida.get(arraylistcomida.size()-1) + "€\n\n";
     }
-    public void mostrarBebida(){
+    public void mostrarBebida(){  //// Se recorre el arraylist de la bebida. Como sabemos el orden en el que se han almacenado los datos, podemos mostrarlos como queramos.
         texto += "PARA BEBER:\n\n";
-        int cont=0;
+        int cont=0, cont2=0;
         for(int i=0;i<=(arraylistbebida.size()-2);i++) {
 
             if (cont < 3) {
-                texto += arraylistbebida.get(i) + "  ";
-                if (cont == 0)
-                    texto += " botella(s) de ";
-                if (cont == 2)
-                    texto += "€\n";
-                cont++;
+                if (cont2 == 0) {
+                    texto += arraylistbebida.get(i) + "  X ";
+                    cont++;
+                    cont2++;
+                }
+                else if (cont2 == 1){
+                    texto += arraylistbebida.get(i) + "  ";
+                    cont++;
+                    cont2++;
+                }
+                else{
+                    texto += arraylistbebida.get(i) + "€";
+                    cont++;
+                }
             }
             else{
-                texto += "\n";
-                cont=0;
+                texto += "\n" + arraylistbebida.get(i) + "  X ";
+                cont = 1;
+                cont2 = 1;
             }
         }
-        texto +="\n\n" + arraylistbebida.get(arraylistbebida.size()-1) + "€\n\n";
+        texto +="\nTOTAL BEBIDA:  " + arraylistbebida.get(arraylistbebida.size()-1) + "€\n\n";
     }
 
     public void calculartotal(){
 
         totalpedido = Integer.valueOf(arraylistcomida.get(arraylistcomida.size()-1)) + Integer.valueOf(arraylistbebida.get(arraylistbebida.size()-1));
-        texto += "TOTAL:    " + totalpedido + "€\n\n";
+        texto += "TOTAL PEDIDO:    " + totalpedido + "€\n\n";
     }
 
     public void comprobarregalo(){

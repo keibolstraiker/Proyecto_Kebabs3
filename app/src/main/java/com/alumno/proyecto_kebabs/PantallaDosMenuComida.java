@@ -271,7 +271,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         /*este método tiene que acceder a la siguiente aplicación añadiendo al arraylist todo el contenido de los spiner */
     }
     public void lanzarSalir(){
-       finish();
+        finish();
     }
 
 
