@@ -44,7 +44,7 @@
         android:weightSum="3">
 
         <Button
-            android:text="Button"
+            android:text="Añadir"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:id="@+id/btnAñadir"
@@ -52,7 +52,7 @@
             android:background="@drawable/boton" />
 
         <Button
-            android:text="Button"
+            android:text="Siguiente"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:id="@+id/btnSiguiente3"
@@ -60,7 +60,7 @@
             android:background="@drawable/boton" />
 
         <Button
-            android:text="Button"
+            android:text="Salir"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:id="@+id/btnSalir"
