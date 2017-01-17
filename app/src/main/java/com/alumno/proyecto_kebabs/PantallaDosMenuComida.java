@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +26,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     private Spinner cmbTipo_carne;
     private Spinner cmbTipo_kebab;
 
-    private EditText txtCantidad;
+
 
     private Button btnAñadir;
     private Button btnSalir;
@@ -49,13 +48,13 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         datos = extras.getStringArrayList("datos");
 
 
-        lblPedido = (TextView) findViewById(R.id.lblPedidoBebida);
+        lblPedido = (TextView) findViewById(R.id.lblTítulo);
 
-        cmbTipo_tamaño = (Spinner) findViewById(R.id.cmbTamaño);
+        cmbTipo_tamaño = (Spinner) findViewById(R.id.cmbTipoTamaño);
         cmbTipo_kebab = (Spinner) findViewById(R.id.cmbTipoKebab);
         cmbTipo_carne = (Spinner) findViewById(R.id.cmbTipoCarne);
 
-        txtCantidad = (EditText) findViewById(R.id.txtCantidad);
+
 
         btnAñadir = (Button) findViewById(R.id.btnAñadir);
         btnSiguiente = (Button) findViewById(R.id.btnSiguiente3);

@@ -43,7 +43,7 @@
         android:textStyle="normal|bold"
         android:textAllCaps="false"
         android:textAlignment="center"
-        android:layout_below="@+id/cmbTamaño"
+        android:layout_below="@+id/cmbTipoTamaño"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20dp" />
@@ -84,7 +84,7 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cmbTamaño"
+        android:id="@+id/cmbTipoTamaño"
         android:layout_marginTop="36dp"
         android:layout_below="@+id/cmbTipoCarne"
         android:layout_alignParentLeft="true"
