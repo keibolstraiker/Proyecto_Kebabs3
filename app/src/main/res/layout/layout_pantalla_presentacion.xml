@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/previa">
+    android:background="@drawable/primera">
 
     <TextView
         android:text="Bienvenido a la aplicación puedes realizar tu pedido, o consultar la direccion y telefono del establecimiento eligiendo uno de los dos botones"
@@ -18,7 +18,7 @@
         android:textStyle="normal|bold"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Restaurante Kebabs"
@@ -34,7 +34,7 @@
         android:textSize="30sp"
         android:textStyle="normal|bold"
         android:textAlignment="center"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/black" />
 
     <Button
         android:text="Ver Mapa"
