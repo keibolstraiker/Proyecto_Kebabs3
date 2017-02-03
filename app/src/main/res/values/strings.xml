@@ -2,6 +2,9 @@
     <string name="app_name">Proyecto_Kebabs</string>
 
     <!-- Comienzo de Strings de la actividad uno y la previa -->
+    <string name="Presentacion">Bienvenido a la aplicación puedes realizar tu pedido, o consultar la direccion y telefono del establecimiento eligiendo uno de los dos botones</string>
+    <string name="Título">Restaurante Kebabs</string>
+    <string name="Ver_Mapa">Vernos en Mapa</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_mapa_cebanc">Map</string>
     <string name="lblLogin">Por favor, introduzca sus datos</string>

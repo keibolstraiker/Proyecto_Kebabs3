@@ -99,12 +99,11 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 break;
                             case 1:
                                 tamaño = "Normal";
-                                preciotamaño = "sin suplemento";
+
                                 break;
                             case 2:
                                 tamaño = "Completa";
-                                preciotamaño = "+1€";
-                                contprecios += 1;
+
                                 break;
 
                         }
@@ -131,16 +130,15 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 break;
                             case 1:
                                 carne = "Ternera";
-                                preciocarne = "sin suplemento";
+
                                 break;
                             case 2:
                                 carne = "Pollo";
-                                preciocarne = "sin suplemento";
+
                                 break;
                             case 3:
                                 carne = "Cordero";
-                                preciocarne = "+1€";
-                                contprecios += 1;
+
                                 break;
 
                         }
@@ -169,28 +167,23 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 break;
                             case 1:
                                 kebab = "Döner";
-                                preciokebab = "3€";
-                                contprecios += 3;
+
                                 break;
                             case 2:
                                 kebab = "Durum";
-                                preciokebab = "4€";
-                                contprecios += 4;
+
                                 break;
                             case 3:
                                 kebab = "Lamhacun";
-                                preciokebab = "5€";
-                                contprecios += 5;
+
                                 break;
                             case 4:
                                 kebab = "Shawarma";
-                                preciokebab = "5€";
-                                contprecios += 5;
+
                                 break;
                             case 5:
                                 kebab = "Gyros";
-                                preciokebab = "5€";
-                                contprecios += 5;
+
                                 break;
                         }
                     }
@@ -233,12 +226,11 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
 
         if (kebab != null && carne != null && tamaño != null) {
-            arraylistcomida.add(kebab);
-            arraylistcomida.add(preciokebab);
-            arraylistcomida.add(carne);
-            arraylistcomida.add(preciocarne);
-            arraylistcomida.add(tamaño);
-            arraylistcomida.add(preciotamaño);
+            Comida c = new Comida();
+            c.setTipo_kebab(kebab);
+            c.setTipo_carne(carne);
+            c.setTipo_tamaño(tamaño);
+
 
             cmbTipo_kebab.setSelection(0);
             cmbTipo_carne.setSelection(0);
