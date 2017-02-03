@@ -51,7 +51,7 @@ public class SentenciadorSQL extends SQLiteOpenHelper {
         int contar;
 
         String consulta = "SELECT Count(*) FROM Clientes Where nombre='"+nom.getNombre()+"'";
-        contar = Integer.parseInt(db.execSQL(consulta));
+        contar = db.execSQL(consulta);
 
 
 
