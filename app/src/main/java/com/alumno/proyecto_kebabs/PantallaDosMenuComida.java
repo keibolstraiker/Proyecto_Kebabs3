@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -32,10 +33,9 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     private Button btnSalir;
     private Button btnSiguiente;
 
-    ArrayList<String> datos;
 
-
-    ArrayList<String> arraylistcomida = new ArrayList<>();
+    ArrayList<Comida> arraylistcomida = new ArrayList<>();
+    Cliente c;
 
 
     @Override
@@ -43,9 +43,8 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_dos_menu_comida);
 
-        Bundle extras = getIntent().getExtras();
-
-        datos = extras.getStringArrayList("datos");
+        Intent i = getIntent();
+        c = (Cliente)i.getSerializableExtra("cliente");
 
 
         lblPedido = (TextView) findViewById(R.id.lblTítulo);
@@ -210,7 +209,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         });
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                lanzarSiguiente();
+                lanzarSiguiente(c,arraylistcomida);
             }
         });
         btnSalir.setOnClickListener(new View.OnClickListener() {
@@ -233,32 +232,38 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
 
         if (kebab != null && carne != null && tamaño != null) {
-            arraylistcomida.add(kebab);
-            arraylistcomida.add(preciokebab);
-            arraylistcomida.add(carne);
-            arraylistcomida.add(preciocarne);
-            arraylistcomida.add(tamaño);
-            arraylistcomida.add(preciotamaño);
+
+            Comida comida = new Comida();
+
+            comida.setTipoKebab(kebab);
+            comida.setPrecioKebab(preciokebab);
+            comida.setTipoCarne(carne);
+            comida.setPrecioCarne(preciocarne);
+            comida.setTipoTamaño(tamaño);
+            comida.setPrecioTamaño(preciotamaño);
+            comida.setPrecioTotalComida(contprecios);
+            //comida.setCantidad(Integer.valueOf(editText.getText()))
+
+            arraylistcomida.add(comida);
 
             cmbTipo_kebab.setSelection(0);
             cmbTipo_carne.setSelection(0);
             cmbTipo_tamaño.setSelection(0);
+
         } else {
+
             Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
                     Toast.LENGTH_LONG).show();
         }
 
 
     }
-    public void lanzarSiguiente(){
-
-        if (arraylistcomida.size() !=0) {
-
-            arraylistcomida.add(String.valueOf(contprecios));
+    public void lanzarSiguiente(Cliente c, ArrayList<Comida> a){
+        if (kebab !=null && carne !=null && tamaño !=null) {
 
         Intent i = new Intent(this,PantallaTresMenuBebida.class);
-        i.putExtra("datos",datos);
-        i.putExtra("comida",arraylistcomida);
+        i.putExtra("cliente",c);
+        i.putExtra("comida",a);
         startActivity(i);
         }
         else {

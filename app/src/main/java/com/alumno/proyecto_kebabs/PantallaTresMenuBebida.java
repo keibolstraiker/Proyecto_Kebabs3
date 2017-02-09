@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -31,21 +33,26 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
     private Button btnSiguiente3;
     private Button btnSalir3;
 
-    ArrayList<String> datos;
-    ArrayList<String> arraylistcomida;
-    ArrayList<String> arraylistbebida = new ArrayList<>();
 
-    int totalcola, totallimon, totalnaranja, totalnestea, totalcerveza,totalagua,contprecios = 0;
+
+    ArrayList<Bebida> arraylistbebida = new ArrayList<>();
+
+    int totalcola, totallimon, totalnaranja, totalnestea, totalcerveza,totalagua,cantidad,contprecios = 0;
+    Cliente c;
+    ArrayList<Comida> arraylistcomida;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pantalla_tres_menu_bebida);
 
-        Bundle extras = getIntent().getExtras();
+        Intent i = getIntent();
+        c = (Cliente)i.getSerializableExtra("cliente");
 
-        datos = extras.getStringArrayList("datos");
-        arraylistcomida = extras.getStringArrayList("comida");
+        arraylistcomida = (ArrayList<Comida>)getIntent().getExtras().getSerializable("comida");
+
+       // Bundle extras = getIntent().getExtras();
+        //arraylistcomida = extras.getArrayList("comida");
 
         txtCola = (EditText) findViewById(R.id.txtCola);
         txtNaranja = (EditText) findViewById(R.id.txtNaranja);
@@ -66,7 +73,6 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         btnSalir3 = (Button) findViewById(R.id.btnSalir3);
 
         txtCola.addTextChangedListener(new TextWatcher() {
-            int cantidad;
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -92,7 +98,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             }});
 
         txtNaranja.addTextChangedListener(new TextWatcher() {
-            int cantidad;
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
@@ -117,7 +123,6 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
 
         txtLimon.addTextChangedListener(new TextWatcher() {
 
-            int cantidad;
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
@@ -139,7 +144,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             }});
 
         txtNestea.addTextChangedListener(new TextWatcher() {
-            int cantidad;
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
@@ -162,7 +167,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             }});
 
         txtCerveza.addTextChangedListener(new TextWatcher() {
-            int cantidad;
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
@@ -186,7 +191,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             }});
 
         txtAgua.addTextChangedListener(new TextWatcher() {
-            int cantidad;
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
@@ -213,7 +218,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             public void onClick(View v){
 
                 ContabilizarBebidas();
-                lanzarSiguiente();
+                lanzarSiguiente(c,arraylistcomida,arraylistbebida);
             }
         });
 
@@ -225,63 +230,45 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         });
     }
 
-    //@Override
-    /*protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-// TODO Auto-generated method stub
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==2 && resultCode==RESULT_OK){
-            datos = data.getExtras().getStringArrayList("datos");
-            arraylistcomida = data.getExtras().getStringArrayList("comida");
-        }
-    }*/
-
         public void ContabilizarBebidas (){
 
             if (txtCola.getText().length()>0){
-               arraylistbebida.add(txtCola.getText().toString());
-                arraylistbebida.add("CocaCola");
-                arraylistbebida.add(String.valueOf(totalcola));
+                Bebida bebida = new Bebida ("CocaCola",totalcola,cantidad);
+                arraylistbebida.add(bebida);
                 }
 
             if (txtLimon.getText().length()>0){
-                arraylistbebida.add(txtLimon.getText().toString());
-                arraylistbebida.add("Limón");
-                arraylistbebida.add(String.valueOf(totallimon));
+                Bebida bebida = new Bebida ("Limon",totallimon,cantidad);
+                arraylistbebida.add(bebida);
                 }
 
             if (txtNaranja.getText().length()>0){
-                arraylistbebida.add(txtNaranja.getText().toString());
-                arraylistbebida.add("Naranja");
-                arraylistbebida.add(String.valueOf(totalnaranja));
+                Bebida bebida = new Bebida ("Naranja",totalnaranja,cantidad);
+                arraylistbebida.add(bebida);
                }
 
             if (txtNestea.getText().length()>0){
-                arraylistbebida.add(txtNestea.getText().toString());
-                arraylistbebida.add("Nestea");
-                arraylistbebida.add(String.valueOf(totalnestea));
+                Bebida bebida = new Bebida ("Nestea",totalnestea,cantidad);
+                arraylistbebida.add(bebida);
                 }
 
             if (txtCerveza.getText().length()>0){
-                arraylistbebida.add(txtCerveza.getText().toString());
-                arraylistbebida.add("Cerveza");
-                arraylistbebida.add(String.valueOf(totalcerveza));
+                Bebida bebida = new Bebida ("Cerveza",totalcerveza,cantidad);
+                arraylistbebida.add(bebida);
                 }
 
             if (txtAgua.getText().length()>0){
-                arraylistbebida.add(txtAgua.getText().toString());
-                arraylistbebida.add("Agua");
-                arraylistbebida.add(String.valueOf(totalagua));
+                Bebida bebida = new Bebida ("Agua",totalagua,cantidad);
+                arraylistbebida.add(bebida);
                 }
-
-            arraylistbebida.add(String.valueOf(contprecios));
         }
 
-    public void lanzarSiguiente(){
+    public void lanzarSiguiente(Cliente c, ArrayList<Comida> a, ArrayList<Bebida> b){
 
         Intent i = new Intent(this,PantallaCuatroResumenPedido.class);
-        i.putExtra("datos",datos);
-        i.putExtra("comida",arraylistcomida);
-        i.putExtra("bebida",arraylistbebida);
+        i.putExtra("cliente", c);
+        i.putExtra("comida",a);
+        i.putExtra("bebida",b);
         startActivity(i);
 
     }
