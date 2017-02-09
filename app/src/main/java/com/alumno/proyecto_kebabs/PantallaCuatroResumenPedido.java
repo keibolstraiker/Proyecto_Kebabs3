@@ -124,7 +124,6 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         for (int i=0; i<=arraylistbebida.size()-1;i++){
             //insertarLineas();
             }
-
     }
     public void lanzarAtras(){
         finish();
