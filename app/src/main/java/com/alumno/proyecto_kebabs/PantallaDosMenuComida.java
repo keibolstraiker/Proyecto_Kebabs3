@@ -18,8 +18,8 @@ import java.util.ArrayList;
 
 public class PantallaDosMenuComida extends AppCompatActivity {
 
-    String kebab,carne,tamaño, preciokebab, preciocarne, preciotamaño;
-    int  contprecios=0;
+    String kebab,carne,tamaño;
+    int  contprecios=0,preciokebab, preciocarne, preciotamaño;
 
     private TextView lblPedido;
 
@@ -101,11 +101,11 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 break;
                             case 1:
                                 tamaño = "Normal";
-                                preciotamaño = "sin suplemento";
+                                preciotamaño = 0;
                                 break;
                             case 2:
                                 tamaño = "Completa";
-                                preciotamaño = "+1€";
+                                preciotamaño = 1;
                                 contprecios += 1;
                                 break;
 
@@ -133,15 +133,15 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 break;
                             case 1:
                                 carne = "Ternera";
-                                preciocarne = "sin suplemento";
+                                preciocarne = 0;
                                 break;
                             case 2:
                                 carne = "Pollo";
-                                preciocarne = "sin suplemento";
+                                preciocarne = 0;
                                 break;
                             case 3:
                                 carne = "Cordero";
-                                preciocarne = "+1€";
+                                preciocarne = 1;
                                 contprecios += 1;
                                 break;
 
@@ -171,27 +171,27 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 break;
                             case 1:
                                 kebab = "Döner";
-                                preciokebab = "3€";
+                                preciokebab = 3;
                                 contprecios += 3;
                                 break;
                             case 2:
                                 kebab = "Durum";
-                                preciokebab = "4€";
+                                preciokebab = 4;
                                 contprecios += 4;
                                 break;
                             case 3:
                                 kebab = "Lamhacun";
-                                preciokebab = "5€";
+                                preciokebab = 5;
                                 contprecios += 5;
                                 break;
                             case 4:
                                 kebab = "Shawarma";
-                                preciokebab = "5€";
+                                preciokebab = 5;
                                 contprecios += 5;
                                 break;
                             case 5:
                                 kebab = "Gyros";
-                                preciokebab = "5€";
+                                preciokebab = 5;
                                 contprecios += 5;
                                 break;
                         }
@@ -202,7 +202,6 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
                 });
-
 
 
         btnAñadir.setOnClickListener(new View.OnClickListener() {
@@ -235,6 +234,8 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
 
         if (kebab != null && carne != null && tamaño != null) {
+            if (txtCantidad.getText().length()<1)
+                txtCantidad.setText("1");
 
             Comida comida = new Comida();
 
@@ -245,7 +246,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
             comida.setTipoTamaño(tamaño);
             comida.setPrecioTamaño(preciotamaño);
             comida.setPrecioTotalComida(contprecios);
-            //comida.setCantidad(Integer.valueOf(editText.getText()))
+            comida.setCantidad(Integer.valueOf(txtCantidad.getText().toString()));
 
             arraylistcomida.add(comida);
 

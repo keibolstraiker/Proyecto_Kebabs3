@@ -10,12 +10,12 @@ import java.io.Serializable;
 public class Comida implements Serializable {
 
     private String TipoKebab;
-    private String PrecioKebab;
+    private int PrecioKebab;
     private String TipoCarne;
-    private String PrecioCarne;
+    private int PrecioCarne;
     private String TipoTamaño;
-    private String PrecioTamaño;
-    private int PrecioTotalComida;
+    private int PrecioTamaño;
+    private int Precio;
     private int Cantidad;
 
     public int getCantidad() {
@@ -26,36 +26,36 @@ public class Comida implements Serializable {
         Cantidad = cantidad;
     }
 
-    public String getPrecioCarne() {
+    public int getPrecioCarne() {
         return PrecioCarne;
     }
 
-    public void setPrecioCarne(String precioCarne) {
+    public void setPrecioCarne(int precioCarne) {
         PrecioCarne = precioCarne;
     }
 
-    public String getPrecioKebab() {
+    public int getPrecioKebab() {
         return PrecioKebab;
     }
 
-    public void setPrecioKebab(String precioKebab) {
+    public void setPrecioKebab(int precioKebab) {
         PrecioKebab = precioKebab;
     }
 
-    public String getPrecioTamaño() {
+    public int getPrecioTamaño() {
         return PrecioTamaño;
     }
 
-    public void setPrecioTamaño(String precioTamaño) {
+    public void setPrecioTamaño(int precioTamaño) {
         PrecioTamaño = precioTamaño;
     }
 
     public int getPrecioTotalComida() {
-        return PrecioTotalComida;
+        return Precio;
     }
 
     public void setPrecioTotalComida(int precioTotalComida) {
-        PrecioTotalComida = precioTotalComida;
+        Precio = precioTotalComida;
     }
 
     public String getTipoTamaño() {

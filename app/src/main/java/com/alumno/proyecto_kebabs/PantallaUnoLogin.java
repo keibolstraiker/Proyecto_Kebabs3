@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class PantallaUnoLogin extends AppCompatActivity {
@@ -47,17 +48,6 @@ public class PantallaUnoLogin extends AppCompatActivity {
                                 cliente.setDireccion(dir.getText().toString());
                                 cliente.setTelefono(tel.getText().toString());
 
-
-                                //datos.add(nom.getText().toString());
-                                //datos.add(dir.getText().toString());
-                                //datos.add(tel.getText().toString());
-
-                                //Gari aquí hay un problema ya que estás haciendo "add" a datos y
-                                // es un metodo de arraylist y datos es un array normal de Strings
-                                //todavía no se como fucionan los arrayList lo tengo que mirar si no corregiría esto.
-                                //de echo ahora no me sale el array datos, creo que te lo he pisado de alguna manera,
-                                // tenemos que quedar para hacer esto
-
                                 LanzarActividadDos(cliente);
 
                             } else {
@@ -75,6 +65,19 @@ public class PantallaUnoLogin extends AppCompatActivity {
 
         });
 
+        comprobar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean res = comprobarExiste();
+                if(res == false) {
+                    Toast.makeText(getApplicationContext(), "Este nombre no ha sido aún registrado",
+                            Toast.LENGTH_LONG).show();
+                }else{
+                    rellenarCampos();
+                 }
+            }
+        });
+
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
 
@@ -85,24 +88,41 @@ public class PantallaUnoLogin extends AppCompatActivity {
     }
 public void LanzarActividadDos(Cliente c){
 
-    SentenciadorSQL sentsql = new SentenciadorSQL(this,"DBKebabs",null,1);
-    SQLiteDatabase db = sentsql.getWritableDatabase();
-    Cursor cursor = db.rawQuery(" SELECT count(*) FROM Clientes WHERE nombre = '"+nom.getText().toString()+"'", null);
-    cursor.moveToFirst();
-    if (cursor.getInt(0)==0) {
+    boolean res = comprobarExiste();
 
-        SentenciadorSQL sentsql1 = new SentenciadorSQL(this,"DBKebabs",null,1);
-        SQLiteDatabase db1 = sentsql1.getWritableDatabase();
-        ContentValues nuevoRegistro = new ContentValues();
-        nuevoRegistro.put("nombre", nom.getText().toString());
-        nuevoRegistro.put("direccion", dir.getText().toString());
-        nuevoRegistro.put("telefono", tel.getText().toString());
-        db1.insert("Clientes", null, nuevoRegistro);
-        db1.close();
+    if(res == false) {
+
+            SentenciadorSQL sentsql1 = new SentenciadorSQL(this, "DBKebabs", null, 1);
+            SQLiteDatabase db1 = sentsql1.getWritableDatabase();
+            ContentValues nuevoRegistro = new ContentValues();
+            nuevoRegistro.put("nombre", nom.getText().toString());
+            nuevoRegistro.put("direccion", dir.getText().toString());
+            nuevoRegistro.put("telefono", tel.getText().toString());
+            db1.insert("Clientes", null, nuevoRegistro);
+            db1.close();
     }
-    db.close();
     Intent i = new Intent(this, PantallaDosMenuComida.class);
     i.putExtra("cliente", c);
     startActivity(i);
 }
+    public boolean comprobarExiste(){
+
+        SentenciadorSQL sentsql = new SentenciadorSQL(this,"DBKebabs",null,1);
+        SQLiteDatabase db1 = sentsql.getWritableDatabase();
+        Cursor cursor = db1.rawQuery(" SELECT count(*) FROM Clientes WHERE nombre = '"+nom.getText().toString()+"'", null);
+        cursor.moveToFirst();
+        if (cursor.getInt(0)==0){
+            return false;}
+        else{
+            return true;}
+    }
+    public void rellenarCampos(){
+
+        SentenciadorSQL sentsql = new SentenciadorSQL(this, "DBKebabs", null, 1);
+        SQLiteDatabase db = sentsql.getWritableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT direccion, telefono FROM Clientes WHERE nombre = '" + nom.getText().toString() + "'", null);
+        cursor.moveToFirst();
+        dir.setText(cursor.getString(0));
+        tel.setText(cursor.getString(1));
+    }
 }
