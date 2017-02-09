@@ -13,15 +13,17 @@
         android:layout_weight="1"
         android:id="@+id/lblTítulo"
         android:textAlignment="center"
-        android:textSize="36sp"
+        android:textSize="46sp"
         android:textColor="@android:color/black"
-        android:textStyle="normal|bold" />
+        android:textStyle="normal|bold"
+        android:gravity="center" />
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
-        android:id="@+id/cmbTipoKebab" />
+        android:id="@+id/cmbTipoKebab"
+        android:foregroundTint="@android:color/black" />
 
     <Spinner
         android:layout_width="match_parent"
