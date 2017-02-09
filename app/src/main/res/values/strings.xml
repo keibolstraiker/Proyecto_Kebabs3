@@ -44,18 +44,18 @@
 
     </string-array>
     <!-- Comienzo de Strings de la actividad tres -->
-    <string name="lblCola">Cola  2€</string>
-    <string name="lblLimon">Limón  2€</string>
-    <string name="lblNaranja">Naranja  2€</string>
-    <string name="lblNestea">Nestea  3€</string>
-    <string name="lblCerveza">Cerveza  3€</string>
-    <string name="lblAgua">Agua  1€</string>
-    <string name="txtCola">Cant.</string>
-    <string name="txtLimon">Cant.</string>
-    <string name="txtNaranja">Cant.</string>
-    <string name="txtNestea">Cant.</string>
-    <string name="txtCerveza">Cant.</string>
-    <string name="txtAgua">Cant.</string>
+    <string name="lblCola">CocaCola</string>
+    <string name="lblLimon">Limón</string>
+    <string name="lblNaranja">Naranja</string>
+    <string name="lblNestea">Nestea</string>
+    <string name="lblCerveza">Cerveza</string>
+    <string name="lblAgua">Agua</string>
+    <string name="txtCola">Cantidad</string>
+    <string name="txtLimon">Cantidad</string>
+    <string name="txtNaranja">Cantidad</string>
+    <string name="txtNestea">Cantidad</string>
+    <string name="txtCerveza">Cantidad</string>
+    <string name="txtAgua">Cantidad</string>
     <string name="btnSiguiente3">Siguiente</string>
     <string name="btnSalir3">Salir</string>
 

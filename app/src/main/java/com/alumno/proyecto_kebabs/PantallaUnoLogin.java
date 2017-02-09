@@ -10,14 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-
 
 public class PantallaUnoLogin extends AppCompatActivity {
 
     private Button salir;
     private Button siguiente;
+    private Button comprobar;
     private TextView nom;
     private TextView dir;
     private TextView tel;
@@ -30,8 +28,9 @@ public class PantallaUnoLogin extends AppCompatActivity {
         nom = (TextView) findViewById(R.id.txtNombre);
         dir = (TextView) findViewById(R.id.txtDireccion);
         tel = (TextView) findViewById(R.id.txtTelefono);
-        siguiente = (Button) findViewById(R.id.btnSiguiente3);
+        siguiente = (Button) findViewById(R.id.btnSiguiente);
         salir = (Button) findViewById(R.id.btnSalir);
+        comprobar = (Button) findViewById(R.id.btnComprobarCliente);
 
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override

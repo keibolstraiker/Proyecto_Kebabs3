@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -54,23 +53,23 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
        // Bundle extras = getIntent().getExtras();
         //arraylistcomida = extras.getArrayList("comida");
 
-        txtCola = (EditText) findViewById(R.id.txtCola);
-        txtNaranja = (EditText) findViewById(R.id.txtNaranja);
-        txtLimon = (EditText) findViewById(R.id.txtLimon);
-        txtNestea = (EditText) findViewById(R.id.txtNestea);
-        txtCerveza = (EditText) findViewById(R.id.txtCerveza);
-        txtAgua = (EditText) findViewById(R.id.txtAgua);
+        txtCola = (EditText) findViewById(R.id.edtCantCola);
+        txtNaranja = (EditText) findViewById(R.id.edtCantNaranja);
+        txtLimon = (EditText) findViewById(R.id.edtCantLimon);
+        txtNestea = (EditText) findViewById(R.id.edtCantNestea);
+        txtCerveza = (EditText) findViewById(R.id.edtCantCerveza);
+        txtAgua = (EditText) findViewById(R.id.edtCantAgua);
 
-        lblPrecioCola = (TextView) findViewById(R.id.lblPrecioCola);
-        lblPrecioLimon = (TextView) findViewById(R.id.lblPrecioLimon);
-        lblPrecioNaranja = (TextView) findViewById(R.id.lblPrecioNaranja);
-        lblPrecioNestea = (TextView) findViewById(R.id.lblPrecioNestea);
-        lblPrecioCerveza= (TextView) findViewById(R.id.lblPrecioCerveza);
-        lblPrecioAgua = (TextView) findViewById(R.id.lblPrecioAgua);
-        lblTotal = (TextView) findViewById(R.id.lblTotal);
+        lblPrecioCola = (TextView) findViewById(R.id.txtPrecioCola);
+        lblPrecioLimon = (TextView) findViewById(R.id.txtPrecioLimon);
+        lblPrecioNaranja = (TextView) findViewById(R.id.txtPrecioNaranja);
+        lblPrecioNestea = (TextView) findViewById(R.id.txtPrecioNestea);
+        lblPrecioCerveza= (TextView) findViewById(R.id.txtPrecioCerveza);
+        lblPrecioAgua = (TextView) findViewById(R.id.txtPrecioAgua);
+        lblTotal = (TextView) findViewById(R.id.lblPrecioTotal);
 
         btnSiguiente3 = (Button) findViewById(R.id.btnSiguiente3);
-        btnSalir3 = (Button) findViewById(R.id.btnSalir3);
+        btnSalir3 = (Button) findViewById(R.id.btnSalir);
 
         txtCola.addTextChangedListener(new TextWatcher() {
 

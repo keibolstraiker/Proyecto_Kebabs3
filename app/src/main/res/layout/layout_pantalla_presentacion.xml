@@ -1,60 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/primera">
+    android:layout_height="wrap_content"
+    android:background="@drawable/login"
+    android:weightSum="4">
+
+
+
+    <TextView
+        android:text="@string/Título"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="2"
+        android:id="@+id/lblTítulo"
+        android:fontFamily="monospace"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:gravity="center_vertical|center_horizontal" />
 
     <TextView
         android:text="@string/Presentacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="109dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
         android:id="@+id/lblPresentación"
-        android:layout_alignRight="@+id/btnPulsar"
-        android:layout_alignEnd="@+id/btnPulsar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:textStyle="normal|bold"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textColor="@android:color/black"/>
 
-    <TextView
-        android:text="@string/Título"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:id="@+id/lblTítulo"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:fontFamily="monospace"
-        android:textSize="30sp"
-        android:textStyle="normal|bold"
-        android:textAlignment="center"
-        android:textColor="@android:color/black" />
-
-    <Button
-        android:text="@string/Ver_Mapa"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnPulsar"
-        android:background="@drawable/boton"
-        android:layout_above="@+id/btnSiguiente0"
-        android:layout_marginBottom="32dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
 
-    <Button
-        android:text="@string/btnSiguiente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="53dp"
-        android:id="@+id/btnSiguiente0"
-        android:background="@drawable/boton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-</RelativeLayout>
+        <Button
+            android:text="@string/Ver_Mapa"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnVerMapa"
+            android:layout_weight="1"
+            android:background="@drawable/boton"
+            android:textColor="@android:color/black"
+            android:textStyle="normal|bold"
+            android:textSize="20sp" />
+
+        <Button
+            android:text="@string/btnSiguiente"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSalir"
+            android:layout_weight="1"
+            android:background="@drawable/boton"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

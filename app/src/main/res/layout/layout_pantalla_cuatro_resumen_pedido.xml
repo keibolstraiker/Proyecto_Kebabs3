@@ -1,65 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:weightSum="1"
-    android:background="@drawable/pay1">
+    android:weightSum="4"
+    android:background="@drawable/login">
 
     <TextView
         android:text="@string/lblTituloResumen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_height="0dip"
+        android:layout_weight="0.6"
         android:id="@+id/lblTituloResumen"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:gravity="center"
         android:textSize="36sp"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:maxLines = "100"
         android:scrollbars = "vertical"/>
 
-    <Button
-        android:text="Atras"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnAtras"
-        android:layout_alignBaseline="@+id/btnRealizar"
-        android:layout_alignBottom="@+id/btnRealizar"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="68dp"
-        android:layout_marginEnd="68dp"
-        android:background="@drawable/boton" />
-
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="2.8"
         android:id="@+id/lblResumen"
-        android:layout_below="@+id/lblTituloResumen"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/btnAtras"
         android:textSize="30sp"
         android:textStyle="normal|bold"
         android:textColor="@android:color/white" />
 
-    <Button
-        android:text="Realizar Pedido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:id="@+id/btnRealizar"
-        android:layout_marginLeft="65dp"
-        android:layout_marginStart="65dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/boton" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:gravity="center_vertical">
 
-</RelativeLayout>
+        <Button
+            android:text="Salir"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSalir"
+            android:layout_weight="1"
+            android:background="@drawable/boton"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <Button
+            android:text="Siguiente"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSiguiente"
+            android:layout_weight="1"
+            android:background="@drawable/boton"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

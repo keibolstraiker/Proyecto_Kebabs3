@@ -8,11 +8,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -22,6 +22,8 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     int  contprecios=0;
 
     private TextView lblPedido;
+
+    private EditText txtCantidad;
 
     private Spinner cmbTipo_tamaño;
     private Spinner cmbTipo_carne;
@@ -48,6 +50,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
 
         lblPedido = (TextView) findViewById(R.id.lblTítulo);
+        txtCantidad = (EditText) findViewById(R.id.txtCantidad);
 
         cmbTipo_tamaño = (Spinner) findViewById(R.id.cmbTipoTamaño);
         cmbTipo_kebab = (Spinner) findViewById(R.id.cmbTipoKebab);
@@ -62,28 +65,28 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
         ArrayAdapter<CharSequence> adaptadorKebab =
                 ArrayAdapter.createFromResource
-                        (this, R.array.tipo_kebab, android.R.layout.simple_spinner_item);
+                        (this, R.array.tipo_kebab, R.layout.spinner_item);
         ArrayAdapter<CharSequence> adaptadorCarne =
                 ArrayAdapter.createFromResource
-                        (this, R.array.tipo_carne, android.R.layout.simple_spinner_item);
+                        (this, R.array.tipo_carne, R.layout.spinner_item);
         ArrayAdapter<CharSequence> adaptadorTamaño =
                 ArrayAdapter.createFromResource
-                        (this, R.array.tipo_tamaño, android.R.layout.simple_spinner_item);//el array adapter esta señalando al array de strings llamado tamaños
+                        (this, R.array.tipo_tamaño, R.layout.spinner_item);//el array adapter esta señalando al array de strings llamado tamaños
 
 
         adaptadorKebab.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item);
+                R.layout.spinner_dropdown_item);
         cmbTipo_kebab.setAdapter(adaptadorKebab);
 
 
 
         adaptadorCarne.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item);
+                R.layout.spinner_dropdown_item);
         cmbTipo_carne.setAdapter(adaptadorCarne);
 
 
         adaptadorTamaño.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item);
+                R.layout.spinner_dropdown_item);
 
 
 
@@ -116,7 +119,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                     }
                 });
         adaptadorCarne.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item);
+                R.layout.spinner_dropdown_item);
         cmbTipo_carne.setAdapter(adaptadorCarne);
 
         cmbTipo_carne.setOnItemSelectedListener(
@@ -154,7 +157,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                     }
                 });
         adaptadorTamaño.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item);
+                R.layout.spinner_dropdown_item);
         cmbTipo_kebab.setAdapter(adaptadorKebab);
 
         cmbTipo_kebab.setOnItemSelectedListener(
@@ -259,7 +262,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
     }
     public void lanzarSiguiente(Cliente c, ArrayList<Comida> a){
-        if (kebab !=null && carne !=null && tamaño !=null) {
+        if (arraylistcomida.size() != 0) {
 
         Intent i = new Intent(this,PantallaTresMenuBebida.class);
         i.putExtra("cliente",c);

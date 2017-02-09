@@ -43,8 +43,8 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         arraylistbebida = (ArrayList<Bebida>)getIntent().getExtras().getSerializable("bebida");
 
         resumen = (TextView) findViewById(R.id.lblResumen);
-        realizar = (Button) findViewById(R.id.btnRealizar);
-        atras = (Button) findViewById(R.id.btnAtras);
+        realizar = (Button) findViewById(R.id.btnSiguiente);
+        atras = (Button) findViewById(R.id.btnSalir);
 
 
         mostrarDatos();
@@ -163,9 +163,9 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
 
         SQLiteDatabase db = usdbh.getWritableDatabase();
-        Cursor cursor = db.rawQuery(" SELECT id_tipokebab FROM TipoKebab WHERE nombre = '"+arraylistcomida.get(i).getTipoKebab()+"'", null);
+        Cursor cursor = db.rawQuery("SELECT id_tipokebab FROM TipoKebab WHERE nombre = '"+arraylistcomida.get(i).getTipoKebab()+"'", null);
         cursor.moveToFirst();
-       int idkebab = cursor.getInt(0);
+        int idkebab = cursor.getInt(0);
         db.close();
 //Pillamos id tipocarne
         SentenciadorSQL usdbh1 = new SentenciadorSQL(this, "DBKebabs", null, 1);

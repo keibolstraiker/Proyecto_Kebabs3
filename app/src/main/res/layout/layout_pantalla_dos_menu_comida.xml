@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/food"
+    android:background="@drawable/login"
     android:weightSum="5">
 
 
@@ -10,7 +10,7 @@
         android:text="Escoja su pedido"
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="1"
+        android:layout_weight="0.9"
         android:id="@+id/lblTítulo"
         android:textAlignment="center"
         android:textSize="46sp"
@@ -21,21 +21,41 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="1"
+        android:layout_weight="0.9"
         android:id="@+id/cmbTipoKebab"
         android:foregroundTint="@android:color/black" />
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="1"
+        android:layout_weight="0.9"
         android:id="@+id/cmbTipoCarne" />
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="1"
+        android:layout_weight="0.9"
         android:id="@+id/cmbTipoTamaño" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.4"
+        android:gravity="center">
+
+        <EditText
+            android:layout_width="149dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:textAlignment="center"
+            android:hint="Cantidad"
+            android:textColorHint="@android:color/black" />
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -46,12 +66,26 @@
         android:weightSum="3">
 
         <Button
+            android:text="Salir"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSalir"
+            android:layout_weight="1"
+            android:background="@drawable/boton"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <Button
             android:text="Añadir"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:id="@+id/btnAñadir"
             android:layout_weight="1"
-            android:background="@drawable/boton" />
+            android:background="@drawable/boton"
+            android:textColor="@android:color/black"
+            android:textStyle="normal|bold"
+            android:textSize="20sp" />
 
         <Button
             android:text="Siguiente"
@@ -59,15 +93,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnSiguiente3"
             android:layout_weight="1"
-            android:background="@drawable/boton" />
+            android:background="@drawable/boton"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-        <Button
-            android:text="Salir"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnSalir"
-            android:layout_weight="1"
-            android:background="@drawable/boton" />
+
     </LinearLayout>
 
 </LinearLayout>

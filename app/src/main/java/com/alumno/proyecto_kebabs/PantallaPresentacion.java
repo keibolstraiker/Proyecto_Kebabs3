@@ -20,8 +20,8 @@ public class PantallaPresentacion extends AppCompatActivity {
         setContentView(R.layout.layout_pantalla_presentacion);
 
 
-        pulsar = (Button) findViewById(R.id.btnPulsar);
-        siguiente = (Button) findViewById(R.id.btnSiguiente0);
+        pulsar = (Button) findViewById(R.id.btnVerMapa);
+        siguiente = (Button) findViewById(R.id.btnSalir);
 
         pulsar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
