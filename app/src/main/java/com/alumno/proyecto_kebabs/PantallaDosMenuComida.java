@@ -60,7 +60,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
 
 
-        btnAñadir = (Button) findViewById(R.id.btnAñadir);
+        btnAñadir = (Button) findViewById(R.id.btnAñadir2);
         btnSiguiente = (Button) findViewById(R.id.btnSiguiente3);
         btnSalir = (Button) findViewById(R.id.btnSalir);
 
@@ -302,10 +302,17 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
         SQLiteDatabase db = usdbh.getWritableDatabase();
         Cursor cursor = db.rawQuery(" SELECT * FROM TipoKebab", null);
-        cursor.moveToFirst();
         ArrayList<String> spinner1 = new ArrayList<>();
-        spinner1.add(cursor.getString(1)+" "+String.valueOf(cursor.getInt(2)));
+        spinner1.add("Seleccione una opción");
+        if (cursor.moveToFirst()) {
+            do {
+                if(cursor.getInt(2)==0) {
+                    spinner1.add(cursor.getString(1) + "        (Sin Suplemento)");
 
+                }else
+                    spinner1.add(cursor.getString(1) + " " + String.valueOf(cursor.getInt(2))+" €");
+            } while (cursor.moveToNext());
+        }
         db.close();
         return spinner1;
     }
@@ -315,10 +322,17 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
         SQLiteDatabase db = usdbh.getWritableDatabase();
         Cursor cursor = db.rawQuery(" SELECT * FROM TipoCarne", null);
-        cursor.moveToFirst();
         ArrayList<String> spinner2 = new ArrayList<>();
-        spinner2.add(cursor.getString(1)+" "+String.valueOf(cursor.getInt(2)));
+        spinner2.add("Seleccione una opción");
+        if (cursor.moveToFirst()) {
+            do {
+                if(cursor.getInt(2)==0) {
+                    spinner2.add(cursor.getString(1) + "        (Sin Suplemento)");
 
+                }else
+                    spinner2.add(cursor.getString(1) + "    + " + String.valueOf(cursor.getInt(2))+" €");
+            } while (cursor.moveToNext());
+        }
         db.close();
         return spinner2;
     }
@@ -328,10 +342,17 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
         SQLiteDatabase db = usdbh.getWritableDatabase();
         Cursor cursor = db.rawQuery(" SELECT * FROM TipoTamaño", null);
-        cursor.moveToFirst();
         ArrayList<String> spinner3 = new ArrayList<>();
-        spinner3.add(cursor.getString(1)+" "+String.valueOf(cursor.getInt(2)));
+        spinner3.add("Seleccione una opción");
+        if (cursor.moveToFirst()) {
+            do {
+                if(cursor.getInt(2)==0) {
+                    spinner3.add(cursor.getString(1) + "       (Sin Suplemento)");
 
+                }else
+                    spinner3.add(cursor.getString(1) + "    + " + String.valueOf(cursor.getInt(2))+" €");
+            } while (cursor.moveToNext());
+        }
         db.close();
 
         return spinner3;

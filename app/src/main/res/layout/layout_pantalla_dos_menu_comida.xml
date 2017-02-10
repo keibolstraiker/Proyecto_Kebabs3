@@ -80,7 +80,7 @@
             android:text="Añadir"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:id="@+id/btnAñadir"
+            android:id="@+id/btnAñadir2"
             android:layout_weight="1"
             android:background="@drawable/boton"
             android:textColor="@android:color/black"

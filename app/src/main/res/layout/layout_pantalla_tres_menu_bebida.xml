@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="8.5"
+    android:weightSum="9.5"
     android:background="@drawable/login">
 
 
@@ -11,7 +11,7 @@
         android:text="Escoja su bebida"
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         android:id="@+id/lblPedido"
         android:textStyle="normal|bold"
         android:textSize="36sp"
@@ -22,258 +22,35 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="4.5"
         android:gravity="center">
 
-        <TextView
-            android:text="@string/lblCola"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtCola"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-        <EditText
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/edtCantCola"
-            android:textSize="24sp"
-            android:hint="Cantidad"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-        <TextView
-            android:text="Precio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPrecioCola"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
+            android:id="@+id/cmbBebida"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight="1"
+        android:layout_weight="1.3"
         android:gravity="center">
-
-        <TextView
-            android:text="@string/lblNaranja"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtNaranja"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
 
         <EditText
             android:layout_width="135dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/edtCantNaranja"
+            android:id="@+id/edtCantidad"
             android:textSize="24sp"
             android:hint="Cantidad"
             android:textColor="@android:color/black"
             android:textStyle="normal|bold"
-            android:layout_weight="0.01" />
+            android:textAlignment="center" />
 
-        <TextView
-            android:text="Precio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPrecioNaranja"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="center">
-
-        <TextView
-            android:text="@string/lblLimon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtLimon"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-        <EditText
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/edtCantLimon"
-            android:textSize="24sp"
-            android:hint="Cantidad"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-        <TextView
-            android:text="Precio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPrecioLimon"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="center">
-
-        <TextView
-            android:text="@string/lblNestea"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtNestea"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-        <EditText
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/edtCantNestea"
-            android:textSize="24sp"
-            android:hint="Cantidad"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-        <TextView
-            android:text="Precio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPrecioNestea"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="center">
-
-        <TextView
-            android:text="@string/lblCerveza"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtCerveza"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-        <EditText
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/edtCantCerveza"
-            android:textSize="24sp"
-            android:hint="Cantidad"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-        <TextView
-            android:text="Precio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPrecioCerveza"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="center">
-
-        <TextView
-            android:text="@string/lblAgua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtAgua"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-        <EditText
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/edtCantAgua"
-            android:textSize="24sp"
-            android:hint="Cantidad"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-        <TextView
-            android:text="Precio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPrecioAgua"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="0.5"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:text="Precio Total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/lblPrecioTotal"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            android:textStyle="normal|bold"
-            android:gravity="center" />
     </LinearLayout>
 
     <LinearLayout
@@ -281,6 +58,24 @@
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1">
+
+        <Button
+            android:text="Añadir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAñadir2"
+            android:layout_weight="0.22"
+            android:background="@drawable/boton"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1.2">
 
 
 

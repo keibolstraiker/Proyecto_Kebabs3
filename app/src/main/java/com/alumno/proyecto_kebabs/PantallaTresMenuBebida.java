@@ -1,14 +1,20 @@
 package com.alumno.proyecto_kebabs;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -16,27 +22,21 @@ import java.util.ArrayList;
 public class PantallaTresMenuBebida extends AppCompatActivity {
 
 
-    private EditText txtCola;
-    private EditText txtLimon;
-    private EditText txtNaranja;
-    private EditText txtNestea;
-    private EditText txtCerveza;
-    private EditText txtAgua;
-    private TextView lblPrecioCola;
-    private TextView lblPrecioLimon;
-    private TextView lblPrecioNaranja;
-    private TextView lblPrecioNestea;
-    private TextView lblPrecioCerveza;
-    private TextView lblPrecioAgua;
-    private TextView lblTotal;
+    private EditText cantidad;
+
     private Button btnSiguiente3;
     private Button btnSalir3;
+    private Button btnAñadir2;
+    private Spinner cmbBebida;
 
+    String tipobebida;
+
+    int precio,cant,contprecios = 0;
 
 
     ArrayList<Bebida> arraylistbebida = new ArrayList<>();
 
-    int totalcola, totallimon, totalnaranja, totalnestea, totalcerveza,totalagua,cantidadCo,cantidadNa,cantidadLi,cantidadNe,cantidadCe,cantidadAg,contprecios = 0;
+
     Cliente c;
     ArrayList<Comida> arraylistcomida;
 
@@ -50,173 +50,86 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
 
         arraylistcomida = (ArrayList<Comida>)getIntent().getExtras().getSerializable("comida");
 
+
        // Bundle extras = getIntent().getExtras();
         //arraylistcomida = extras.getArrayList("comida");
 
-        txtCola = (EditText) findViewById(R.id.edtCantCola);
-        txtNaranja = (EditText) findViewById(R.id.edtCantNaranja);
-        txtLimon = (EditText) findViewById(R.id.edtCantLimon);
-        txtNestea = (EditText) findViewById(R.id.edtCantNestea);
-        txtCerveza = (EditText) findViewById(R.id.edtCantCerveza);
-        txtAgua = (EditText) findViewById(R.id.edtCantAgua);
+        cmbBebida = (Spinner) findViewById(R.id.cmbBebida);
 
-        lblPrecioCola = (TextView) findViewById(R.id.txtPrecioCola);
-        lblPrecioLimon = (TextView) findViewById(R.id.txtPrecioLimon);
-        lblPrecioNaranja = (TextView) findViewById(R.id.txtPrecioNaranja);
-        lblPrecioNestea = (TextView) findViewById(R.id.txtPrecioNestea);
-        lblPrecioCerveza= (TextView) findViewById(R.id.txtPrecioCerveza);
-        lblPrecioAgua = (TextView) findViewById(R.id.txtPrecioAgua);
-        lblTotal = (TextView) findViewById(R.id.lblPrecioTotal);
+        cantidad = (EditText)  findViewById (R.id.edtCantidad);
+
 
         btnSiguiente3 = (Button) findViewById(R.id.btnSiguiente3);
         btnSalir3 = (Button) findViewById(R.id.btnSalir);
+        btnAñadir2 = (Button) findViewById(R.id.btnAñadir2);
 
-        txtCola.addTextChangedListener(new TextWatcher() {
+        ArrayAdapter<CharSequence> adaptadorBebida =
+                new ArrayAdapter
+                        (this, R.layout.spinner_item, spinnerBebida());
 
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int preciocola=2;
+        adaptadorBebida.setDropDownViewResource(
+                R.layout.spinner_dropdown_item);
+        cmbBebida.setAdapter(adaptadorBebida);
 
-                if (String.valueOf(s)==""){
-                    cantidadCo=0;
-                }else{
-                    cantidadCo = Integer.valueOf(s.toString());
-                }
+        cmbBebida.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> parent,
+                                               android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
 
-                totalcola = cantidadCo * preciocola;
-                lblPrecioCola.setText(String.valueOf(totalcola));
-                contprecios += Integer.parseInt(lblPrecioCola.getText().toString());
-                lblTotal.setText(String.valueOf(contprecios));
+                        switch (position) {
+                            case 0:
+                                tipobebida = null;
+                                break;
+                            case 1:
+                                tipobebida = "CocaCola";
+                                precio = 2;
+                                contprecios += 2;
+                                break;
+                            case 2:
+                                tipobebida = "Naranja";
+                                precio = 2;
+                                contprecios += 2;
+                                break;
+                            case 3:
+                                tipobebida = "Limon";
+                                precio = 2;
+                                contprecios += 2;
+                                break;
+                            case 4:
+                                tipobebida = "Nestea";
+                                precio = 3;
+                                contprecios += 3;
+                                break;
+                            case 5:
+                                tipobebida = "Cerveza";
+                                precio = 3;
+                                contprecios += 3;
+                                break;
+                            case 6:
+                                tipobebida = "Agua";
+                                precio = 1;
+                                contprecios += 1;
+                                break;
+                        }
+                    }
+
+                    public void onNothingSelected(AdapterView<?> parent) {
+                        Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        btnAñadir2.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                añadirBebidas();
             }
-            @Override
-            public void afterTextChanged(Editable s) {
-
-
-            }});
-
-        txtNaranja.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int precionaranja=2;
-                if (String.valueOf(s)==""){
-                    cantidadNa=0;
-                }else{
-                    cantidadNa = Integer.valueOf(s.toString());
-                }
-
-                totalnaranja = cantidadNa * precionaranja;
-                lblPrecioNaranja.setText(String.valueOf(totalnaranja));
-                contprecios += Integer.parseInt(lblPrecioNaranja.getText().toString());
-                lblTotal.setText(String.valueOf(contprecios)+"€");
-            }
-            @Override
-
-            public void afterTextChanged(Editable s) {
-
-            }});
-
-        txtLimon.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int preciolimon=2;
-                if (String.valueOf(s)==""){
-                    cantidadLi=0;
-                }else{
-                    cantidadLi = Integer.valueOf(s.toString());
-                }
-
-                totallimon = cantidadLi * preciolimon;
-                lblPrecioLimon.setText(String.valueOf(totallimon));
-                contprecios += Integer.parseInt(lblPrecioLimon.getText().toString());
-                lblTotal.setText(String.valueOf(contprecios));
-            }
-            @Override
-            public void afterTextChanged(Editable s) {
-            }});
-
-        txtNestea.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int precionestea=3;
-                if (String.valueOf(s)==""){
-                    cantidadNe=0;
-                }else{
-                    cantidadNe = Integer.valueOf(s.toString());
-                }
-
-                totalnestea = cantidadNe * precionestea;
-                lblPrecioNestea.setText(String.valueOf(totalnestea));
-                contprecios += Integer.parseInt(lblPrecioNestea.getText().toString());
-                lblTotal.setText(String.valueOf(contprecios));
-            }
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }});
-
-        txtCerveza.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int preciocerveza=3;
-                if (String.valueOf(s)==""){
-                    cantidadCe=0;
-                }else{
-                    cantidadCe = Integer.valueOf(s.toString());
-                }
-
-                totalcerveza = cantidadCe * preciocerveza;
-                lblPrecioCerveza.setText(String.valueOf(totalcerveza));
-                contprecios += Integer.parseInt(lblPrecioCerveza.getText().toString());
-                lblTotal.setText(String.valueOf(contprecios));
-            }
-
-
-            public void afterTextChanged(Editable s) {
-
-            }});
-
-        txtAgua.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int precioagua=1;
-                if (String.valueOf(s)==""){
-                    cantidadAg=0;
-                }else{
-                    cantidadAg = Integer.valueOf(s.toString());
-                }
-
-                totalagua = cantidadAg * precioagua;
-                lblPrecioAgua.setText(String.valueOf(totalagua));
-                contprecios += Integer.parseInt(lblPrecioAgua.getText().toString());
-                lblTotal.setText(String.valueOf(contprecios));
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {}});
-
-
+        });
 
         btnSiguiente3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 
-                ContabilizarBebidas();
+
                 lanzarSiguiente(c,arraylistcomida,arraylistbebida);
             }
         });
@@ -229,37 +142,25 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         });
     }
 
-        public void ContabilizarBebidas (){
+        public void añadirBebidas (){
 
-            if (txtCola.getText().length()>0){
-                Bebida bebida = new Bebida ("CocaCola",totalcola,cantidadCo);
-                arraylistbebida.add(bebida);
+            if ( tipobebida != null) {
+                if (cantidad.getText().toString().equals("") || Integer.valueOf(cantidad.getText().toString())<1){
+                    cantidad.setText("1");
                 }
 
-            if (txtLimon.getText().length()>0){
-                Bebida bebida = new Bebida ("Limon",totallimon,cantidadLi);
+                Bebida bebida = new Bebida(tipobebida, precio, cant);
                 arraylistbebida.add(bebida);
-                }
 
-            if (txtNaranja.getText().length()>0){
-                Bebida bebida = new Bebida ("Naranja",totalnaranja,cantidadNa);
-                arraylistbebida.add(bebida);
-               }
+                cmbBebida.setSelection(0);
+                cantidad.setHint("Cantidad");
+            }else{
 
-            if (txtNestea.getText().length()>0){
-                Bebida bebida = new Bebida ("Nestea",totalnestea,cantidadNe);
-                arraylistbebida.add(bebida);
-                }
+                Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
+                        Toast.LENGTH_LONG).show();
+            }
 
-            if (txtCerveza.getText().length()>0){
-                Bebida bebida = new Bebida ("Cerveza",totalcerveza,cantidadCe);
-                arraylistbebida.add(bebida);
-                }
 
-            if (txtAgua.getText().length()>0){
-                Bebida bebida = new Bebida ("Agua",totalagua,cantidadAg);
-                arraylistbebida.add(bebida);
-                }
         }
 
     public void lanzarSiguiente(Cliente c, ArrayList<Comida> a, ArrayList<Bebida> b){
@@ -275,4 +176,22 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
     public void lanzarSalir(){
         finish();
     }
+    public ArrayList<String> spinnerBebida(){
+
+        SentenciadorSQL usdbh =
+                new SentenciadorSQL(this, "DBKebabs", null, 1);
+
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT * FROM Bebidas", null);
+        ArrayList<String> spinner4 = new ArrayList<>();
+        spinner4.add("Seleccione una opción");
+        if (cursor.moveToFirst()) {
+            do {
+                spinner4.add(cursor.getString(1) + "    + " + String.valueOf(cursor.getInt(2))+" €");
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        return spinner4;
+    }
+
 }
