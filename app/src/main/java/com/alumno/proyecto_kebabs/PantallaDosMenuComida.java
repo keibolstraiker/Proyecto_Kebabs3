@@ -63,6 +63,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         btnSalir = (Button) findViewById(R.id.btnSalir);
 
 
+
         ArrayAdapter<CharSequence> adaptadorKebab =
                 ArrayAdapter.createFromResource
                         (this, R.array.tipo_kebab, R.layout.spinner_item);

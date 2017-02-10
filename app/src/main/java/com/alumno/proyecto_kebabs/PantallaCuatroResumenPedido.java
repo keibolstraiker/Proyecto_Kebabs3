@@ -146,7 +146,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         db.close();
 
 //Pillamos la fecha de hoy
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyy");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
 
         //Creamos el registro a insertar como objeto ContentValues

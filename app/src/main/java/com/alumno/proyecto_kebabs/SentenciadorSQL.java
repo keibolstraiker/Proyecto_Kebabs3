@@ -16,12 +16,13 @@ public class SentenciadorSQL extends SQLiteOpenHelper {
     String tipocarne = "CREATE TABLE TipoCarne (id_tipocarne  INTEGER PRIMARY KEY , nombre TEXT, precio INTEGER)";
     String tipotamaño = "CREATE TABLE TipoTamaño (id_tipotamaño  INTEGER PRIMARY KEY , nombre TEXT, precio INTEGER)";
     String bebida = "CREATE TABLE Bebidas (id_bebida INTEGER PRIMARY KEY , nombre TEXT)";
+    String pedido = "CREATE TABLE Pedidos (id_pedido INTEGER PRIMARY KEY , id_cliente INTEGER, fecha DATE, precio_total INTEGER," +
+            " FOREIGN KEY(id_cliente) REFERENCES Clientes(id_cliente))";
     String lineas = "CREATE TABLE Lineas (id_linea INTEGER  , id_pedido INTEGER ,id_tipokebab INTEGER,id_tipocarne INTEGER," +
             "id_tipotamaño INTEGER, id_bebida INTEGER, cantidad INTEGER, precio INTEGER, PRIMARY KEY(id_linea,id_pedido),FOREIGN KEY(id_pedido) REFERENCES Pedidos(id_pedido)," +
             " FOREIGN KEY(id_tipokebab) REFERENCES TipoKebab(id_tipokebab),FOREIGN KEY(id_tipocarne) REFERENCES TipoCarne(id_tipocarne)," +
             "FOREIGN KEY(id_tipotamaño) REFERENCES TipoTamaño(id_tipotamaño), FOREIGN KEY(id_bebida) REFERENCES Bebidas(id_bebida))";
-    String pedido = "CREATE TABLE Pedidos (id_pedido INTEGER PRIMARY KEY , id_cliente INTEGER, fecha DATE, precio_total INTEGER," +
-            " FOREIGN KEY(id_cliente) REFERENCES Clientes(id_cliente))";
+
     //Inserción de cliente Admin
     //Inserción de comidas
     String tk1 = "INSERT INTO TipoKebab(nombre,precio) VALUES('Doner',3)";

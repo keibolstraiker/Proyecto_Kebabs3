@@ -36,7 +36,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
 
     ArrayList<Bebida> arraylistbebida = new ArrayList<>();
 
-    int totalcola, totallimon, totalnaranja, totalnestea, totalcerveza,totalagua,cantidad,contprecios = 0;
+    int totalcola, totallimon, totalnaranja, totalnestea, totalcerveza,totalagua,cantidadCo,cantidadNa,cantidadLi,cantidadNe,cantidadCe,cantidadAg,contprecios = 0;
     Cliente c;
     ArrayList<Comida> arraylistcomida;
 
@@ -80,12 +80,12 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
                 int preciocola=2;
 
                 if (String.valueOf(s)==""){
-                    cantidad=0;
+                    cantidadCo=0;
                 }else{
-                    cantidad = Integer.valueOf(s.toString());
+                    cantidadCo = Integer.valueOf(s.toString());
                 }
 
-                totalcola = cantidad * preciocola;
+                totalcola = cantidadCo * preciocola;
                 lblPrecioCola.setText(String.valueOf(totalcola));
                 contprecios += Integer.parseInt(lblPrecioCola.getText().toString());
                 lblTotal.setText(String.valueOf(contprecios));
@@ -104,12 +104,12 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 int precionaranja=2;
                 if (String.valueOf(s)==""){
-                    cantidad=0;
+                    cantidadNa=0;
                 }else{
-                    cantidad = Integer.valueOf(s.toString());
+                    cantidadNa = Integer.valueOf(s.toString());
                 }
 
-                totalnaranja = cantidad * precionaranja;
+                totalnaranja = cantidadNa * precionaranja;
                 lblPrecioNaranja.setText(String.valueOf(totalnaranja));
                 contprecios += Integer.parseInt(lblPrecioNaranja.getText().toString());
                 lblTotal.setText(String.valueOf(contprecios)+"€");
@@ -128,12 +128,12 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 int preciolimon=2;
                 if (String.valueOf(s)==""){
-                    cantidad=0;
+                    cantidadLi=0;
                 }else{
-                    cantidad = Integer.valueOf(s.toString());
+                    cantidadLi = Integer.valueOf(s.toString());
                 }
 
-                totallimon = cantidad * preciolimon;
+                totallimon = cantidadLi * preciolimon;
                 lblPrecioLimon.setText(String.valueOf(totallimon));
                 contprecios += Integer.parseInt(lblPrecioLimon.getText().toString());
                 lblTotal.setText(String.valueOf(contprecios));
@@ -150,12 +150,12 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 int precionestea=3;
                 if (String.valueOf(s)==""){
-                    cantidad=0;
+                    cantidadNe=0;
                 }else{
-                    cantidad = Integer.valueOf(s.toString());
+                    cantidadNe = Integer.valueOf(s.toString());
                 }
 
-                totalnestea = cantidad * precionestea;
+                totalnestea = cantidadNe * precionestea;
                 lblPrecioNestea.setText(String.valueOf(totalnestea));
                 contprecios += Integer.parseInt(lblPrecioNestea.getText().toString());
                 lblTotal.setText(String.valueOf(contprecios));
@@ -173,12 +173,12 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 int preciocerveza=3;
                 if (String.valueOf(s)==""){
-                    cantidad=0;
+                    cantidadCe=0;
                 }else{
-                    cantidad = Integer.valueOf(s.toString());
+                    cantidadCe = Integer.valueOf(s.toString());
                 }
 
-                totalcerveza = cantidad * preciocerveza;
+                totalcerveza = cantidadCe * preciocerveza;
                 lblPrecioCerveza.setText(String.valueOf(totalcerveza));
                 contprecios += Integer.parseInt(lblPrecioCerveza.getText().toString());
                 lblTotal.setText(String.valueOf(contprecios));
@@ -197,12 +197,12 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 int precioagua=1;
                 if (String.valueOf(s)==""){
-                    cantidad=0;
+                    cantidadAg=0;
                 }else{
-                    cantidad = Integer.valueOf(s.toString());
+                    cantidadAg = Integer.valueOf(s.toString());
                 }
 
-                totalagua = cantidad * precioagua;
+                totalagua = cantidadAg * precioagua;
                 lblPrecioAgua.setText(String.valueOf(totalagua));
                 contprecios += Integer.parseInt(lblPrecioAgua.getText().toString());
                 lblTotal.setText(String.valueOf(contprecios));
@@ -232,32 +232,32 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         public void ContabilizarBebidas (){
 
             if (txtCola.getText().length()>0){
-                Bebida bebida = new Bebida ("CocaCola",totalcola,cantidad);
+                Bebida bebida = new Bebida ("CocaCola",totalcola,cantidadCo);
                 arraylistbebida.add(bebida);
                 }
 
             if (txtLimon.getText().length()>0){
-                Bebida bebida = new Bebida ("Limon",totallimon,cantidad);
+                Bebida bebida = new Bebida ("Limon",totallimon,cantidadLi);
                 arraylistbebida.add(bebida);
                 }
 
             if (txtNaranja.getText().length()>0){
-                Bebida bebida = new Bebida ("Naranja",totalnaranja,cantidad);
+                Bebida bebida = new Bebida ("Naranja",totalnaranja,cantidadNa);
                 arraylistbebida.add(bebida);
                }
 
             if (txtNestea.getText().length()>0){
-                Bebida bebida = new Bebida ("Nestea",totalnestea,cantidad);
+                Bebida bebida = new Bebida ("Nestea",totalnestea,cantidadNe);
                 arraylistbebida.add(bebida);
                 }
 
             if (txtCerveza.getText().length()>0){
-                Bebida bebida = new Bebida ("Cerveza",totalcerveza,cantidad);
+                Bebida bebida = new Bebida ("Cerveza",totalcerveza,cantidadCe);
                 arraylistbebida.add(bebida);
                 }
 
             if (txtAgua.getText().length()>0){
-                Bebida bebida = new Bebida ("Agua",totalagua,cantidad);
+                Bebida bebida = new Bebida ("Agua",totalagua,cantidadAg);
                 arraylistbebida.add(bebida);
                 }
         }
