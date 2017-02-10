@@ -2,6 +2,8 @@ package com.alumno.proyecto_kebabs;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -64,15 +66,16 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
 
 
+
         ArrayAdapter<CharSequence> adaptadorKebab =
-                ArrayAdapter.createFromResource
-                        (this, R.array.tipo_kebab, R.layout.spinner_item);
+                new ArrayAdapter
+                        (this, R.layout.spinner_item, spinnerKebab());
         ArrayAdapter<CharSequence> adaptadorCarne =
-                ArrayAdapter.createFromResource
-                        (this, R.array.tipo_carne, R.layout.spinner_item);
+                new ArrayAdapter
+                        (this,  R.layout.spinner_item, spinnerCarne());
         ArrayAdapter<CharSequence> adaptadorTamaño =
-                ArrayAdapter.createFromResource
-                        (this, R.array.tipo_tamaño, R.layout.spinner_item);//el array adapter esta señalando al array de strings llamado tamaños
+                new ArrayAdapter
+                        (this,  R.layout.spinner_item, spinnerTamaño());//el array adapter esta señalando al array de strings llamado tamaños
 
 
         adaptadorKebab.setDropDownViewResource(
@@ -292,6 +295,46 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         Intent intent = getIntent();
         finish();
         startActivity(intent);
+    }
+    public ArrayList<String> spinnerKebab(){
+        SentenciadorSQL usdbh =
+                new SentenciadorSQL(this, "DBKebabs", null, 1);
+
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT * FROM TipoKebab", null);
+        cursor.moveToFirst();
+        ArrayList<String> spinner1 = new ArrayList<>();
+        spinner1.add(cursor.getString(1)+" "+String.valueOf(cursor.getInt(2)));
+
+        db.close();
+        return spinner1;
+    }
+    public ArrayList<String> spinnerCarne(){
+        SentenciadorSQL usdbh =
+                new SentenciadorSQL(this, "DBKebabs", null, 1);
+
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT * FROM TipoCarne", null);
+        cursor.moveToFirst();
+        ArrayList<String> spinner2 = new ArrayList<>();
+        spinner2.add(cursor.getString(1)+" "+String.valueOf(cursor.getInt(2)));
+
+        db.close();
+        return spinner2;
+    }
+    public ArrayList<String> spinnerTamaño(){
+        SentenciadorSQL usdbh =
+                new SentenciadorSQL(this, "DBKebabs", null, 1);
+
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT * FROM TipoTamaño", null);
+        cursor.moveToFirst();
+        ArrayList<String> spinner3 = new ArrayList<>();
+        spinner3.add(cursor.getString(1)+" "+String.valueOf(cursor.getInt(2)));
+
+        db.close();
+
+        return spinner3;
     }
 
 }
