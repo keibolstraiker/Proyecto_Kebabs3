@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="6"
+    android:background="@drawable/login">
+
+    <TextView
+        android:text="Listado de Pedidos"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1.2"
+        android:id="@+id/lblListado"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textColor="@android:color/black"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="3.8">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listListado" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <Button
+            android:text="Volver"
+            android:layout_weight="0.55"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boton"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:id="@+id/btnSalir"
+            android:textAlignment="center"
+            android:gravity="center" />
+
+    </LinearLayout>
+</LinearLayout>

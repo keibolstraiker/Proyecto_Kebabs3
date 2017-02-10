@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/txtCantidad"
             android:textSize="24sp"
             android:textStyle="normal|bold"
             android:textAlignment="center"

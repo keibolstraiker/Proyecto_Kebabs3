@@ -233,10 +233,12 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     public void lanzarAñadir(){
 
 
-        if (kebab != null && carne != null && tamaño != null) {
-            if (txtCantidad.getText().length()<1)
-                txtCantidad.setText("1");
 
+        if (kebab != null && carne != null && tamaño != null) {
+            if (txtCantidad.getHint().toString().equals("Cantidad") || Integer.valueOf(txtCantidad.getText().toString())<1){
+                txtCantidad.setText("1");
+            }
+            int cantidad = Integer.valueOf(txtCantidad.getText().toString());
             Comida comida = new Comida();
 
             comida.setTipoKebab(kebab);
@@ -246,13 +248,13 @@ public class PantallaDosMenuComida extends AppCompatActivity {
             comida.setTipoTamaño(tamaño);
             comida.setPrecioTamaño(preciotamaño);
             comida.setPrecioTotalComida(contprecios);
-            comida.setCantidad(Integer.valueOf(txtCantidad.getText().toString()));
-
+            comida.setCantidad(cantidad);
             arraylistcomida.add(comida);
 
             cmbTipo_kebab.setSelection(0);
             cmbTipo_carne.setSelection(0);
             cmbTipo_tamaño.setSelection(0);
+            txtCantidad.setHint("Cantidad");
 
         } else {
 

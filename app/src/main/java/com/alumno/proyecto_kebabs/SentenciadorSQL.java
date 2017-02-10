@@ -7,9 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
         import android.database.sqlite.SQLiteDatabase.CursorFactory;
         import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by adminportatil on 08/02/2017.
- */
+
 public class SentenciadorSQL extends SQLiteOpenHelper {
 
     //Sentencias SQL para crear las tablas
@@ -37,12 +35,12 @@ public class SentenciadorSQL extends SQLiteOpenHelper {
     String tt1 = "INSERT INTO TipoTamaño(nombre,precio) VALUES('Normal',0)";
     String tt2 = "INSERT INTO TipoTamaño(nombre,precio) VALUES('Completa',1)";
     //Inserción de bebidas
-    String cola = "INSERT INTO Bebidas(nombre) VALUES(`CocaCola`)";
-    String naranja = "INSERT INTO Bebidas(nombre) VALUES(`Naranja`)";
-    String limon = "INSERT INTO Bebidas(nombre) VALUES(`Limon`)";
-    String nestea = "INSERT INTO Bebidas(nombre) VALUES(`Nestea`)";
-    String cerveza = "INSERT INTO Bebidas(nombre) VALUES(`Cerveza`)";
-    String agua = "INSERT INTO Bebidas(nombre) VALUES(`Agua`)";
+    String cola = "INSERT INTO Bebidas(nombre) VALUES('CocaCola')";
+    String naranja = "INSERT INTO Bebidas(nombre) VALUES('Naranja')";
+    String limon = "INSERT INTO Bebidas(nombre) VALUES('Limon')";
+    String nestea = "INSERT INTO Bebidas(nombre) VALUES('Nestea')";
+    String cerveza = "INSERT INTO Bebidas(nombre) VALUES('Cerveza')";
+    String agua = "INSERT INTO Bebidas(nombre) VALUES('Agua')";
 
     public SentenciadorSQL(Context contexto, String nombre,
                                 CursorFactory factory, int version) {
