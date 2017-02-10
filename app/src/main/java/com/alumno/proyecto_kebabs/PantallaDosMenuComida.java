@@ -63,6 +63,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         btnSalir = (Button) findViewById(R.id.btnSalir);
 
 
+
         ArrayAdapter<CharSequence> adaptadorKebab =
                 ArrayAdapter.createFromResource
                         (this, R.array.tipo_kebab, R.layout.spinner_item);
@@ -235,7 +236,7 @@ public class PantallaDosMenuComida extends AppCompatActivity {
 
 
         if (kebab != null && carne != null && tamaño != null) {
-            if (txtCantidad.getHint().toString().equals("Cantidad") || Integer.valueOf(txtCantidad.getText().toString())<1){
+            if (txtCantidad.getText().toString().equals("") || Integer.valueOf(txtCantidad.getText().toString())<1){
                 txtCantidad.setText("1");
             }
             int cantidad = Integer.valueOf(txtCantidad.getText().toString());
