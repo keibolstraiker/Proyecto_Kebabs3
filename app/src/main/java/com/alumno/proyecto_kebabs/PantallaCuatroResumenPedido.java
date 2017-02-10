@@ -24,6 +24,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
     private TextView resumen;
     private Button realizar;
     private Button atras;
+    private Button consultar;
 
     String texto;
     int totalpedido,bebidaAcumulado = 0, precioCombo = 0, clave,comidaAcumulado;
@@ -45,6 +46,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         resumen = (TextView) findViewById(R.id.lblResumen);
         realizar = (Button) findViewById(R.id.btnSiguiente);
         atras = (Button) findViewById(R.id.btnSalir);
+        consultar = (Button) findViewById(R.id.btnConsultaPedidos);
 
 
         mostrarDatos();
@@ -66,6 +68,12 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
                 lanzarAtras();
             }
         });
+        consultar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lanzarConsulta();
+            }
+        });
     }
 
        public void mostrarDatos(){
@@ -79,7 +87,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         int cont1 = 0, cont2 = 0;
         for(int i=0;i<=(arraylistcomida.size()-1);i++) { // Se recorre el arraylist de la comida.
 
-            texto += arraylistcomida.get(i).getCantidad() + "DE:\n";
+            texto += arraylistcomida.get(i).getCantidad() + " DE:\n";
             texto += arraylistcomida.get(i).getTipoKebab() + "  " + arraylistcomida.get(i).getPrecioKebab()+"€\n";
             texto += arraylistcomida.get(i).getTipoCarne() + "  +" + arraylistcomida.get(i).getPrecioCarne()+"€\n";
             texto += arraylistcomida.get(i).getTipoTamaño() + "  +" + arraylistcomida.get(i).getPrecioTamaño()+"€\n";
@@ -252,5 +260,10 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         db.insert("Lineas", null, nuevoRegistro);
         db.close();
 
+    }
+
+    public void lanzarConsulta(){
+        Intent in = new Intent(this,PantallaCincoConsultarPedidos.class);
+        startActivity(in);
     }
 }

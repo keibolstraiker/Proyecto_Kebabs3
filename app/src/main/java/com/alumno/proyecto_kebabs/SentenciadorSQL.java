@@ -15,7 +15,7 @@ public class SentenciadorSQL extends SQLiteOpenHelper {
     String tipokebab = "CREATE TABLE TipoKebab (id_tipokebab  INTEGER PRIMARY KEY , nombre TEXT, precio INTEGER)";
     String tipocarne = "CREATE TABLE TipoCarne (id_tipocarne  INTEGER PRIMARY KEY , nombre TEXT, precio INTEGER)";
     String tipotamaño = "CREATE TABLE TipoTamaño (id_tipotamaño  INTEGER PRIMARY KEY , nombre TEXT, precio INTEGER)";
-    String bebida = "CREATE TABLE Bebidas (id_bebida INTEGER PRIMARY KEY , nombre TEXT)";
+    String bebida = "CREATE TABLE Bebidas (id_bebida INTEGER PRIMARY KEY , nombre TEXT, precio INTEGER)";
     String pedido = "CREATE TABLE Pedidos (id_pedido INTEGER PRIMARY KEY , id_cliente INTEGER, fecha DATE, precio_total INTEGER," +
             " FOREIGN KEY(id_cliente) REFERENCES Clientes(id_cliente))";
     String lineas = "CREATE TABLE Lineas (id_linea INTEGER  , id_pedido INTEGER ,id_tipokebab INTEGER,id_tipocarne INTEGER," +
@@ -36,12 +36,12 @@ public class SentenciadorSQL extends SQLiteOpenHelper {
     String tt1 = "INSERT INTO TipoTamaño(nombre,precio) VALUES('Normal',0)";
     String tt2 = "INSERT INTO TipoTamaño(nombre,precio) VALUES('Completa',1)";
     //Inserción de bebidas
-    String cola = "INSERT INTO Bebidas(nombre) VALUES('CocaCola')";
-    String naranja = "INSERT INTO Bebidas(nombre) VALUES('Naranja')";
-    String limon = "INSERT INTO Bebidas(nombre) VALUES('Limon')";
-    String nestea = "INSERT INTO Bebidas(nombre) VALUES('Nestea')";
-    String cerveza = "INSERT INTO Bebidas(nombre) VALUES('Cerveza')";
-    String agua = "INSERT INTO Bebidas(nombre) VALUES('Agua')";
+    String cola = "INSERT INTO Bebidas(nombre, precio) VALUES('CocaCola',2)";
+    String naranja = "INSERT INTO Bebidas(nombre, precio) VALUES('Naranja',2)";
+    String limon = "INSERT INTO Bebidas(nombre, precio) VALUES('Limon',2)";
+    String nestea = "INSERT INTO Bebidas(nombre, precio) VALUES('Nestea',3)";
+    String cerveza = "INSERT INTO Bebidas(nombre, precio) VALUES('Cerveza',3)";
+    String agua = "INSERT INTO Bebidas(nombre, precio) VALUES('Agua',1)";
 
     public SentenciadorSQL(Context contexto, String nombre,
                                 CursorFactory factory, int version) {

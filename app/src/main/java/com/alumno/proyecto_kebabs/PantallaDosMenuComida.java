@@ -31,11 +31,10 @@ public class PantallaDosMenuComida extends AppCompatActivity {
     private Spinner cmbTipo_carne;
     private Spinner cmbTipo_kebab;
 
-
-
     private Button btnAñadir;
     private Button btnSalir;
     private Button btnSiguiente;
+    private Button btnBorrar;
 
 
     ArrayList<Comida> arraylistcomida = new ArrayList<>();
@@ -58,10 +57,9 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         cmbTipo_kebab = (Spinner) findViewById(R.id.cmbTipoKebab);
         cmbTipo_carne = (Spinner) findViewById(R.id.cmbTipoCarne);
 
-
-
         btnAñadir = (Button) findViewById(R.id.btnAñadir2);
         btnSiguiente = (Button) findViewById(R.id.btnSiguiente3);
+        btnBorrar = (Button) findViewById(R.id.btnBorrar);
         btnSalir = (Button) findViewById(R.id.btnSalir);
 
 
@@ -223,6 +221,15 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                 lanzarSalir();
             }
         });
+        btnBorrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arraylistcomida.remove(arraylistcomida.size()-1);
+                Toast.makeText(getApplicationContext(), "Borrada última combinación",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
     }//aqui termina el OnCreate
 
     /*@Override

@@ -67,21 +67,30 @@
 
         <Button
             android:text="Salir"
-            android:layout_width="0dip"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnSalir"
-            android:layout_weight="1"
             android:background="@drawable/boton"
             android:textStyle="normal|bold"
             android:textColor="@android:color/black"
             android:textSize="20sp" />
 
         <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:text="Borrar anterior"
+            android:id="@+id/btnBorrar"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:background="@drawable/boton"
+            android:textSize="15sp" />
+
+        <Button
             android:text="Añadir"
-            android:layout_width="0dip"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnAñadir2"
-            android:layout_weight="1"
             android:background="@drawable/boton"
             android:textColor="@android:color/black"
             android:textStyle="normal|bold"
@@ -89,10 +98,9 @@
 
         <Button
             android:text="Siguiente"
-            android:layout_width="0dip"
+            android:layout_width="167dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnSiguiente3"
-            android:layout_weight="1"
             android:background="@drawable/boton"
             android:textStyle="normal|bold"
             android:textColor="@android:color/black"
