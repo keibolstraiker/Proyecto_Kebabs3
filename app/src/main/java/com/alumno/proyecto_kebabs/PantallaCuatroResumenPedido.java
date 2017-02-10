@@ -84,7 +84,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
             texto += arraylistcomida.get(i).getTipoCarne() + "  +" + arraylistcomida.get(i).getPrecioCarne()+"€\n";
             texto += arraylistcomida.get(i).getTipoTamaño() + "  +" + arraylistcomida.get(i).getPrecioTamaño()+"€\n";
             precioCombo = arraylistcomida.get(i).getPrecioKebab() + arraylistcomida.get(i).getPrecioCarne() + arraylistcomida.get(i).getPrecioTamaño();
-            comidaAcumulado += arraylistcomida.get(i).getPrecioKebab() + arraylistcomida.get(i).getPrecioCarne() + arraylistcomida.get(i).getPrecioTamaño();
+            comidaAcumulado += (arraylistcomida.get(i).getPrecioKebab() + arraylistcomida.get(i).getPrecioCarne() + arraylistcomida.get(i).getPrecioTamaño())*arraylistcomida.get(i).getCantidad();
             texto +="PRECIO:  " + precioCombo + "€\n\n";
         }
         texto +="PRECIO COMIDA: "+ comidaAcumulado + "€\n\n";
