@@ -122,11 +122,13 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
 
         insertarPedido();
         obtenerIdPedido();
+        int cont=0;
 
         for (int i=0; i<=arraylistcomida.size()-1;i++){
             precioCombo = arraylistcomida.get(i).getPrecioKebab() + arraylistcomida.get(i).getPrecioCarne() + arraylistcomida.get(i).getPrecioTamaño();
-            insertarLineasComida(i,precioCombo);}
-        for (int i=0; i<=arraylistbebida.size()-1;i++){
+            insertarLineasComida(i,precioCombo);
+            cont++;}
+        for (int i=cont; i<=cont+arraylistbebida.size()-1;i++){
             insertarLineasBebida(i);
             }
     }
@@ -210,6 +212,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         db = usdbh3.getWritableDatabase();
 
         ContentValues nuevoRegistro = new ContentValues();
+        nuevoRegistro.put("id_linea",i+1);
         nuevoRegistro.put("id_pedido",clave);
         nuevoRegistro.put("id_tipokebab",idkebab);
         nuevoRegistro.put("id_tipocarne",idcarne);
@@ -239,6 +242,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         db = usdbh3.getWritableDatabase();
 
         ContentValues nuevoRegistro = new ContentValues();
+        nuevoRegistro.put("id_linea",i+1);
         nuevoRegistro.put("id_pedido",clave);
         nuevoRegistro.put("id_bebida",idbebida);
         nuevoRegistro.put("cantidad",arraylistbebida.get(i).getCantidad());
