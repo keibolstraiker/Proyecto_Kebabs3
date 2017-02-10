@@ -128,8 +128,9 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
             precioCombo = arraylistcomida.get(i).getPrecioKebab() + arraylistcomida.get(i).getPrecioCarne() + arraylistcomida.get(i).getPrecioTamaño();
             insertarLineasComida(i,precioCombo);
             cont++;}
-        for (int i=cont; i<=cont+arraylistbebida.size()-1;i++){
-            insertarLineasBebida(i);
+        for (int i=0; i<=arraylistbebida.size()-1;i++){
+            cont++;
+            insertarLineasBebida(i,cont);
             }
     }
     public void lanzarAtras(){
@@ -225,7 +226,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
 
     }
 
-    public void insertarLineasBebida(int i){
+    public void insertarLineasBebida(int i, int cont){
 
         //Pillamos id bebida
         SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
@@ -242,7 +243,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         db = usdbh3.getWritableDatabase();
 
         ContentValues nuevoRegistro = new ContentValues();
-        nuevoRegistro.put("id_linea",i+1);
+        nuevoRegistro.put("id_linea",cont);
         nuevoRegistro.put("id_pedido",clave);
         nuevoRegistro.put("id_bebida",idbebida);
         nuevoRegistro.put("cantidad",arraylistbebida.get(i).getCantidad());
