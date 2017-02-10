@@ -166,7 +166,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
 
     public void obtenerIdPedido(){
         //Pillamos id del pedido
-        SentenciadorSQL usdbh4 = new SentenciadorSQL(this, "DBUsuarios", null, 1);
+        SentenciadorSQL usdbh4 = new SentenciadorSQL(this, "DBKebabs", null, 1);
         SQLiteDatabase db = usdbh4.getWritableDatabase();
         Cursor cursor3 = db.rawQuery(" SELECT id_pedido FROM Pedidos", null);
         if (cursor3.moveToFirst()) {
@@ -190,18 +190,18 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
 //Pillamos id tipocarne
         SentenciadorSQL usdbh1 = new SentenciadorSQL(this, "DBKebabs", null, 1);
 
-        db = usdbh.getWritableDatabase();
+        db = usdbh1.getWritableDatabase();
         Cursor cursor1 = db.rawQuery(" SELECT id_tipocarne FROM TipoCarne WHERE nombre = '"+arraylistcomida.get(i).getTipoCarne()+"'", null);
-        cursor.moveToFirst();
-        int idcarne = cursor.getInt(0);
+        cursor1.moveToFirst();
+        int idcarne = cursor1.getInt(0);
         db.close();
         //Pillamos id tipotamaño
         SentenciadorSQL usdbh2 = new SentenciadorSQL(this, "DBKebabs", null, 1);
 
-        db = usdbh.getWritableDatabase();
+        db = usdbh2.getWritableDatabase();
         Cursor cursor2 = db.rawQuery(" SELECT id_tipotamaño FROM TipoTamaño WHERE nombre = '"+arraylistcomida.get(i).getTipoTamaño()+"'", null);
-        cursor.moveToFirst();
-        int idtamaño = cursor.getInt(0);
+        cursor2.moveToFirst();
+        int idtamaño = cursor2.getInt(0);
         db.close();
 
         //Añadimos línea
