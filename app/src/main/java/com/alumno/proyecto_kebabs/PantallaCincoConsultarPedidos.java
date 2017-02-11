@@ -36,8 +36,7 @@ public class PantallaCincoConsultarPedidos  extends AppCompatActivity{
 
         SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
         SQLiteDatabase db = usdbh.getWritableDatabase();
-        Cursor cursor = db.rawQuery(" SELECT Clientes.nombre, Pedidos.id_pedido, Pedidos.precio_total FROM Pedidos, Clientes WHERE" +
-                "Clientes.id_cliente = Pedidos.id_cliente", null);
+        Cursor cursor = db.rawQuery(" SELECT nombre, id_pedido, precio_total FROM Clientes INNER JOIN Pedidos ON Clientes.id_cliente = Pedidos.id_cliente", null);
         if (cursor.moveToFirst()) {
             //Recorremos el cursor hasta que no haya más registros
             do {
