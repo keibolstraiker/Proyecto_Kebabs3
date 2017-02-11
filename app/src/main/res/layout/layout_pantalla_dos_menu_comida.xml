@@ -73,11 +73,12 @@
             android:background="@drawable/boton"
             android:textStyle="normal|bold"
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_weight="0.7"/>
 
         <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="74dp"
+
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:text="Borrar anterior"
             android:id="@+id/btnBorrar"
@@ -94,17 +95,19 @@
             android:background="@drawable/boton"
             android:textColor="@android:color/black"
             android:textStyle="normal|bold"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_weight="0.8"/>
 
         <Button
             android:text="Siguiente"
-            android:layout_width="167dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnSiguiente3"
             android:background="@drawable/boton"
             android:textStyle="normal|bold"
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_weight="0.7"/>
 
 
     </LinearLayout>
