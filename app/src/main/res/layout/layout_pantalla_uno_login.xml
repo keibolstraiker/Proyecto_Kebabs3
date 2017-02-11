@@ -46,7 +46,8 @@
         android:hint="@string/txtTelefono"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:maxLength="9"/>
 
     <LinearLayout
         android:orientation="horizontal"

@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
@@ -24,7 +25,7 @@ public class PantallaCincoConsultarPedidos  extends AppCompatActivity{
     private Button volver;
     private TextView pedidos;
 
-    String texto;
+    String texto="";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,7 @@ public class PantallaCincoConsultarPedidos  extends AppCompatActivity{
             } while(cursor.moveToNext());
         }
         db.close();
+        pedidos.setMovementMethod(new ScrollingMovementMethod());
         pedidos.setText(texto);
 
         volver.setOnClickListener(new View.OnClickListener() {

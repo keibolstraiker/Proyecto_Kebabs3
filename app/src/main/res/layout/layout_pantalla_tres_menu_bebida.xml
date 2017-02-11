@@ -42,7 +42,7 @@
         <EditText
             android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:ems="10"
             android:id="@+id/edtCantidad"
             android:textSize="24sp"
