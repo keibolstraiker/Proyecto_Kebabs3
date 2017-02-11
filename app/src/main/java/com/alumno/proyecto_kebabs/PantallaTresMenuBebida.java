@@ -30,7 +30,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
 
     String tipobebida;
 
-    int precio,cant,cont,contprecios = 0;
+    int precio,cant,cont;
 
     ArrayList<Bebida> arraylistbebida = new ArrayList<>();
 
@@ -157,13 +157,12 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         Cursor cursor3 = db.rawQuery(" SELECT * FROM Bebidas", null);
         if (cursor3.moveToFirst()) {
             cont=1;
-            do {
-                while (cont<=pos){
-                    tipobebida = cursor3.getString(1);
-                    precio = cursor3.getInt(2);
-                    cont++;
-                }
-            } while(cursor3.moveToNext());
+            while (cont<=pos){
+                tipobebida = cursor3.getString(1);
+                precio = cursor3.getInt(2);
+                cont++;
+                cursor3.moveToNext();
+            }
         }
         if (pos == 0)
             tipobebida = null;

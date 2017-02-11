@@ -300,13 +300,12 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         Cursor cursor3 = db.rawQuery(" SELECT * FROM TipoTamaño", null);
         if (cursor3.moveToFirst()) {
             cont=1;
-            do {
-                while (cont<=pos){
-                    tamaño = cursor3.getString(1);
-                    preciotamaño = cursor3.getInt(2);
-                    cont++;
-                }
-            } while(cursor3.moveToNext());
+            while (cont<=pos){
+                tamaño = cursor3.getString(1);
+                preciotamaño = cursor3.getInt(2);
+                cont++;
+                cursor3.moveToNext();
+            }
         }
         if (pos == 0)
             tamaño = null;
@@ -318,13 +317,12 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         Cursor cursor = db.rawQuery(" SELECT * FROM TipoCarne", null);
         if (cursor.moveToFirst()) {
             cont=1;
-            do {
-                while (cont<=pos){
-                    carne = cursor.getString(1);
-                    preciocarne = cursor.getInt(2);
-                    cont++;
-                }
-            } while(cursor.moveToNext());
+            while (cont<=pos) {
+                carne = cursor.getString(1);
+                preciocarne = cursor.getInt(2);
+                cont++;
+                cursor.moveToNext();
+            }
         }
         if (pos == 0)
             carne = null;
@@ -336,13 +334,12 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         Cursor cursor3 = db.rawQuery(" SELECT * FROM TipoKebab", null);
         if (cursor3.moveToFirst()) {
             cont=1;
-            do {
-                while (cont<=pos){
-                    kebab = cursor3.getString(1);
-                    preciokebab = cursor3.getInt(2);
-                    cont++;
-                }
-            } while(cursor3.moveToNext());
+            while (cont<=pos){
+                kebab = cursor3.getString(1);
+                preciokebab = cursor3.getInt(2);
+                cont++;
+                cursor3.moveToNext();
+            }
         }
         if (pos == 0)
             kebab = null;
