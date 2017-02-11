@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class PantallaDosMenuComida extends AppCompatActivity {
 
     String kebab,carne,tamaño;
-    int  contprecios=0,preciokebab, preciocarne, preciotamaño;
+    int preciokebab, preciocarne, preciotamaño, cont;
 
     private TextView lblPedido;
 
@@ -97,24 +97,8 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
-                        switch (position) {
-                            case 0:
-                                tamaño = null;
-                                break;
-                            case 1:
-                                tamaño = "Normal";
-                                preciotamaño = 0;
-                                break;
-                            case 2:
-                                tamaño = "Completa";
-                                preciotamaño = 1;
-                                contprecios += 1;
-                                break;
-
-                        }
+                        obtenerTamaño(position);
                     }
-
-
                     public void onNothingSelected(AdapterView<?> parent) {
                         Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
                                 Toast.LENGTH_LONG).show();
@@ -128,31 +112,8 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
-
-                        switch (position) {
-                            case 0:
-                                carne = null;
-                                break;
-                            case 1:
-                                carne = "Ternera";
-                                preciocarne = 0;
-                                break;
-                            case 2:
-                                carne = "Pollo";
-                                preciocarne = 0;
-                                break;
-                            case 3:
-                                carne = "Cordero";
-                                preciocarne = 1;
-                                contprecios += 1;
-                                break;
-
-                        }
-
-
-
+                        obtenerCarne(position);
                     }
-
                     public void onNothingSelected(AdapterView<?> parent) {
                         Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
                                 Toast.LENGTH_LONG).show();
@@ -166,39 +127,8 @@ public class PantallaDosMenuComida extends AppCompatActivity {
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
-
-                        switch (position) {
-                            case 0:
-                                kebab = null;
-                                break;
-                            case 1:
-                                kebab = "Döner";
-                                preciokebab = 3;
-                                contprecios += 3;
-                                break;
-                            case 2:
-                                kebab = "Durum";
-                                preciokebab = 4;
-                                contprecios += 4;
-                                break;
-                            case 3:
-                                kebab = "Lamhacun";
-                                preciokebab = 5;
-                                contprecios += 5;
-                                break;
-                            case 4:
-                                kebab = "Shawarma";
-                                preciokebab = 5;
-                                contprecios += 5;
-                                break;
-                            case 5:
-                                kebab = "Gyros";
-                                preciokebab = 5;
-                                contprecios += 5;
-                                break;
-                        }
+                        obtenerKebab(position);
                     }
-
                     public void onNothingSelected(AdapterView<?> parent) {
                         Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
                                 Toast.LENGTH_LONG).show();
@@ -258,7 +188,6 @@ public class PantallaDosMenuComida extends AppCompatActivity {
             comida.setPrecioCarne(preciocarne);
             comida.setTipoTamaño(tamaño);
             comida.setPrecioTamaño(preciotamaño);
-            comida.setPrecioTotalComida(contprecios);
             comida.setCantidad(cantidad);
             arraylistcomida.add(comida);
 
@@ -363,6 +292,61 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         db.close();
 
         return spinner3;
+    }
+    public void obtenerTamaño(int pos){
+
+        SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor3 = db.rawQuery(" SELECT * FROM TipoTamaño", null);
+        if (cursor3.moveToFirst()) {
+            cont=1;
+            do {
+                while (cont<=pos){
+                    tamaño = cursor3.getString(1);
+                    preciotamaño = cursor3.getInt(2);
+                    cont++;
+                }
+            } while(cursor3.moveToNext());
+        }
+        if (pos == 0)
+            tamaño = null;
+        db.close();
+    }
+    public void obtenerCarne(int pos){
+        SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT * FROM TipoCarne", null);
+        if (cursor.moveToFirst()) {
+            cont=1;
+            do {
+                while (cont<=pos){
+                    carne = cursor.getString(1);
+                    preciocarne = cursor.getInt(2);
+                    cont++;
+                }
+            } while(cursor.moveToNext());
+        }
+        if (pos == 0)
+            carne = null;
+        db.close();
+    }
+    public void obtenerKebab(int pos){
+        SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor3 = db.rawQuery(" SELECT * FROM TipoKebab", null);
+        if (cursor3.moveToFirst()) {
+            cont=1;
+            do {
+                while (cont<=pos){
+                    kebab = cursor3.getString(1);
+                    preciokebab = cursor3.getInt(2);
+                    cont++;
+                }
+            } while(cursor3.moveToNext());
+        }
+        if (pos == 0)
+            kebab = null;
+        db.close();
     }
 
 }

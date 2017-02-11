@@ -21,7 +21,6 @@ import java.util.ArrayList;
 
 public class PantallaTresMenuBebida extends AppCompatActivity {
 
-
     private EditText cantidad;
 
     private Button btnSiguiente3;
@@ -31,11 +30,9 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
 
     String tipobebida;
 
-    int precio,cant,contprecios = 0;
-
+    int precio,cant,cont,contprecios = 0;
 
     ArrayList<Bebida> arraylistbebida = new ArrayList<>();
-
 
     Cliente c;
     ArrayList<Comida> arraylistcomida;
@@ -58,7 +55,6 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
 
         cantidad = (EditText)  findViewById (R.id.edtCantidad);
 
-
         btnSiguiente3 = (Button) findViewById(R.id.btnSiguiente3);
         btnSalir3 = (Button) findViewById(R.id.btnSalir);
         btnAñadir2 = (Button) findViewById(R.id.btnAñadir2);
@@ -76,43 +72,8 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
 
-                        switch (position) {
-                            case 0:
-                                tipobebida = null;
-                                break;
-                            case 1:
-                                tipobebida = "CocaCola";
-                                precio = 2;
-                                contprecios += 2;
-                                break;
-                            case 2:
-                                tipobebida = "Naranja";
-                                precio = 2;
-                                contprecios += 2;
-                                break;
-                            case 3:
-                                tipobebida = "Limon";
-                                precio = 2;
-                                contprecios += 2;
-                                break;
-                            case 4:
-                                tipobebida = "Nestea";
-                                precio = 3;
-                                contprecios += 3;
-                                break;
-                            case 5:
-                                tipobebida = "Cerveza";
-                                precio = 3;
-                                contprecios += 3;
-                                break;
-                            case 6:
-                                tipobebida = "Agua";
-                                precio = 1;
-                                contprecios += 1;
-                                break;
-                        }
+                        obtenerBebida(position);
                     }
-
                     public void onNothingSelected(AdapterView<?> parent) {
                         Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
                                 Toast.LENGTH_LONG).show();
@@ -141,7 +102,6 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
             }
         });
     }
-
         public void añadirBebidas (){
 
             if ( tipobebida != null) {
@@ -159,8 +119,6 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
                         Toast.LENGTH_LONG).show();
             }
-
-
         }
 
     public void lanzarSiguiente(Cliente c, ArrayList<Comida> a, ArrayList<Bebida> b){
@@ -192,6 +150,24 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
         }
         db.close();
         return spinner4;
+    }
+    public void obtenerBebida(int pos){
+        SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor3 = db.rawQuery(" SELECT * FROM Bebidas", null);
+        if (cursor3.moveToFirst()) {
+            cont=1;
+            do {
+                while (cont<=pos){
+                    tipobebida = cursor3.getString(1);
+                    precio = cursor3.getInt(2);
+                    cont++;
+                }
+            } while(cursor3.moveToNext());
+        }
+        if (pos == 0)
+            tipobebida = null;
+        db.close();
     }
 
 }

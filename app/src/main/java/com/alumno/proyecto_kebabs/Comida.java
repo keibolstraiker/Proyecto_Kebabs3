@@ -15,7 +15,6 @@ public class Comida implements Serializable {
     private int PrecioCarne;
     private String TipoTamaño;
     private int PrecioTamaño;
-    private int Precio;
     private int Cantidad;
 
     public int getCantidad() {
@@ -49,15 +48,6 @@ public class Comida implements Serializable {
     public void setPrecioTamaño(int precioTamaño) {
         PrecioTamaño = precioTamaño;
     }
-
-    public int getPrecioTotalComida() {
-        return Precio;
-    }
-
-    public void setPrecioTotalComida(int precioTotalComida) {
-        Precio = precioTotalComida;
-    }
-
     public String getTipoTamaño() {
         return TipoTamaño;
     }
