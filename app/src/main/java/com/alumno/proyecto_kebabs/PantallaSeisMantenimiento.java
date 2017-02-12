@@ -74,6 +74,7 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
             nom = (TextView) findViewById(R.id.txtNombre);
             dir = (TextView) findViewById(R.id.txtDireccion);
             tel = (TextView) findViewById(R.id.txtTelefono);
+
             btnComprobar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -89,9 +90,10 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
             btnBorrar2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     boolean res = comprobarExiste();
                     if (res == true){
-                        //DELETE FROM CLIENTES WHERE....
+                        borrarCliente();
                     }else
                         Toast.makeText(getApplicationContext(), "No puedes borrar un cliente que no está registrado",
                                 Toast.LENGTH_LONG).show();
@@ -132,5 +134,13 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
         cursor.moveToFirst();
         dir.setText(cursor.getString(0));
         tel.setText(cursor.getString(1));
+    }
+    public void borrarCliente(){
+        SentenciadorSQL usdbh =
+                new SentenciadorSQL(this, "DBKebabs", null, 1);
+
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        db.delete("Clientes", "nombre="+nom.getText().toString(), null);
+        db.close();
     }
 }
