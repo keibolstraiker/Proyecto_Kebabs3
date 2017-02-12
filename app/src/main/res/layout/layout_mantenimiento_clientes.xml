@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="9"
+    android:weightSum="6"
     android:background="@drawable/login">
 
 
@@ -17,5 +17,83 @@
         android:textSize="36sp"
         android:textColor="@android:color/black"
         android:gravity="center" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:id="@+id/txtNombre"
+        android:inputType="textPersonName"
+        android:hint="@string/txtNombre"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="24sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:id="@+id/txtDireccion"
+        android:inputType="text"
+        android:hint="@string/txtDireccion"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="24sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:id="@+id/txtTelefono"
+        android:inputType="phone"
+        android:hint="@string/txtTelefono"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="24sp"
+        android:maxLength="9"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:weightSum="2"
+        android:gravity="center_vertical">
+
+        <Button
+            android:text="Comprobar"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.65"
+            android:id="@+id/btnComprobarCli"
+            android:background="@drawable/boton"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textStyle="normal|bold"/>
+
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.70"
+            android:text="Volver"
+            android:id="@+id/btnSalir"
+
+            android:background="@drawable/boton"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.65"
+            android:text="Borrar Cliente"
+            android:id="@+id/btnBorrar2"
+            android:background="@drawable/boton"
+            android:textSize="20sp"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
 
 </LinearLayout>
