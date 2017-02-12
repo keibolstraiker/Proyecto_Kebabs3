@@ -13,6 +13,7 @@ public class PantallaPresentacion extends AppCompatActivity {
 
     private Button pulsar;
     private Button siguiente;
+    private Button mantenimiento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class PantallaPresentacion extends AppCompatActivity {
 
         pulsar = (Button) findViewById(R.id.btnVerMapa);
         siguiente = (Button) findViewById(R.id.btnSalir);
+        mantenimiento = (Button) findViewById(R.id.btnMantenimiento);
 
         pulsar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -33,7 +35,12 @@ public class PantallaPresentacion extends AppCompatActivity {
                 lanzarSiguiente();
             }
         });
+        mantenimiento.setOnClickListener(new View.OnClickListener() {
 
+            public void onClick(View view) {
+                lanzarMantenimiento();
+            }
+        });
     }
     public void lanzarMapa(){
         Uri uri = Uri.parse("http://www.google.es/maps/place/cebanc/"); // missing 'http://' will cause crashed
@@ -45,4 +52,10 @@ public class PantallaPresentacion extends AppCompatActivity {
 
         startActivity(i);
         }
+    public void lanzarMantenimiento(){
+        Intent i2 = new Intent (this, PantallaSeisMantenimiento.class);
+
+        startActivity(i2);
+
+    }
 }
