@@ -18,4 +18,84 @@
         android:textColor="@android:color/black"
         android:gravity="center" />
 
+
+
+    <TextView
+        android:text="¿Que tarea quieres realizar?"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="2"
+        android:id="@+id/lblTarea"
+        android:textStyle="normal|bold"
+        android:textSize="36sp"
+        android:textColor="@android:color/black"
+        android:gravity="center" />
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="5">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="2.5"
+            android:gravity="center">
+
+
+            <Button
+                android:text="Insertar"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:id="@+id/btnInsertarB"
+                android:layout_weight="1"
+                android:background="@drawable/boton"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:text="Actualizar"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:id="@+id/btnActualizarB"
+                android:layout_weight="1"
+                android:background="@drawable/boton"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="2.5">
+            <Button
+                android:text="Borrar"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:id="@+id/btnBorrarB"
+                android:layout_weight="1"
+                android:background="@drawable/boton"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:text="Volver"
+                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:id="@+id/btnSalir"
+                android:layout_weight="1"
+                android:background="@drawable/boton"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
