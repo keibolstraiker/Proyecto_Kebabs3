@@ -25,12 +25,14 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
     private Button btnBorrar2;
     private Button btnInsertarC;
     private Button btnBorrarC;
+    private Button btnInsertarComida;
     private EditText tipoKebab;
     private EditText precioTipoKebab;
     private EditText tipoCarne;
     private EditText precioTipoCarne;
     private EditText tipoTamaño;
     private EditText precioTipoTamaño;
+    private Button btnVolver;
     private TextView nom;
     private TextView dir;
     private TextView tel;
@@ -162,6 +164,8 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
     }
     public void layoutInsertarComidas(){
         setContentView(R.layout.layout_insertar_comidas);
+        btnVolver = (Button) findViewById(R.id.btnVolver);
+        btnInsertarComida = (Button) findViewById(R.id.btnInsertarComida);
         tipoKebab = (EditText) findViewById(R.id.txtTipoKebab);
         precioTipoKebab = (EditText) findViewById(R.id.txtPrecioTipoKebab);
         tipoCarne = (EditText) findViewById(R.id.txtTipoCarne);
@@ -169,7 +173,17 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
         tipoTamaño = (EditText) findViewById(R.id.txtTipoTamaño);
         precioTipoTamaño = (EditText) findViewById(R.id.txtPrecioTipoTamaño);
 
-
-
+        btnInsertarC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //AQUI SE TIENE QUE COMPROBAR QUE TODO ESTE REYENO PARA EL INSERT.
+            }
+        });
+        }
     }
-}
+
+
+
+
+
+
