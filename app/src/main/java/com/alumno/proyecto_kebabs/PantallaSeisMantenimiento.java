@@ -23,6 +23,8 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
 
     String kebab,carne,tamaño;
     int preciokebab, preciocarne, preciotamaño, cont;
+    String tipobebida;
+    int precio;
     private Button btnClientes;
     private Button btnComidas;
     private Button btnBebidas;
@@ -33,12 +35,18 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
     private Button btnBorrarC;
     private Button btnBorrarComida;
     private Button btnInsertarComida;
+    private Button btnBorrarBebida;
+    private Button btnInsertarBebida;
+    private Button btnVolverInsertarBebida;
+    private Button btnVolverBorrarBebida;
     private EditText tipoKebab;
     private EditText precioTipoKebab;
     private EditText tipoCarne;
     private EditText precioTipoCarne;
     private EditText tipoTamaño;
     private EditText precioTipoTamaño;
+    private EditText bebida;
+    private EditText preciobebida;
     private Button btnVolver;
     private TextView nom;
     private TextView dir;
@@ -46,6 +54,7 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
     private Spinner cmbTipo_tamaño;
     private Spinner cmbTipo_carne;
     private Spinner cmbTipo_kebab;
+    private Spinner cmbBebida;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,11 +154,125 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
             });
         }else if (posicion == 3){
             setContentView(R.layout.layout_mantenimiento_bebidas);
+            btnInsertarBebida = (Button) findViewById(R.id.btnInsertarB);
+            btnBorrarBebida = (Button) findViewById(R.id.btnBorrarB);
+
+            btnInsertarBebida.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    insertarBebida();
+                }
+            });
+            btnBorrarBebida.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    borrarBebida();
+                }
+            });
+
         }else{
             Toast.makeText(getApplicationContext(), "No ha seleccionado nada de lo debido",
                     Toast.LENGTH_LONG).show();
         }
     }
+    public void insertarBebida(){
+        setContentView(R.layout.layout_insertar_bebidas);
+        bebida = (EditText) findViewById(R.id.txtBebida);
+        preciobebida = (EditText) findViewById(R.id.txtPrecioBebida);
+        btnInsertarBebida = (Button) findViewById(R.id.btnInsertarBebida);
+        btnVolverInsertarBebida = (Button) findViewById(R.id.btnVolverInsertarBebida);
+
+        btnVolverInsertarBebida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        btnInsertarBebida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Aqui va Todo el insert de bebidas.
+            }
+        });
+    }
+    public void borrarBebida() {
+        setContentView(R.layout.layout_borrar_bebidas);
+        cmbBebida = (Spinner) findViewById(R.id.cmbBebida);
+        btnBorrarBebida = (Button) findViewById(R.id.btnBorrarBebida);
+        btnVolverBorrarBebida = (Button) findViewById(R.id.btnVolverBorrarBebida);
+
+        btnVolverBorrarBebida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        btnBorrarBebida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Aqui va Todo el DELETE de bebidas.
+            }
+        });
+
+        ArrayAdapter<CharSequence> adaptadorBebida =
+                new ArrayAdapter
+                        (this, R.layout.spinner_item, spinnerBebida());
+
+        adaptadorBebida.setDropDownViewResource(
+                R.layout.spinner_dropdown_item);
+        cmbBebida.setAdapter(adaptadorBebida);
+
+        cmbBebida.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> parent,
+                                               android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
+
+                        obtenerBebida(position);
+                    }
+
+                    public void onNothingSelected(AdapterView<?> parent) {
+                        Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+        public ArrayList<String> spinnerBebida(){
+
+            SentenciadorSQL usdbh =
+                    new SentenciadorSQL(this, "DBKebabs", null, 1);
+
+            SQLiteDatabase db = usdbh.getWritableDatabase();
+            Cursor cursor = db.rawQuery(" SELECT * FROM Bebidas", null);
+            ArrayList<String> spinner4 = new ArrayList<>();
+            spinner4.add("Seleccione una opción");
+            if (cursor.moveToFirst()) {
+                do {
+                    spinner4.add(cursor.getString(1) + "    + " + String.valueOf(cursor.getInt(2))+" €");
+                } while (cursor.moveToNext());
+            }
+            db.close();
+            return spinner4;
+        }
+        public void obtenerBebida(int pos){
+            SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
+            SQLiteDatabase db = usdbh.getWritableDatabase();
+            Cursor cursor3 = db.rawQuery(" SELECT * FROM Bebidas", null);
+            if (cursor3.moveToFirst()) {
+                cont=1;
+                while (cont<=pos){
+                    tipobebida = cursor3.getString(1);
+                    precio = cursor3.getInt(2);
+                    cont++;
+                    cursor3.moveToNext();
+                }
+            }
+            if (pos == 0)
+                tipobebida = null;
+            db.close();
+        }
+
     public boolean comprobarExiste(){
 
         SentenciadorSQL sentsql = new SentenciadorSQL(this,"DBKebabs",null,1);
@@ -189,6 +312,7 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
         tipoTamaño = (EditText) findViewById(R.id.txtTipoTamaño);
         precioTipoTamaño = (EditText) findViewById(R.id.txtPrecioTipoTamaño);
 
+
         btnInsertarC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,7 +330,7 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
         btnBorrarComida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //AQUI SE TIENE QUE HACER EL DELETE
+                //AQUI SE TIENE QUE HACER  TODO EL DELETE
             }
         });
 

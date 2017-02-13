@@ -59,22 +59,6 @@
                 android:textSize="20sp" />
 
             <Button
-                android:text="Actualizar"
-                android:layout_height="wrap_content"
-                android:layout_width="0dip"
-                android:id="@+id/btnActualizarB"
-                android:layout_weight="1"
-                android:background="@drawable/boton"
-                android:textStyle="normal|bold"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="2.5">
-            <Button
                 android:text="Borrar"
                 android:layout_height="wrap_content"
                 android:layout_width="0dip"
@@ -85,12 +69,20 @@
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
 
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1">
+
+
             <Button
                 android:text="Volver"
                 android:layout_height="wrap_content"
                 android:layout_width="0dip"
                 android:id="@+id/btnSalir"
-                android:layout_weight="1"
+                android:layout_weight="0.37"
                 android:background="@drawable/boton"
                 android:textStyle="normal|bold"
                 android:textColor="@android:color/black"

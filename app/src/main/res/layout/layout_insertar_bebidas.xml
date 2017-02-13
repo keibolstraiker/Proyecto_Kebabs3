@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="5"
+    android:background="@drawable/login">
+
+
+    <TextView
+        android:text="Insertar Bebidas"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="2"
+        android:id="@+id/lblTitulo"
+        android:textStyle="normal|bold"
+        android:textSize="36sp"
+        android:textColor="@android:color/black"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/txtBebida"
+            android:layout_weight="1"
+            android:hint="Nombre Bebida"
+            android:textStyle="normal|bold"
+            android:textSize="24sp"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/txtPrecioBebida"
+            android:layout_weight="1"
+            android:hint="Precio"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <Button
+            android:text="Volver"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:id="@+id/btnVolverInsertarBebida"
+            android:layout_weight="0.73"
+            android:background="@drawable/boton"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"  />
+
+        <Button
+            android:text="Insertar"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:id="@+id/btnInsertarBebida"
+            android:layout_weight="0.73"
+            android:background="@drawable/boton"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>
