@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,14 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
     private Button btnSalir;
     private Button btnComprobar;
     private Button btnBorrar2;
+    private Button btnInsertarC;
+    private Button btnBorrarC;
+    private EditText tipoKebab;
+    private EditText precioTipoKebab;
+    private EditText tipoCarne;
+    private EditText precioTipoCarne;
+    private EditText tipoTamaño;
+    private EditText precioTipoTamaño;
     private TextView nom;
     private TextView dir;
     private TextView tel;
@@ -108,6 +117,14 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
             });
         }else if (posicion ==2){
             setContentView(R.layout.layout_mantenimiento_comidas);
+            btnInsertarC = (Button) findViewById(R.id.btnInsertarC);
+            btnBorrarC = (Button) findViewById(R.id.btnBorrarC);
+            btnInsertarC.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    layoutInsertarComidas();
+                }
+            });
         }else if (posicion == 3){
             setContentView(R.layout.layout_mantenimiento_bebidas);
         }else{
@@ -138,9 +155,21 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
     public void borrarCliente(){
         SentenciadorSQL usdbh =
                 new SentenciadorSQL(this, "DBKebabs", null, 1);
-
+        String borrar ="DELETE FROM Clientes WHERE nombre='"+nom.getText().toString()+"'";
         SQLiteDatabase db = usdbh.getWritableDatabase();
-        db.delete("Clientes", "nombre="+nom.getText().toString(), null);
+        db.execSQL(borrar);
         db.close();
+    }
+    public void layoutInsertarComidas(){
+        setContentView(R.layout.layout_insertar_comidas);
+        tipoKebab = (EditText) findViewById(R.id.txtTipoKebab);
+        precioTipoKebab = (EditText) findViewById(R.id.txtPrecioTipoKebab);
+        tipoCarne = (EditText) findViewById(R.id.txtTipoCarne);
+        precioTipoCarne = (EditText) findViewById(R.id.txtPrecioTipoCarne);
+        tipoTamaño = (EditText) findViewById(R.id.txtTipoTamaño);
+        precioTipoTamaño = (EditText) findViewById(R.id.txtPrecioTipoTamaño);
+
+
+
     }
 }

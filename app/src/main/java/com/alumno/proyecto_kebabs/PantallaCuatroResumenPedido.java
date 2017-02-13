@@ -156,9 +156,6 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
         int idCliente = cursor.getInt(0);
         db.close();
 
-//Pillamos la fecha de hoy
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = new Date();
 
         //Creamos el registro a insertar como objeto ContentValues
         SentenciadorSQL usdbh1 = new SentenciadorSQL(this, "DBKebabs", null, 1);
@@ -167,7 +164,6 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
 
         ContentValues nuevoRegistro = new ContentValues();
         nuevoRegistro.put("id_cliente",idCliente);
-        nuevoRegistro.put("fecha",dateFormat.format(date));
         nuevoRegistro.put("precio_total", totalpedido);
 
 //Insertamos el registro en la base de datos
