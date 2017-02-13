@@ -1,5 +1,6 @@
 package com.alumno.proyecto_kebabs;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -193,6 +194,18 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 //Aqui va Todo el insert de bebidas.
+                if (bebida.getText().toString().length() > 0 && preciobebida.getText().toString().length() > 0) {
+
+                    añadirBebida();
+                    Toast.makeText(getApplicationContext(), "Éxito en la inserción",
+                            Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Por favor, rellene los campos",
+                            Toast.LENGTH_LONG).show();
+                }
+
+
             }
         });
     }
@@ -213,6 +226,15 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 //Aqui va Todo el DELETE de bebidas.
+                if (bebida.getText().toString().length() > 0) {
+                    restarBebida();
+                    Toast.makeText(getApplicationContext(), "Borrada con éxito",
+                            Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Por favor, rellene el campo nombre",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -316,7 +338,23 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
         btnInsertarC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //AQUI SE TIENE QUE COMPROBAR QUE TODO ESTE REYENO PARA EL INSERT.
+                //AQUI SE TIENE QUE COMPROBAR QUE TODO ESTE REllENO PARA EL INSERT.
+                if(tipoKebab.getText().toString().length()>0 && precioTipoKebab.getText().toString().length()>0){
+                    añadirKebab();
+                    Toast.makeText(getApplicationContext(), "Éxito en la inserción",
+                            Toast.LENGTH_SHORT).show();
+                }
+                if(tipoCarne.getText().toString().length()>0 && precioTipoCarne.getText().toString().length()>0){
+                    añadirCarne();
+                    Toast.makeText(getApplicationContext(), "Éxito en la inserción",
+                            Toast.LENGTH_SHORT).show();
+                }
+                if(tipoTamaño.getText().toString().length()>0 && precioTipoTamaño.getText().toString().length()>0){
+                    añadirTamaño();
+                    Toast.makeText(getApplicationContext(), "Éxito en la inserción",
+                            Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
         }
@@ -331,6 +369,22 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 //AQUI SE TIENE QUE HACER  TODO EL DELETE
+                if(cmbTipo_kebab.getSelectedItemPosition()>0){
+                    borrarKebab();
+                    Toast.makeText(getApplicationContext(), "Borrado con éxito",
+                            Toast.LENGTH_SHORT).show();
+                }
+                if(cmbTipo_carne.getSelectedItemPosition()>0){
+                    borrarCarne();
+                    Toast.makeText(getApplicationContext(), "Borrada con éxito",
+                            Toast.LENGTH_SHORT).show();
+                }
+                if(cmbTipo_tamaño.getSelectedItemPosition()>0){
+                    borrarTamaño();
+                    Toast.makeText(getApplicationContext(), "Borrado con éxito",
+                            Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -342,8 +396,7 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
                         (this,  R.layout.spinner_item, spinnerCarne());
         ArrayAdapter<CharSequence> adaptadorTamaño =
                 new ArrayAdapter
-                        (this,  R.layout.spinner_item, spinnerTamaño());//el array adapter esta señalando al array de strings llamado tamaños
-
+                        (this,  R.layout.spinner_item, spinnerTamaño());
 
         adaptadorKebab.setDropDownViewResource(
                 R.layout.spinner_dropdown_item);
@@ -517,6 +570,88 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
             kebab = null;
         db.close();
     }
+    public void añadirBebida(){
+
+        SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+
+        ContentValues nuevoRegistro = new ContentValues();
+        nuevoRegistro.put("nombre",bebida.getText().toString());
+        nuevoRegistro.put("precio", preciobebida.getText().toString());
+
+//Insertamos el registro en la base de datos
+        db.insert("Bebidas", null, nuevoRegistro);
+        db.close();
+    }
+    public void restarBebida(){
+        SentenciadorSQL usdbh =
+                new SentenciadorSQL(this, "DBKebabs", null, 1);
+        String borrar ="DELETE FROM Bebida WHERE nombre='"+bebida.getText().toString()+"'";
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        db.execSQL(borrar);
+        db.close();
+    }
+    public void añadirKebab(){
+        SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+
+        ContentValues nuevoRegistro = new ContentValues();
+        nuevoRegistro.put("nombre",tipoKebab.getText().toString());
+        nuevoRegistro.put("precio", precioTipoKebab.getText().toString());
+
+//Insertamos el registro en la base de datos
+        db.insert("TipoKebab", null, nuevoRegistro);
+        db.close();
+    }
+    public void añadirCarne(){
+        SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+
+        ContentValues nuevoRegistro = new ContentValues();
+        nuevoRegistro.put("nombre",tipoCarne.getText().toString());
+        nuevoRegistro.put("precio", precioTipoCarne.getText().toString());
+
+//Insertamos el registro en la base de datos
+        db.insert("TipoCarne", null, nuevoRegistro);
+        db.close();
+    }
+    public void añadirTamaño(){
+        SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+
+        ContentValues nuevoRegistro = new ContentValues();
+        nuevoRegistro.put("nombre",tipoTamaño.getText().toString());
+        nuevoRegistro.put("precio", precioTipoTamaño.getText().toString());
+
+//Insertamos el registro en la base de datos
+        db.insert("TipoTamaño", null, nuevoRegistro);
+        db.close();
+    }
+    public void borrarKebab(){
+        SentenciadorSQL usdbh =
+                new SentenciadorSQL(this, "DBKebabs", null, 1);
+        String borrar ="DELETE FROM TipoKebab WHERE nombre='"+kebab+"'";
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        db.execSQL(borrar);
+        db.close();
+    }
+    public void borrarCarne(){
+        SentenciadorSQL usdbh =
+                new SentenciadorSQL(this, "DBKebabs", null, 1);
+        String borrar ="DELETE FROM TipoCarne WHERE nombre='"+carne+"'";
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        db.execSQL(borrar);
+        db.close();
+    }
+    public void borrarTamaño(){
+        SentenciadorSQL usdbh =
+                new SentenciadorSQL(this, "DBKebabs", null, 1);
+        String borrar ="DELETE FROM TipoTamaño WHERE nombre='"+tamaño+"'";
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        db.execSQL(borrar);
+        db.close();
+    }
+
     }
 
 
