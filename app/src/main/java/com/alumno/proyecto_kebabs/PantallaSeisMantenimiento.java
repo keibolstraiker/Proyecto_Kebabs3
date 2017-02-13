@@ -5,10 +5,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * Created by adminportatil on 12/02/2017.
@@ -16,7 +21,8 @@ import android.widget.Toast;
 
 public class PantallaSeisMantenimiento extends AppCompatActivity  {
 
-
+    String kebab,carne,tamaño;
+    int preciokebab, preciocarne, preciotamaño, cont;
     private Button btnClientes;
     private Button btnComidas;
     private Button btnBebidas;
@@ -25,6 +31,7 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
     private Button btnBorrar2;
     private Button btnInsertarC;
     private Button btnBorrarC;
+    private Button btnBorrarComida;
     private Button btnInsertarComida;
     private EditText tipoKebab;
     private EditText precioTipoKebab;
@@ -36,6 +43,9 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
     private TextView nom;
     private TextView dir;
     private TextView tel;
+    private Spinner cmbTipo_tamaño;
+    private Spinner cmbTipo_carne;
+    private Spinner cmbTipo_kebab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +137,12 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
                     layoutInsertarComidas();
                 }
             });
+            btnBorrarC.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    layoutBorrarComidas();
+                }
+            });
         }else if (posicion == 3){
             setContentView(R.layout.layout_mantenimiento_bebidas);
         }else{
@@ -180,6 +196,203 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
             }
         });
         }
+    public void layoutBorrarComidas(){
+        setContentView(R.layout.layout_borrar_comidas);
+        cmbTipo_tamaño = (Spinner) findViewById(R.id.cmbTipoTamaño);
+        cmbTipo_kebab = (Spinner) findViewById(R.id.cmbTipoKebab);
+        cmbTipo_carne = (Spinner) findViewById(R.id.cmbTipoCarne);
+        btnBorrarComida = (Button) findViewById(R.id.btnBorrarComida);
+
+        btnBorrarComida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //AQUI SE TIENE QUE HACER EL DELETE
+            }
+        });
+
+        ArrayAdapter<CharSequence> adaptadorKebab =
+                new ArrayAdapter
+                        (this, R.layout.spinner_item, spinnerKebab());
+        ArrayAdapter<CharSequence> adaptadorCarne =
+                new ArrayAdapter
+                        (this,  R.layout.spinner_item, spinnerCarne());
+        ArrayAdapter<CharSequence> adaptadorTamaño =
+                new ArrayAdapter
+                        (this,  R.layout.spinner_item, spinnerTamaño());//el array adapter esta señalando al array de strings llamado tamaños
+
+
+        adaptadorKebab.setDropDownViewResource(
+                R.layout.spinner_dropdown_item);
+        cmbTipo_kebab.setAdapter(adaptadorKebab);
+
+
+
+        adaptadorCarne.setDropDownViewResource(
+                R.layout.spinner_dropdown_item);
+        cmbTipo_carne.setAdapter(adaptadorCarne);
+
+
+        adaptadorTamaño.setDropDownViewResource(
+                R.layout.spinner_dropdown_item);
+
+
+
+        cmbTipo_tamaño.setAdapter(adaptadorTamaño);
+        cmbTipo_tamaño.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> parent,
+                                               android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
+                        obtenerTamaño(position);
+                    }
+                    public void onNothingSelected(AdapterView<?> parent) {
+                        Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+        adaptadorCarne.setDropDownViewResource(
+                R.layout.spinner_dropdown_item);
+        cmbTipo_carne.setAdapter(adaptadorCarne);
+
+        cmbTipo_carne.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> parent,
+                                               android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
+                        obtenerCarne(position);
+                    }
+                    public void onNothingSelected(AdapterView<?> parent) {
+                        Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+        adaptadorTamaño.setDropDownViewResource(
+                R.layout.spinner_dropdown_item);
+        cmbTipo_kebab.setAdapter(adaptadorKebab);
+
+        cmbTipo_kebab.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> parent,
+                                               android.view.View v, int position, long id) {// el parametro posición se va a posicionar en el item del array exacto del spiner  el cual pinche el usuario
+                        obtenerKebab(position);
+                    }
+                    public void onNothingSelected(AdapterView<?> parent) {
+                        Toast.makeText(getApplicationContext(), "Por favor, debe seleccionar una opción",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+    public ArrayList<String> spinnerKebab(){
+        SentenciadorSQL usdbh =
+                new SentenciadorSQL(this, "DBKebabs", null, 1);
+
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT * FROM TipoKebab", null);
+        ArrayList<String> spinner1 = new ArrayList<>();
+        spinner1.add("Seleccione una opción");
+        if (cursor.moveToFirst()) {
+            do {
+                if(cursor.getInt(2)==0) {
+                    spinner1.add(cursor.getString(1) + "        (Sin Suplemento)");
+
+                }else
+                    spinner1.add(cursor.getString(1) + " " + String.valueOf(cursor.getInt(2))+" €");
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        return spinner1;
+    }
+    public ArrayList<String> spinnerCarne(){
+        SentenciadorSQL usdbh =
+                new SentenciadorSQL(this, "DBKebabs", null, 1);
+
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT * FROM TipoCarne", null);
+        ArrayList<String> spinner2 = new ArrayList<>();
+        spinner2.add("Seleccione una opción");
+        if (cursor.moveToFirst()) {
+            do {
+                if(cursor.getInt(2)==0) {
+                    spinner2.add(cursor.getString(1) + "        (Sin Suplemento)");
+
+                }else
+                    spinner2.add(cursor.getString(1) + "    + " + String.valueOf(cursor.getInt(2))+" €");
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        return spinner2;
+    }
+    public ArrayList<String> spinnerTamaño(){
+        SentenciadorSQL usdbh =
+                new SentenciadorSQL(this, "DBKebabs", null, 1);
+
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT * FROM TipoTamaño", null);
+        ArrayList<String> spinner3 = new ArrayList<>();
+        spinner3.add("Seleccione una opción");
+        if (cursor.moveToFirst()) {
+            do {
+                if(cursor.getInt(2)==0) {
+                    spinner3.add(cursor.getString(1) + "       (Sin Suplemento)");
+
+                }else
+                    spinner3.add(cursor.getString(1) + "    + " + String.valueOf(cursor.getInt(2))+" €");
+            } while (cursor.moveToNext());
+        }
+        db.close();
+
+        return spinner3;
+    }
+    public void obtenerTamaño(int pos){
+
+        SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor3 = db.rawQuery(" SELECT * FROM TipoTamaño", null);
+        if (cursor3.moveToFirst()) {
+            cont=1;
+            while (cont<=pos){
+                tamaño = cursor3.getString(1);
+                preciotamaño = cursor3.getInt(2);
+                cont++;
+                cursor3.moveToNext();
+            }
+        }
+        if (pos == 0)
+            tamaño = null;
+        db.close();
+    }
+    public void obtenerCarne(int pos){
+        SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT * FROM TipoCarne", null);
+        if (cursor.moveToFirst()) {
+            cont=1;
+            while (cont<=pos) {
+                carne = cursor.getString(1);
+                preciocarne = cursor.getInt(2);
+                cont++;
+                cursor.moveToNext();
+            }
+        }
+        if (pos == 0)
+            carne = null;
+        db.close();
+    }
+    public void obtenerKebab(int pos){
+        SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        Cursor cursor3 = db.rawQuery(" SELECT * FROM TipoKebab", null);
+        if (cursor3.moveToFirst()) {
+            cont=1;
+            while (cont<=pos){
+                kebab = cursor3.getString(1);
+                preciokebab = cursor3.getInt(2);
+                cont++;
+                cursor3.moveToNext();
+            }
+        }
+        if (pos == 0)
+            kebab = null;
+        db.close();
+    }
     }
 
 
