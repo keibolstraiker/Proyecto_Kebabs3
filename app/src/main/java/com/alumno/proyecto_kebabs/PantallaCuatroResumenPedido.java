@@ -104,7 +104,7 @@ public class PantallaCuatroResumenPedido extends AppCompatActivity {
 
             texto += arraylistbebida.get(i).getCantidad() + " DE:\n";
             texto += arraylistbebida.get(i).getNombre()+"  "+ arraylistbebida.get(i).getPrecio()+"€\n";
-            bebidaAcumulado += arraylistbebida.get(i).getPrecio();
+            bebidaAcumulado += arraylistbebida.get(i).getPrecio()*arraylistbebida.get(i).getCantidad();
         }
         texto +="PRECIO BEBIDA: "+ bebidaAcumulado + "€\n\n";
     }

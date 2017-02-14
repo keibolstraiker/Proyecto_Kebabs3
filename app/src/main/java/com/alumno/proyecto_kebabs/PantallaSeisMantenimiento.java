@@ -260,7 +260,7 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
                     }
                 });
     }
-        public ArrayList<String> spinnerBebida(){
+    public ArrayList<String> spinnerBebida(){
 
             SentenciadorSQL usdbh =
                     new SentenciadorSQL(this, "DBKebabs", null, 1);
@@ -277,7 +277,7 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
             db.close();
             return spinner4;
         }
-        public void obtenerBebida(int pos){
+    public void obtenerBebida(int pos){
             SentenciadorSQL usdbh = new SentenciadorSQL(this, "DBKebabs", null, 1);
             SQLiteDatabase db = usdbh.getWritableDatabase();
             Cursor cursor3 = db.rawQuery(" SELECT * FROM Bebidas", null);
