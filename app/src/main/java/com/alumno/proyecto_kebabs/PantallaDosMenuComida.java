@@ -154,9 +154,14 @@ public class PantallaDosMenuComida extends AppCompatActivity {
         btnBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arraylistcomida.remove(arraylistcomida.size()-1);
-                Toast.makeText(getApplicationContext(), "Borrada última combinación",
-                        Toast.LENGTH_LONG).show();
+                if (arraylistcomida.size() >0) {
+                    arraylistcomida.remove(arraylistcomida.size() - 1);
+                    Toast.makeText(getApplicationContext(), "Borrada última combinación",
+                            Toast.LENGTH_LONG).show();
+                }else
+                    Toast.makeText(getApplicationContext(), "No has añadido ningún pedido para poder borrarlo",
+                            Toast.LENGTH_LONG).show();
+
             }
         });
 

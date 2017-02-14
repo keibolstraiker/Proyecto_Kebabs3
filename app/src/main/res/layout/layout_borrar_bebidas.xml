@@ -14,7 +14,7 @@
         android:id="@+id/lblTítulo"
         android:textAlignment="center"
         android:textSize="46sp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textStyle="normal|bold"
         android:gravity="center" />
 

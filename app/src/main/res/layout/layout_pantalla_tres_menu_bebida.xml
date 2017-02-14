@@ -15,7 +15,7 @@
         android:id="@+id/lblPedido"
         android:textStyle="normal|bold"
         android:textSize="36sp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:gravity="center" />
 
     <LinearLayout
@@ -47,7 +47,8 @@
             android:id="@+id/edtCantidad"
             android:textSize="24sp"
             android:hint="Cantidad"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:textStyle="normal|bold"
             android:textAlignment="center" />
 

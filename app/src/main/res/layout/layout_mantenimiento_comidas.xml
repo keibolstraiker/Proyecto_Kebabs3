@@ -15,7 +15,7 @@
         android:id="@+id/lblTitulo"
         android:textStyle="normal|bold"
         android:textSize="36sp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:gravity="center" />
 
 
@@ -28,7 +28,7 @@
             android:id="@+id/lblTarea"
             android:textStyle="normal|bold"
             android:textSize="36sp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:gravity="center" />
 
 

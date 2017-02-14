@@ -15,7 +15,7 @@
         android:id="@+id/lblTitulo"
         android:textStyle="normal|bold"
         android:textSize="36sp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:gravity="center" />
 
     <LinearLayout
@@ -35,7 +35,8 @@
             android:hint="Tipo Kebab"
             android:textStyle="normal|bold"
             android:textSize="24sp"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"/>
 
         <EditText
             android:layout_width="wrap_content"
@@ -47,7 +48,8 @@
             android:hint="Precio"
             android:textSize="24sp"
             android:textStyle="normal|bold"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -67,7 +69,8 @@
             android:hint="Tipo Carne"
             android:textStyle="normal|bold"
             android:textSize="24sp"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -79,7 +82,8 @@
             android:hint="Precio"
             android:textSize="24sp"
             android:textStyle="normal|bold"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"/>
     </LinearLayout>
 
     <LinearLayout
@@ -99,7 +103,8 @@
             android:hint="Tipo Tamaño"
             android:textStyle="normal|bold"
             android:textSize="24sp"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"/>
 
         <EditText
             android:layout_width="wrap_content"
@@ -111,7 +116,8 @@
             android:hint="Precio"
             android:textSize="24sp"
             android:textStyle="normal|bold"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"/>
     </LinearLayout>
 
     <LinearLayout

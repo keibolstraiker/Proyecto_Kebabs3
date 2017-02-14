@@ -226,13 +226,13 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 //Aqui va Todo el DELETE de bebidas.
-                if (bebida.getText().toString().length() > 0) {
+                if (cmbBebida.getSelectedItemPosition()>0) {
                     restarBebida();
                     Toast.makeText(getApplicationContext(), "Borrada con éxito",
                             Toast.LENGTH_LONG).show();
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "Por favor, rellene el campo nombre",
+                    Toast.makeText(getApplicationContext(), "Por favor, seleccione algo",
                             Toast.LENGTH_LONG).show();
                 }
             }
@@ -335,7 +335,7 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
         precioTipoTamaño = (EditText) findViewById(R.id.txtPrecioTipoTamaño);
 
 
-        btnInsertarC.setOnClickListener(new View.OnClickListener() {
+        btnInsertarComida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //AQUI SE TIENE QUE COMPROBAR QUE TODO ESTE REllENO PARA EL INSERT.
@@ -357,7 +357,14 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
 
             }
         });
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         }
+
     public void layoutBorrarComidas(){
         setContentView(R.layout.layout_borrar_comidas);
         cmbTipo_tamaño = (Spinner) findViewById(R.id.cmbTipoTamaño);
@@ -586,7 +593,7 @@ public class PantallaSeisMantenimiento extends AppCompatActivity  {
     public void restarBebida(){
         SentenciadorSQL usdbh =
                 new SentenciadorSQL(this, "DBKebabs", null, 1);
-        String borrar ="DELETE FROM Bebida WHERE nombre='"+bebida.getText().toString()+"'";
+        String borrar ="DELETE FROM Bebidas WHERE nombre='"+tipobebida+"'";
         SQLiteDatabase db = usdbh.getWritableDatabase();
         db.execSQL(borrar);
         db.close();
