@@ -105,6 +105,7 @@ public class PantallaTresMenuBebida extends AppCompatActivity {
                 if (cantidad.getText().toString().equals("") || Integer.valueOf(cantidad.getText().toString())<1){
                     cantidad.setText("1");
                 }
+                cant =Integer.parseInt(cantidad.getText().toString());
 
                 Bebida bebida = new Bebida(tipobebida, precio, cant);
                 arraylistbebida.add(bebida);
